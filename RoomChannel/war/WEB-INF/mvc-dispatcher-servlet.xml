@@ -19,10 +19,12 @@
 		to avoid double instatetial movieController bean. <context:component-scan 
 		base-package="com.auanaum.controller" /> -->
 	<context:component-scan base-package="com.amatic">
-		<context:include-filter type="regex" expression="com.amatic.*" />
+		<context:include-filter type="regex" expression="com.amatic.rc.*" />
 	</context:component-scan>
 
 	<mvc:annotation-driven />
+	
+	<mvc:default-servlet-handler/>
 
 
 

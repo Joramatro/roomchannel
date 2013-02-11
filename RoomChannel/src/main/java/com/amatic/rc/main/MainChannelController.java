@@ -1,4 +1,4 @@
-package com.amatic.rc;
+package com.amatic.rc.main;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,12 +7,14 @@ import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.google.appengine.api.channel.ChannelService;
+import com.google.appengine.api.channel.ChannelServiceFactory;
 
 @Controller
 public class MainChannelController {
@@ -26,9 +28,15 @@ public class MainChannelController {
 			RequestMethod.POST })
 	public String maininit(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		HttpSession session = request.getSession();
 
-		logger.info("checking");
+		ChannelService channelService = ChannelServiceFactory
+				.getChannelService();
+		String channelKey = "xyz";
+		String token = channelService.createChannel(channelKey);
+
+		logger.info("channel definitions done");
+
+		model.addAttribute("token", token);
 
 		return "mainChannel";
 	}
