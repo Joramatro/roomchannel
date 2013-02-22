@@ -27,11 +27,31 @@
     </head>
 	<body>
 		<%@ include file="/WEB-INF/jsp/header.jsp"%>
+		<input type="button" value="Create your own Channel"/>
 		
-		<div>Current online users: <label style="display:inline;float left; font-size:32px" id="nbrUsrs"><img src="/img/loading.gif"/></label></div><br/>
-		<input id="videoUrl" type="text" value="" placeholder="http://" />
-		<div id="videoChannel"></textarea>
-			
+		<div>Real-time Online Users: <label style="display:inline;float left; font-size:32px" id="nbrUsrs"><img src="/img/loading.gif"/></label></div><br/>
+		
+		<input id="txtVideoUrl" type="text" value="" placeholder="http://" />
+		<input id="txtName" type="text" value="" placeholder="write a short description"/>
+		<input id="btnBroadcast" type="button" value="Broadcast"/>
+		
+		<div id="videoChannel"></div>
+		
+		<div>Just Broadcast: <br>
+			<div id="broadcastLive">
+			</div>
+			<ul>
+				<c:forEach var="theme" items="${broadcastList}" end="20">
+					<li>${theme.name} by</li> 
+				</c:forEach>
+			</ul>				
+		</div>
+		
+		<div>Channels: <br>
+		<c:forEach var="channel" items="${channelList}" end="20">
+			${channel.name} | ${channel.nbrThemes} Themes
+		</c:forEach>
+		</div>	
 		<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 	</body>
 </html>

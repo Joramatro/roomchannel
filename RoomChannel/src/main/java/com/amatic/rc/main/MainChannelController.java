@@ -8,20 +8,26 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.amatic.rc.dto.Theme;
+import com.amatic.rc.service.ThemeService;
 import com.google.appengine.api.channel.ChannelService;
 import com.google.appengine.api.channel.ChannelServiceFactory;
 
 @Controller
 public class MainChannelController {
 
+	Logger logger = Logger.getLogger(MainChannelController.class.getName());
+
 	List<Integer> sessions = new ArrayList<Integer>();
 
-	Logger logger = Logger.getLogger(MainChannelController.class.getName());
+	@Autowired
+	private ThemeService themeService;
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/index", "/" }, method = { RequestMethod.GET,
@@ -38,6 +44,9 @@ public class MainChannelController {
 
 		model.addAttribute("token", token);
 
+		List<Theme> listThemes = themeService.loadAllThemes();
+
+		model.addAttribute("broadcastList", listThemes);
 		return "mainChannel";
 	}
 

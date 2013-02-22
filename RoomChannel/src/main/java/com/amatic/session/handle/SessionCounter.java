@@ -7,13 +7,20 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import com.amatic.rc.dto.Theme;
 import com.google.appengine.api.channel.ChannelMessage;
 import com.google.appengine.api.channel.ChannelService;
 import com.google.appengine.api.channel.ChannelServiceFactory;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
+import com.googlecode.objectify.ObjectifyService;
 
 public class SessionCounter implements HttpSessionListener {
+
+	static {
+		ObjectifyService.register(Theme.class);
+	}
+
 	private static List sessions = new ArrayList();
 
 	private static Integer nbrConnections = new Integer(0);

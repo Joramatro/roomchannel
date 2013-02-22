@@ -47,6 +47,7 @@
 	    				},
 	    				maxHeight: 885, maxWidth:2480
 	    	    	});
+		  	    	document.getElementById("broadcastLive").innerHTML = data[''];
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
 		  	    }

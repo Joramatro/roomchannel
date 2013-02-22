@@ -1,13 +1,16 @@
 $(function(){ /* DOM ready */
-    $("#videoUrl").live('change', function() {
+    $("#btnBroadcast").live('click', function() {
     	$.ajax({
-		      type: "GET",
+		      type: "POST",
 		      url: "/loadVideoChannel",
 		      dataType: "html",
 		      cache: false,
-	          data: "url=" + $("#videoUrl").val(),		      
+	          data: {
+	        	  "url": $("#txtVideoUrl").val(),
+	        	  "name": $("#txtName").val()
+	          },
 		      success: function(text){
-		    	  //alert("enviado");	
+		    	  alert("your video has been broadcast for " + $('#nbrUsrs').text() + " people");	
 		      }
 		    });
     });
