@@ -63,7 +63,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</error-page> 
 	<error-page>
     	<error-code>404</error-code>
-    	<location>/err/genErr.jsp</location>
+    	<location>/errors/404</location>
 	</error-page>
 	<error-page>
     	<exception-type>java.lang.Throwable</exception-type>

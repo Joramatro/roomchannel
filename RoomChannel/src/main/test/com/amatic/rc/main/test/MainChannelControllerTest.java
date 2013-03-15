@@ -32,6 +32,7 @@ public class MainChannelControllerTest {
 		Theme theme = mock(Theme.class);
 		theme.setName("testName");
 		assertNotNull(theme);
+		assertNotNull(channelKey);
 	}
 
 }
