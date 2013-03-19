@@ -1,6 +1,7 @@
 package com.amatic.rc.aop.login;
 
-import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
@@ -11,9 +12,11 @@ public class LoginAspect {
 	public void channelMethods() {
 	}
 
-	@After("channelMethods()")
-	public Object checkUserLogged() throws Throwable {
-
-		throw new Exception();
+	@Around("channelMethods()")
+	public Object checkUserLogged(ProceedingJoinPoint pjp) throws Throwable {
+		Object retVal = pjp.proceed();
+		// stop stopwatch
+		return retVal;
+		// throw new Exception();
 	}
 }

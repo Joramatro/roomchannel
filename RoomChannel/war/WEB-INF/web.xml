@@ -55,7 +55,50 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<filter-mapping>
         <filter-name>ObjectifyFilter</filter-name>
         <url-pattern>/*</url-pattern>
-	</filter-mapping>			
+	</filter-mapping>
+	
+	<servlet>
+	    <servlet-name>home-servlet</servlet-name>
+	    <servlet-class>com.dyuproject.demos.openidservlet.HomeServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+  	</servlet>
+
+	<servlet-mapping>
+	  <servlet-name>home-servlet</servlet-name>
+	  <url-pattern>/home/</url-pattern>
+	</servlet-mapping>
+	 	
+	<servlet>
+	  <servlet-name>logout-servlet</servlet-name>
+	  <servlet-class>com.dyuproject.demos.openidservlet.LogoutServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>logout-servlet</servlet-name>
+	  <url-pattern>/logout/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>popup-verify-servlet</servlet-name>
+	  <servlet-class>com.dyuproject.demos.openidservlet.PopupVerifyServlet</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>popup-verify-servlet</servlet-name>
+	  <url-pattern>/popup_verify/</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+	  <filter-name>openid-filter</filter-name>
+	  <filter-class>com.dyuproject.openid.OpenIdServletFilter</filter-class>
+	  <load-on-startup>1</load-on-startup>
+	    <init-param>
+	      <param-name>forwardUri</param-name>
+	      <param-value>WEB-INF/jsp/login/login.jsp</param-value>
+	    </init-param>
+	</filter>			
 	
 	<error-page>
     	<exception-type>java.lang.Exception</exception-type>

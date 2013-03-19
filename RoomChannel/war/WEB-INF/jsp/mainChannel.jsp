@@ -27,7 +27,7 @@
     </head>
 	<body>
 		<%@ include file="/WEB-INF/jsp/header.jsp"%>
-		<input type="button" value="Create your own Channel"/>
+		<input type="button" class="login" value="Create your own Channel"/>
 		
 		<div>Real-time Online Users: <label style="display:inline;float left; font-size:32px" id="nbrUsrs"><img src="/img/loading.gif"/></label></div><br/>
 		
