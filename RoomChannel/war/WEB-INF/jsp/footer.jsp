@@ -19,6 +19,29 @@
 		<script type="text/javascript" src="/js/login.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 		
+        <script src="js/lean-slider.min.js"></script><!-- About Slider-->
+        <script src="js/my_script.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.1.3.min.js"></script><!-- parallax-->
+        <script src="js/modernizr-2.6.1.min.js"></script><!--blur slidShow -->
+        <script src="js/jquery.quicksand.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/jquery.mobile.customized.min.js"></script><!-- camera Slider-->
+        <script src="js/camera.min.js"></script><!-- camera Slider-->
+        <script src="js/jquery.parallax-1.1.3.min.js"></script><!--  parallax-->
+        <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
+        <script>
+            jQuery(function () {
+
+                jQuery('#camera_wrap_3').camera({
+                    height: '65%',
+                    pagination: false,
+                    thumbnails: true,
+                    imagePath: '../images/'
+                });
+
+            });
+		</script>
 		<script>
 		sendMessage = function(path, opt_param) {
 
