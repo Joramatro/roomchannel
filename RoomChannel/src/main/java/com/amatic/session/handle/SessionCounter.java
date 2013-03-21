@@ -12,7 +12,6 @@ import com.amatic.rc.user.User;
 import com.google.appengine.api.channel.ChannelMessage;
 import com.google.appengine.api.channel.ChannelService;
 import com.google.appengine.api.channel.ChannelServiceFactory;
-import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import com.googlecode.objectify.ObjectifyService;
 
@@ -28,26 +27,26 @@ public class SessionCounter implements HttpSessionListener {
 	private static Integer nbrConnections = new Integer(0);
 
 	public static void setNumberSessions(boolean lastConnected) {
-
-		ChannelService channelService = ChannelServiceFactory
-				.getChannelService();
-
-		String channelKey = "xyz";
-
-		JSONObject msg = new JSONObject();
 		try {
+			ChannelService channelService = ChannelServiceFactory
+					.getChannelService();
+
+			String channelKey = "xyz";
+
+			JSONObject msg = new JSONObject();
+
 			if (lastConnected) {
 				msg.put("nbrUsrs", ++nbrConnections);
 			} else {
 				msg.put("nbrUsrs", --nbrConnections);
 			}
-		} catch (JSONException e) {
+
+			channelService.sendMessage(new ChannelMessage(channelKey, msg
+					.toString()));
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		channelService.sendMessage(new ChannelMessage(channelKey, msg
-				.toString()));
 	}
 
 	public SessionCounter() {

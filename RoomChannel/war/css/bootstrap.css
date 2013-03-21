@@ -230,7 +230,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #2da097;
+  color: #F87F0E;
   text-decoration: none;
 }
 .img-rounded {
@@ -5423,12 +5423,16 @@ a.thumbnail:hover {
 }
 
 .accordion-heading .accordion-toggle {
-    display: block;
-    padding: 8px 15px;
+display: block;
+padding: 8px 15px;
 }
 
 .accordion-toggle {
     cursor: pointer;
+    background: #333333;
+	text-shadow: 1px 1px #222222;
+	color: #FFFFFF;
+	text-transform: uppercase;
 }
 
 .accordion-inner {

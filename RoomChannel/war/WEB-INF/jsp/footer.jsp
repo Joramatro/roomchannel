@@ -30,6 +30,7 @@
         <script src="js/camera.min.js"></script><!-- camera Slider-->
         <script src="js/jquery.parallax-1.1.3.min.js"></script><!--  parallax-->
         <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
+        <script type="text/javascript" src="js/apprise-v2.js"></script>
         <script>
             jQuery(function () {
 
@@ -63,7 +64,12 @@
 		  	    if(data['nbrUsrs']!= undefined){
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs']; 
 		  	    }else{
-		  	    	document.getElementById("videoChannel").innerHTML = data['urlOembed'];
+		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {
+		  	    		video = addVideoPlaylist();
+		  	    		$(".thumbnails").append(video);
+		  	    	}
+		  	    	$(".videoChannel").html(data['urlOembed']);
+		  	    	
 		  	    	$(".oembed").oembed(null,{
 	    	    	    embedMethod: 'auto',    // "auto", "append", "fill" 
 	    	    	    apikeys: {
@@ -71,7 +77,10 @@
 	    				},
 	    				maxHeight: 885, maxWidth:2480
 	    	    	});
-		  	    	document.getElementById("broadcastLive").innerHTML = data[''];
+		  	    	//cleaning oembed for next time
+		  	    	$("div .videoChannel").removeClass('videoChannel');
+		  	    	
+		  	    	//document.getElementById("broadcastLive").innerHTML = data[''];
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
 		  	    }
@@ -88,7 +97,7 @@
 		  	}
 
 		  	function onClose() {
-		  	    alert("Instant access deactivated");
+		  	    //alert("Instant access deactivated");
 		  	}
 
 

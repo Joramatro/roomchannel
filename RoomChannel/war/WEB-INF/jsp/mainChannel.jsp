@@ -36,6 +36,7 @@
         <link rel="shortcut icon" href="icon/favicon.ico">
         <link rel="stylesheet" href="/css/jquery.oembed.css"/>
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="css/apprise-v2.css" type="text/css" />
         <style>
 			.ui-autocomplete-loading { background: white url('/img/loading.gif') right center no-repeat; }
 		</style>
@@ -133,29 +134,30 @@
                 <!--#Radio-->
                 <div id="Radio">
                 
-                <div id="intro" class="Parallax">
-                    <div class="ParallaxText">
-                        	
-                        <h2>BROADCASTING <span>LIVE</span> VIDEO</h2> 
-
-                        <div class="clearfix"></div>
-                        <blockquote>HERE...</blockquote>
-                        <div class="clearfix"></div>
-                        <input id="txtName" style="width:250px;" type="text" placeholder="Add a title for the video (Optional)"/>
-                        <div class="clearfix"></div>
-                        <form id="prueba" class="broadcast-form form-inline">
-                        <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="http://" />
-                        <div class="submit-url-container">
-                    		<button class="submit-url btn btn-large" id="broadcast-url">BROADCASTING LIVE!</button>
-                		</div>
-                        </form>
-						
-						<div class="clearfix"></div>
-                        <p>- Giorglist -</p>
-                        <div class="clearfix"></div>
-                        <div id="videoChannel"> </div> 
-                    </div>
-                </div>
+	                <div id="intro" class="Parallax">
+	                    <div class="ParallaxText">
+	                        	
+	                        <h2>BROADCASTING <span>LIVE</span> VIDEO</h2> 
+	
+	                        <div class="clearfix"></div>
+	                        <blockquote>HERE...</blockquote>
+	                        <div class="clearfix"></div>
+	                        <input id="txtName" style="width:250px;" type="text" placeholder="Add a title for the video (Optional)"/>
+	                        <div class="clearfix"></div>
+	                        <form id="prueba" class="broadcast-form form-inline">
+	                        <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="http://" />
+	                        <div class="submit-url-container">
+	                    		<button type="button" class="submit-url btn btn-large" id="btnBroadcast">BROADCASTING LIVE!</button>
+	                		</div>
+	                        </form>
+							
+							<div class="clearfix"></div>
+	                        <p>- Giorglist -</p>
+	                        <div class="clearfix"></div>
+	                        <div id="videoChannelMain" class="videoChannel"> </div> 
+	                    </div>
+	                </div>
+	                <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
                 </div>
                 <!--#intro-->
                 <div id="Channels">
