@@ -68,22 +68,25 @@
 		  	    		video = addVideoPlaylist();
 		  	    		$(".thumbnails").append(video);
 		  	    	}
+		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);
+		  	    	
 		  	    	
 		  	    	$(".oembed").oembed(null,{
 	    	    	    embedMethod: 'auto',    // "auto", "append", "fill" 
 	    	    	    apikeys: {
 
 	    				},
-	    				maxHeight: 885, maxWidth:2480
+	    				maxHeight: 400, maxWidth:980
 	    	    	});
 		  	    	//cleaning oembed for next time
 		  	    	$("div .videoChannel").removeClass('videoChannel');
-		  	    	
+		  	    	$("#broadcastBlock").show("slow");
 		  	    	//document.getElementById("broadcastLive").innerHTML = data[''];
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
 		  	    }
+		  	 
 		  	}
 
 		  	function onError(err) {

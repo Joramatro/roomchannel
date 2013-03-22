@@ -140,25 +140,27 @@
 	                        <h2>BROADCASTING <span>LIVE</span> VIDEO</h2> 
 	
 	                        <div class="clearfix"></div>
-	                        <blockquote>HERE...</blockquote>
+	                        <blockquote>Start your playlist </blockquote>
 	                        <div class="clearfix"></div>
-	                        <input id="txtName" style="width:250px;" type="text" placeholder="Add a title for the video (Optional)"/>
-	                        <div class="clearfix"></div>
-	                        <form id="prueba" class="broadcast-form form-inline">
+	                        <form class="broadcast-form form-inline">
 	                        <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="http://" />
 	                        <div class="submit-url-container">
 	                    		<button type="button" class="submit-url btn btn-large" id="btnBroadcast">BROADCASTING LIVE!</button>
 	                		</div>
 	                        </form>
-							
+							<input id="txtName" type="hidden" value="General"/>
 							<div class="clearfix"></div>
-	                        <p>- Giorglist -</p>
-	                        <div class="clearfix"></div>
-	                        <div id="videoChannelMain" class="videoChannel"> </div> 
+	                        <p>First broadcast live video will appear here</p>
+	                        
 	                    </div>
+	                    <div style = "margin: 0 auto;margin-top: 0px; height:600px; width:1000px">
+	                        <div id="videoChannelMain" style="" class="videoChannel"> </div>
+	                    </div>	                    
 	                </div>
-	                <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
                 </div>
+                <div></div>
+                <div style="height:1px"></div>
+	            <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
                 <!--#intro-->
                 <div id="Channels">
                     <div class="container-fluid clearfix Services">

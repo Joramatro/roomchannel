@@ -147,4 +147,13 @@
 
         </div>
     </div>
+    <div id="broadcastBlock" style = "display:none;margin: 0 auto;">
+      <form class="broadcast-form form-inline">
+      <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="Youtube URL" />
+      <div class="submit-url-container">
+  		<button type="button" class="submit-url btn btn-large" id="btnBroadcast">BROADCASTING LIVE!</button>
+	  </div>
+      </form>
+      <input id="txtName" type="hidden" value="General"/>	             
+	</div>
 </div>
