@@ -629,7 +629,7 @@ ul.Social li a:hover {
 
 a.btn,button.btn {
     background: #F87F0E;
-    margin: 0px 0;
+    margin: 0px 12px;
     color: #FFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

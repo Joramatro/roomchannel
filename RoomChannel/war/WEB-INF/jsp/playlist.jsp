@@ -5,6 +5,232 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="row-fluid">
+  <div class="span12">
+      <div id="accordion2" class="accordion">
+          <div class="accordion-group">
+              <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" href="media.html#gallery" data-original-title="">
+                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> interactive galleries <i class="icon-chevron-down icon-white pull-right"></i>
+                  </a>
+              </div>
+              <div id="gallery" class="accordion-body collapse in">
+                  <div class="accordion-inner paddind">
+                      <div id="guggenheim-container">
+                                                            
+                                                            
+                       <ul class="thumbnails guggenheim-slider">
+                       <%--
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label1</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label2</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label3</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label4</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label1</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label2</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label3</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label4</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label1</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label2</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label3</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label4</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label2</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label3</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3 guggenheim-item">
+                                <div class="thumbnail">
+                                    <img alt="" src="http://placehold.it/260x180">
+                                    <div class="caption"> 
+                                        <h5>Thumbnail label4</h5>
+                                        <p>Cras justo odio, dapibus ac facilisis elit.</p>
+                                        <a href="javascript:" class="btn"><i class="icon-pencil"></i></a> 
+                                        <a href="javascript:" class="btn"><i class="icon-search"></i></a> 
+                                        <a href="javascript:" class="btn btn-danger remove"><i class="icon-remove icon-white"></i></a> 
+                                    </div>
+                                </div>
+                            </li>
+							--%>
+                        </ul>
+                                                            
+					</div>
+					<p>
+                       <a href="javascript:" class="btn" onclick='gallery.reset()'><i class="icon-refresh"></i> Reset</a> |
+                       <a href="javascript:" class="btn" onclick='reorder()'><i class="icon-retweet"></i> Re-order elements</a> |
+                       <a href="javascript:" class="btn" onclick='filterEls("blue")'><i class="icon-filter"></i> Blue</a>
+                       <a href="javascript:" class="btn" onclick='filterEls("red")'><i class="icon-filter"></i> Red</a>
+                       <a href="javascript:" class="btn" onclick='filterEls("green")'><i class="icon-filter"></i> Green</a> |
+                       <a href="javascript:" class="btn" onclick='gallery.prev()'><i class="icon-arrow-left"></i> Prev</a>
+                       <a href="javascript:" class="btn" onclick='gallery.next()'>Next <i class="icon-arrow-right"></i></a>
+					<br /></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%-- 
+<div id="" class="row-fluid">
 <!--Tabs2-->
     <div class="span12">
         <div id="accordion1" class="accordion">
@@ -84,7 +310,7 @@
                                     </div>
                                 </div>
                             </li>   
-							--%>
+							
                         </ul>
 <%-- 					<hr class="soften">
                         <ul class="thumbnails">
@@ -140,13 +366,14 @@
                             </li>
 
                         </ul>
-					--%>
+					
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+    --%>
     <div id="broadcastBlock" style = "display:none;margin: 0 auto;">
       <form class="broadcast-form form-inline">
       <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="Youtube URL" />
@@ -156,4 +383,4 @@
       </form>
       <input id="txtName" type="hidden" value="General"/>	             
 	</div>
-</div>
+</div> 

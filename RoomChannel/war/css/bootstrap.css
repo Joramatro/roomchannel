@@ -372,9 +372,11 @@ a:hover {
   margin-left: 2.127659574468085%;
   *margin-left: 2.074468085106383%;
 }
-.row-fluid [class*="span"]:first-child {
-  margin-left: 0;
+
+.row-fluid [class*="span"]:nth-child(n) {
+  margin-left: 20px;
 }
+
 .row-fluid .controls-row [class*="span"] + [class*="span"] {
   margin-left: 2.127659574468085%;
 }
@@ -6447,10 +6449,6 @@ button.close {
         float: left;
         margin-left: 2.564102564102564%;
         *margin-left: 2.5109110747408616%;
-    }
-
-    .row-fluid [class*="span"]:first-child {
-        margin-left: 0;
     }
 
     .row-fluid .controls-row [class*="span"] + [class*="span"] {

@@ -31,6 +31,7 @@
         <script src="js/jquery.parallax-1.1.3.min.js"></script><!--  parallax-->
         <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
         <script type="text/javascript" src="js/apprise-v2.js"></script>
+        <script type="text/javascript" src="js/guggenheim.js"></script>
         <script>
             jQuery(function () {
 
@@ -44,6 +45,7 @@
             });
 		</script>
 		<script>
+		var gallery;
 		sendMessage = function(path, opt_param) {
 
 // 		  	  var xhr = new XMLHttpRequest();
@@ -55,7 +57,8 @@
 		  		//sendMessage('opened');
 		  	}
 
-		  	function onMessage(msg) {
+		  	function onMessage(msg) {		  		
+		  		var first=false;
 		  	  	//$('#textAreaCh').val('hola');
 		  	    //$('#numberUsers').text(msg.data);
 		  	    //alert(msg.data);
@@ -67,6 +70,8 @@
 		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {
 		  	    		video = addVideoPlaylist();
 		  	    		$(".thumbnails").append(video);
+		  	    		first =true;
+		  	    		
 		  	    	}
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);
@@ -82,9 +87,15 @@
 		  	    	//cleaning oembed for next time
 		  	    	$("div .videoChannel").removeClass('videoChannel');
 		  	    	$("#broadcastBlock").show("slow");
+		  	    	$("#guggenheim-container span.oembedall-closehide").html('');
 		  	    	//document.getElementById("broadcastLive").innerHTML = data[''];
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
+		  	    	if(first){
+		  	    		var nameg='#guggenheim-container';
+			  			gallery = guggenheim(nameg,{rows:2,cols:4});
+		  	    	}
+		  	    	
 		  	    }
 		  	 
 		  	}
@@ -110,6 +121,9 @@
 		    socket.onmessage = onMessage;
 		    socket.onerror = onError;
 		    socket.onclose = onClose;
+		</script>
+		<script>
+        //console.log(gallery);
 		</script>
 		<!--[if IE]>
 		<script type="text/javascript">
