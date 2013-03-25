@@ -158,7 +158,6 @@
 	                    </div>	                    
 	                </div>
                 </div>
-                <div></div>
                 <div style="height:1px"></div>
 	            <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
                 <!--#intro-->

@@ -46,6 +46,7 @@
 		</script>
 		<script>
 		var gallery;
+  		var firstGallery=false;
 		sendMessage = function(path, opt_param) {
 
 // 		  	  var xhr = new XMLHttpRequest();
@@ -58,7 +59,7 @@
 		  	}
 
 		  	function onMessage(msg) {		  		
-		  		var first=false;
+
 		  	  	//$('#textAreaCh').val('hola');
 		  	    //$('#numberUsers').text(msg.data);
 		  	    //alert(msg.data);
@@ -68,10 +69,10 @@
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs']; 
 		  	    }else{
 		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {
+		  	    		//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});		  	    				  	    			
 		  	    		video = addVideoPlaylist();
 		  	    		$(".thumbnails").append(video);
-		  	    		first =true;
-		  	    		
+		  	    		firstGallery =true;
 		  	    	}
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);
@@ -91,9 +92,8 @@
 		  	    	//document.getElementById("broadcastLive").innerHTML = data[''];
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
-		  	    	if(first){
-		  	    		var nameg='#guggenheim-container';
-			  			gallery = guggenheim(nameg,{rows:2,cols:4});
+		  	    	if(firstGallery){
+			  			gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
 		  	    	}
 		  	    	
 		  	    }

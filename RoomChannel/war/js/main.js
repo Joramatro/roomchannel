@@ -50,14 +50,17 @@ function addVideoPlaylist(){
 }
 
 $('.remove').live('click', function() {
-    $(this).parent().parent().parent().fadeOut('slow');	
+    $(this).parent().parent().parent().fadeOut('slow').remove();
+    gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
  });
 
 $('.right').live('click', function() {
-	$(this).parent().parent().parent().animate({height: 'toggle'},300).insertAfter( $(this).parent().parent().parent().next() ).animate({height: 'toggle'},300);
+	$(this).parent().parent().parent().animate({height: 'toggle'},300).after( $(this).parent().parent().parent().next() ).animate({height: 'toggle'},300);
+	gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
 });
 
 $('.left').live('click', function() {
-	$(this).parent().parent().parent().animate({height: 'toggle'},300).insertBefore( $(this).parent().parent().parent().prev() ).animate({height: 'toggle'},300);
+	$(this).parent().parent().parent().animate({height: 'toggle'},300).before( $(this).parent().parent().parent().prev() ).animate({height: 'toggle'},300);
+	gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
 });
 

@@ -19,6 +19,7 @@
                                                             
                                                             
                        <ul class="thumbnails guggenheim-slider">
+                       
                        <%--
                             <li class="span3 guggenheim-item">
                                 <div class="thumbnail">
@@ -211,9 +212,9 @@
                                 </div>
                             </li>
 							--%>
-                        </ul>
+                         </ul>
                                                             
-					</div>
+						</div>
 					<p>
                        <a href="javascript:" class="btn" onclick='gallery.reset()'><i class="icon-refresh"></i> Reset</a> |
                        <a href="javascript:" class="btn" onclick='reorder()'><i class="icon-retweet"></i> Re-order elements</a> |
@@ -383,4 +384,4 @@
       </form>
       <input id="txtName" type="hidden" value="General"/>	             
 	</div>
-</div> 
+ 

@@ -393,7 +393,7 @@ var guggenheim = function(element,opts){
 				elements[i].style.position = 'absolute'
 			}
 			elements[i].style.width = width + 'px'
-			elements[i].style.height = height + 'px'
+			elements[i].style.height = '252px'
 			elements[i].style.left = 0 + 'px'
 			elements[i].style.top = 0 + 'px'
 			if(supportsOpacity)
