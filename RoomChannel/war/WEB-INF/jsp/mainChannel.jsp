@@ -37,6 +37,7 @@
         <link rel="stylesheet" href="/css/jquery.oembed.css"/>
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" href="css/apprise-v2.css" type="text/css" />
+		<link type="text/css" href="css/jquery.ui.chatbox.css" rel="stylesheet" />
         <style>
 			.ui-autocomplete-loading { background: white url('/img/loading.gif') right center no-repeat; }
 		</style>
@@ -159,6 +160,29 @@
 	                </div>
                 </div>
                 <div style="height:1px"></div>
+                
+				<!-- begin chatbox -->
+				<div class="row-fluid">
+				  <div class="span12">
+				      <div id="accordion2" class="accordion">
+				          <div class="accordion-group">
+				              <div class="accordion-heading">
+				                  <a class="accordion-toggle chatbox" data-toggle="collapse" href="#log" data-original-title="">
+				                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Chat box<i class="icon-chevron-down icon-white pull-right"></i>
+				                      <%-- <input type="button" name="toggle" value="CHAT BOX"/> --%>
+				                  </a>
+				              </div>
+							   <div id="chat_div">
+							   </div>
+							   <div id="log" class="container clearfix">
+							   </div>
+							 </div>
+						</div>
+					</div>		  
+				</div>
+				<!-- end chatbox -->
+				
+				<div style="height:1px"></div>
 	            <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
                 <!--#intro-->
                 <div id="Channels">

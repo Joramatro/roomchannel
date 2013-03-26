@@ -49,18 +49,64 @@ function addVideoPlaylist(){
 	return li;
 }
 
+function cleanGalStyles(){
+	$(".guggenheim-slider li").removeAttr('style');
+}
+
+function posGal(){
+	for (var i = 1; i < currentPage; i++){
+		//alert(i);
+		gallery.next();
+	}
+
+}
+
 $('.remove').live('click', function() {
     $(this).parent().parent().parent().fadeOut('slow').remove();
+    cleanGalStyles();
+    btnGal=true;
     gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
+    
  });
 
 $('.right').live('click', function() {
 	$(this).parent().parent().parent().animate({height: 'toggle'},300).after( $(this).parent().parent().parent().next() ).animate({height: 'toggle'},300);
-	gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
+	//cleanGalStyles();
+	//$("#guggenheim-container").css('visibility','hidden');
+	btnGal=true;
+	//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
+	
+	//posGal();
+	//$("#guggenheim-container").slideUp(0).delay(0).fadeIn('slow', function() { $(this).css('visibility','visible'); });
 });
 
 $('.left').live('click', function() {
 	$(this).parent().parent().parent().animate({height: 'toggle'},300).before( $(this).parent().parent().parent().prev() ).animate({height: 'toggle'},300);
-	gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
+	//cleanGalStyles();
+	btnGal=true;
+	//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4}); 
+	
+	//window.setTimeout(posGal(), 50000);
+	//posGal();
+	
+});
+
+$(document).ready(function(){
+    var box = null;
+    $(".chatbox").click(function(event, ui) {
+        if(box) {
+            box.chatbox("option", "boxManager").toggleBox();	                  
+        }
+        else {
+      	  $("#log").collapse('show');
+            box = $("#chat_div").chatbox({id:"chat_div", 
+                                          user:{key : "value"},
+                                          title : "test chat",
+                                          messageSent : function(id, user, msg) {
+                                              $("#log").append(id + " said: " + msg + "<br/>");
+                                              $("#chat_div").chatbox("option", "boxManager").addMsg(id, msg);
+                                          }});
+        }
+    });
 });
 

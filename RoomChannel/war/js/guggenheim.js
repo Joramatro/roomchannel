@@ -212,35 +212,51 @@ var guggenheim = function(element,opts){
     }
 
     var prev = function(){
+    		if(!btnGal){
+    			currentPage = currentPage - 1;
+    		}	
+    	
     		if(animating)
 	    		return false
 
     		animating = true
-
+    		
 	    	var containerDimensions = _getElementDimensions(container),
     			elDimensions = _getElementDimensions(elements[0]),
     			pages = Math.ceil(filteredElements.length/(options.rows*options.cols)),
     			sliderWidth = pages * containerDimensions.width
 
-    		if(parseFloat(slider.style.left) != containerDimensions.padding.left)
-	    		_animate(slider,{"left":(parseFloat(slider.offsetLeft) + containerDimensions.width - containerDimensions.padding.left) + 'px'},function(){animating=false})
+    		if(parseFloat(slider.style.left) != containerDimensions.padding.left){
+	    		_animate(slider,{"left":(parseFloat(slider.offsetLeft) + containerDimensions.width - containerDimensions.padding.left) + 'px'},function(){animating=false; if(btnGal){posGal();btnGal=false;}})
+	    		
+	    		
+
+    		}
     		else
 	    		animating = false
 
     	},
 	next = function(){
+    		if(!btnGal){
+    			currentPage = currentPage + 1;
+    		}
+    		
     		if(animating)
     			return false
 
     		animating = true
-
+    		
        		var containerDimensions = _getElementDimensions(container),
     			elDimensions = _getElementDimensions(elements[0]),
     			pages = Math.ceil(filteredElements.length/(options.rows*options.cols)),
     			sliderWidth = pages * containerDimensions.width
     	
-    		if(parseFloat(slider.style.left) > -(sliderWidth - containerDimensions.width - containerDimensions.padding.left - containerDimensions.padding.right))
-	    		_animate(slider,{"left":(parseFloat(slider.offsetLeft) - containerDimensions.width-containerDimensions.padding.left) + 'px'},function(){ animating=false})
+    		if(parseFloat(slider.style.left) > -(sliderWidth - containerDimensions.width - containerDimensions.padding.left - containerDimensions.padding.right)){
+	    		_animate(slider,{"left":(parseFloat(slider.offsetLeft) - containerDimensions.width-containerDimensions.padding.left) + 'px'},function(){ animating=false;if(btnGal){posGal();btnGal=false;}})
+	    		
+	    		
+	    		
+    		}
     		else
 	    		animating = false
     		
@@ -393,7 +409,7 @@ var guggenheim = function(element,opts){
 				elements[i].style.position = 'absolute'
 			}
 			elements[i].style.width = width + 'px'
-			elements[i].style.height = '252px'
+			elements[i].style.height = '312px'
 			elements[i].style.left = 0 + 'px'
 			elements[i].style.top = 0 + 'px'
 			if(supportsOpacity)
@@ -492,8 +508,7 @@ var guggenheim = function(element,opts){
 			"filter":filter,
 			"prev":prev,
 			"next":next
-		}
-
+		} 
 }
 
 if(!Array.isArray) {  
@@ -535,4 +550,5 @@ if (!Array.prototype.indexOf) {
         }
         return -1;  
     }  
+    
 } 

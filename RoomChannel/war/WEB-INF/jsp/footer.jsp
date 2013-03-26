@@ -44,9 +44,12 @@
 
             });
 		</script>
+		<script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
 		<script>
 		var gallery;
   		var firstGallery=false;
+  		var currentPage = 1;
+  		var btnGal=false;
 		sendMessage = function(path, opt_param) {
 
 // 		  	  var xhr = new XMLHttpRequest();
@@ -71,7 +74,7 @@
 		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {
 		  	    		//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});		  	    				  	    			
 		  	    		video = addVideoPlaylist();
-		  	    		$(".thumbnails").append(video);
+		  	    		$(".guggenheim-slider").append(video);
 		  	    		firstGallery =true;
 		  	    	}
 		  	    	$(".ParallaxText").hide();
@@ -93,6 +96,8 @@
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
 		  	    	if(firstGallery){
+		  	    		cleanGalStyles();
+		  	    		btnGal=true;
 			  			gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
 		  	    	}
 		  	    	

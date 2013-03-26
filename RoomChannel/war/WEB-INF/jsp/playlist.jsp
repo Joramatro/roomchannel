@@ -9,8 +9,8 @@
       <div id="accordion2" class="accordion">
           <div class="accordion-group">
               <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse" href="media.html#gallery" data-original-title="">
-                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> interactive galleries <i class="icon-chevron-down icon-white pull-right"></i>
+                  <a class="accordion-toggle" data-toggle="collapse" href="#gallery" data-original-title="">
+                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Your Playlist<i class="icon-chevron-down icon-white pull-right"></i>
                   </a>
               </div>
               <div id="gallery" class="accordion-body collapse in">
@@ -217,10 +217,12 @@
 						</div>
 					<p>
                        <a href="javascript:" class="btn" onclick='gallery.reset()'><i class="icon-refresh"></i> Reset</a> |
+                       <%--
                        <a href="javascript:" class="btn" onclick='reorder()'><i class="icon-retweet"></i> Re-order elements</a> |
                        <a href="javascript:" class="btn" onclick='filterEls("blue")'><i class="icon-filter"></i> Blue</a>
                        <a href="javascript:" class="btn" onclick='filterEls("red")'><i class="icon-filter"></i> Red</a>
                        <a href="javascript:" class="btn" onclick='filterEls("green")'><i class="icon-filter"></i> Green</a> |
+                       --%>
                        <a href="javascript:" class="btn" onclick='gallery.prev()'><i class="icon-arrow-left"></i> Prev</a>
                        <a href="javascript:" class="btn" onclick='gallery.next()'>Next <i class="icon-arrow-right"></i></a>
 					<br /></p>
