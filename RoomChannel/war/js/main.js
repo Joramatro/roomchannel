@@ -1,4 +1,4 @@
-$(function(){ /* DOM ready */
+$(function(){ 
     $("#btnBroadcast").live('click', function() {
     	$.ajax({
 		      type: "POST",
@@ -95,18 +95,17 @@ $(document).ready(function(){
     var box = null;
     $(".chatbox").click(function(event, ui) {
         if(box) {
-            box.chatbox("option", "boxManager").toggleBox();	                  
+            box.chatbox("option", "boxManager").toggleBox();
         }
         else {
       	  $("#log").collapse('show');
-            box = $("#chat_div").chatbox({id:"chat_div", 
+            box = $("#chat_div").chatbox({id:"user", 
                                           user:{key : "value"},
-                                          title : "test chat",
+                                          title : "Chat Box",
                                           messageSent : function(id, user, msg) {
-                                              $("#log").append(id + " said: " + msg + "<br/>");
+                                              //$("#log").append(id + " said: " + msg + "<br/>");
                                               $("#chat_div").chatbox("option", "boxManager").addMsg(id, msg);
                                           }});
         }
     });
 });
-

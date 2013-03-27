@@ -377,7 +377,7 @@
         </div>
     </div>
     --%>
-    <div id="broadcastBlock" style = "display:none;margin: 0 auto;">
+    <div id="broadcastBlock" style = "display:none;width: 50%;margin: 0 auto;">
       <form class="broadcast-form form-inline">
       <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="Youtube URL" />
       <div class="submit-url-container">

@@ -70,7 +70,7 @@
 		  	    //$('#numberUsers').text(data['nbrUsr']);
 		  	    if(data['nbrUsrs']!= undefined){
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs']; 
-		  	    }else{
+		  	    }else if(data['urlOembed']!= undefined){
 		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {
 		  	    		//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});		  	    				  	    			
 		  	    		video = addVideoPlaylist();
@@ -101,6 +101,11 @@
 			  			gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
 		  	    	}
 		  	    	
+		  	    }else if(data['chatText']!= undefined){
+		  	    	if($("#chat_div").hasClass('ui-widget-content')){
+			  	    	$("#chat_div").append(data['chatText']);
+			  	    	$("#chat_div").scrollTop($("#chat_div")[0].scrollHeight);
+		  	    	}
 		  	    }
 		  	 
 		  	}

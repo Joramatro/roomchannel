@@ -29,6 +29,25 @@ public class LoadVideoChannel {
 	@Autowired
 	private ThemeService themeService;
 
+	@RequestMapping(value = "/loadChatText", method = RequestMethod.POST)
+	public void loadChat(@RequestParam("chatText") String chatText,
+			ModelMap model, HttpServletRequest request,
+			HttpServletResponse response) throws IOException, JSONException {
+		ChannelService channelService = ChannelServiceFactory
+				.getChannelService();
+		String channelKey = "xyz";
+
+		JSONObject msg = new JSONObject();
+		msg.put("chatText", chatText);
+
+		logger.info("chatText ready to send");
+
+		channelService.sendMessage(new ChannelMessage(channelKey, msg
+				.toString()));
+
+		return;
+	}
+
 	@RequestMapping(value = "/loadVideoChannel", method = RequestMethod.POST)
 	public void loadText(@RequestParam("url") String url,
 			@RequestParam("name") String name, ModelMap model,

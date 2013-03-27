@@ -58,9 +58,23 @@
                     $(msgElement).text(msg);
                     p.appendChild(msgElement);
                     $(e).addClass("ui-chatbox-msg");
-                    $(e).fadeIn();
-                    self._scrollToBottom();
-
+                    //$(e).fadeIn();
+                    $.ajax({
+          		      type: "POST",
+          		      url: "/loadChatText",
+          		      dataType: "html",
+          		      cache: false,
+          	          data: {
+          	        	  "chatText": $(e).html(),
+          	          },
+          		      success: function(text){
+          		    	  //Apprise("Live video broadcast for " + $('#nbrUsrs').text() + " people");
+          		      }
+          	        });
+                    
+                    //moving to onMessage function
+                    /*self._scrollToBottom();
+					*/
                     if (!self.elem.uiChatboxTitlebar.hasClass("ui-state-focus") && !self.highlightLock) {
                         self.highlightLock = true;
                         self.highlightBox();
@@ -80,7 +94,7 @@
                 },
                 _scrollToBottom: function() {
                     var box = this.elem.uiChatboxLog;
-                    box.scrollTop(box.get(0).scrollHeight);
+                    $(box).scrollTop($(box)[0].scrollHeight);
                 }
             }
         },
