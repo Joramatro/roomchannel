@@ -38,6 +38,7 @@
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" href="css/apprise-v2.css" type="text/css" />
 		<link type="text/css" href="css/jquery.ui.chatbox.css" rel="stylesheet" />
+		<link type="text/css" href="css/notifications.css" rel="stylesheet" />
         <style>
 			.ui-autocomplete-loading { background: white url('/img/loading.gif') right center no-repeat; }
 		</style>
@@ -73,6 +74,22 @@
                             </li>
                             <li>
                                 <a href="#Login" class="login">Login</a>
+                                <!-- notifications -->
+								<div id="dropdown_notification" style="margin-top: -22px;" class="dropdown">
+					  			
+					  			<a id="notification" class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
+					  			<span class="white topmenu-mainopt visible-616">Notifications <span id="badge_notif" class="topmenu-badge hide"></span></span><span class="white topmenu-mainopt hide-616"><span id="badge_notif2" class="topmenu-badge hide"></span></span>
+					  			</a>
+					
+					  			<div class="dropdown-menu topmenu-menu notif-menu" style="margin-left: -95px;">  			
+					  			<ul id="notification_content_last" class="nav topmenu" style="display:none">
+					  			</ul>
+					  			<ul id="notification_content" class="nav topmenu">
+					  			</ul>  			
+					  			</div>
+					  			
+								</div>
+								<!-- end: notifications -->
                             </li>
                         </ul>
                     </div>

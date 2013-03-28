@@ -32,6 +32,7 @@
         <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
         <script type="text/javascript" src="js/apprise-v2.js"></script>
         <script type="text/javascript" src="js/guggenheim.js"></script>
+        <script type="text/javascript" src="js/lib_notifications.js"></script>
         <script>
             jQuery(function () {
 
@@ -76,6 +77,8 @@
 		  	    		video = addVideoPlaylist();
 		  	    		$(".guggenheim-slider").append(video);
 		  	    		firstGallery =true;
+		  	    	}else{
+		  	    		notification_add('New video broadcasted!', 5, '1 hour',2);
 		  	    	}
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);
@@ -102,10 +105,11 @@
 		  	    	}
 		  	    	
 		  	    }else if(data['chatText']!= undefined){
-		  	    	if($("#chat_div").hasClass('ui-widget-content')){
-			  	    	$("#chat_div").append(data['chatText']);
-			  	    	$("#chat_div").scrollTop($("#chat_div")[0].scrollHeight);
+		  	    	if(!$("#chat_div").hasClass('ui-widget-content')){
+		  	    		$(".chatbox").click();
 		  	    	}
+		  	    	$("#chat_div").append(data['chatText']);
+		  	    	$("#chat_div").scrollTop($("#chat_div")[0].scrollHeight);
 		  	    }
 		  	 
 		  	}
@@ -134,6 +138,7 @@
 		</script>
 		<script>
         //console.log(gallery);
+        
 		</script>
 		<!--[if IE]>
 		<script type="text/javascript">
