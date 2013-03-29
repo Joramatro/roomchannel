@@ -32,7 +32,7 @@
         <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
         <script type="text/javascript" src="js/apprise-v2.js"></script>
         <script type="text/javascript" src="js/guggenheim.js"></script>
-        <script type="text/javascript" src="js/lib_notifications.js"></script>
+        <script type="text/javascript" src="js/jquery.gritter.js"></script>        
         <script>
             jQuery(function () {
 
@@ -72,13 +72,17 @@
 		  	    if(data['nbrUsrs']!= undefined){
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs']; 
 		  	    }else if(data['urlOembed']!= undefined){
-		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {
-		  	    		//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});		  	    				  	    			
+		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {		  	    				  	    			
 		  	    		video = addVideoPlaylist();
+		  	    		$(video).fadeTo(100, 0);
 		  	    		$(".guggenheim-slider").append(video);
+		  	    		$(video).fadeTo(400, 1);
+		  	    		if(!firstGallery){
+		  	    			$('#notification-firstGalVideo').click();
+		  	    		}
 		  	    		firstGallery =true;
 		  	    	}else{
-		  	    		notification_add('New video broadcasted!', 5, '1 hour',2);
+		  	    		$('#notification-firstVideo').click();
 		  	    	}
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);

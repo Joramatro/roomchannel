@@ -38,9 +38,9 @@
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" href="css/apprise-v2.css" type="text/css" />
 		<link type="text/css" href="css/jquery.ui.chatbox.css" rel="stylesheet" />
-		<link type="text/css" href="css/notifications.css" rel="stylesheet" />
+		<link type="text/css" href="css/jquery.gritter.css" rel="stylesheet" />
         <style>
-			.ui-autocomplete-loading { background: white url('/img/loading.gif') right center no-repeat; }
+			.ui-autocomplete-loading { background: white url('/images/loading.gif') right center no-repeat; }
 		</style>
     </head>
     
@@ -56,7 +56,7 @@
                     </a>
                     <a class="brand" href="#">Radio<span>Channel</span>
                     </a>
-                    <div class="brand"><label style="display:inline;float left; font-size:32px" id="nbrUsrs"><img src="/img/loading.gif"/> Users now </div>
+                    <div class="brand"><label style="display:inline;float left; font-size:32px" id="nbrUsrs"><img src="/images/loading.gif"/> Users now </div>
                     <div class="nav-collapse collapse pull-right">
                      
                         <ul class="nav">
@@ -74,25 +74,13 @@
                             </li>
                             <li>
                                 <a href="#Login" class="login">Login</a>
-                                <!-- notifications -->
-								<div id="dropdown_notification" style="margin-top: -22px;" class="dropdown">
-					  			
-					  			<a id="notification" class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
-					  			<span class="white topmenu-mainopt visible-616">Notifications <span id="badge_notif" class="topmenu-badge hide"></span></span><span class="white topmenu-mainopt hide-616"><span id="badge_notif2" class="topmenu-badge hide"></span></span>
-					  			</a>
-					
-					  			<div class="dropdown-menu topmenu-menu notif-menu" style="margin-left: -95px;">  			
-					  			<ul id="notification_content_last" class="nav topmenu" style="display:none">
-					  			</ul>
-					  			<ul id="notification_content" class="nav topmenu">
-					  			</ul>  			
-					  			</div>
-					  			
-								</div>
-								<!-- end: notifications -->
                             </li>
                         </ul>
                     </div>
+                    <div id="notification-firstVideo" style="display:none">
+					</div>
+					<div id="notification-firstGalVideo" style="display:none">
+					</div>
                     <!--/.nav-collapse -->
                 </div>
             </div>
@@ -177,8 +165,11 @@
 	                </div>
                 
 	                <div style="height:1px"></div>
-	                
-					<!-- begin chatbox -->
+					
+					
+		            <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
+		            <div style="height:1px"></div>
+		            <!-- begin chatbox -->
 					<div class="row-fluid">
 					  <div class="span12">
 					      <div id="accordion2" class="accordion">
@@ -198,9 +189,6 @@
 						</div>		  
 					</div>
 					<!-- end chatbox -->
-					
-					<div style="height:1px"></div>
-		            <%@ include file="/WEB-INF/jsp/playlist.jsp"%>
 	            </div>
                 <!--#channels-->
                 <div id="Channels">
