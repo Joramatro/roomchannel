@@ -48,6 +48,7 @@
 		<script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
 		<script>
 		var gallery;
+		var galleryInit;
   		var firstGallery=false;
   		var currentPage = 1;
   		var btnGal=false;
@@ -142,7 +143,6 @@
 		</script>
 		<script>
         //console.log(gallery);
-        
 		</script>
 		<!--[if IE]>
 		<script type="text/javascript">

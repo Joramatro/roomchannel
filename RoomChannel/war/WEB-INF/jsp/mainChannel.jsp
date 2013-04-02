@@ -139,7 +139,11 @@
                 </div>
                 <!--#Radio-->
                 <div id="Radio">
-                
+                	<div style="height:1px"></div>
+					
+					
+		            <%@ include file="/WEB-INF/jsp/lastPlayed.jsp"%>
+		            <div style="height:1px"></div>
 	                <div id="intro" class="Parallax">
 	                    <div class="ParallaxText">
 	                        	

@@ -21,7 +21,7 @@ public class ThemeDaoImpl implements ThemeDao {
 	public List<Theme> loadAll() {
 		List<Theme> themes;
 
-		themes = ofy().load().type(Theme.class).list();
+		themes = ofy().load().type(Theme.class).list().subList(0, 32);
 
 		return themes;
 	}

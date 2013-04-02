@@ -44,9 +44,11 @@ public class MainChannelController {
 
 		model.addAttribute("token", token);
 
+		// Getting first 32 elements
 		List<Theme> listThemes = themeService.loadAllThemes();
 
-		model.addAttribute("broadcastList", listThemes);
+		model.addAttribute("lastPlayedList", listThemes);
+
 		return "mainChannel";
 	}
 

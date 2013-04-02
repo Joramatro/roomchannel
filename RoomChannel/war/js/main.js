@@ -336,3 +336,22 @@ $(function(){
 
 });
 
+$(document).ready(function() {
+	
+	$(".oembed").oembed(null,{
+	    embedMethod: 'auto',    // "auto", "append", "fill" 
+	    apikeys: {
+
+		},
+		maxHeight: 400, maxWidth:980
+	});
+	
+	
+	galleryInit = guggenheim('#guggenheim-container-init',{rows:2,cols:4});
+	$("#guggenheim-container-init .guggenheim-slider").removeClass('guggenheim-slider');
+	$("#guggenheim-container-init .guggenheim-item").removeClass('guggenheim-item');
+	
+	//$("#guggenheim-container-init span.oembedall-closehide").html('');
+	
+});
+
