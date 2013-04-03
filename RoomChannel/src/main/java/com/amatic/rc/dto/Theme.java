@@ -1,6 +1,7 @@
 package com.amatic.rc.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -19,16 +20,27 @@ public class Theme implements Serializable {
 	String url;
 	@Index
 	String name;
-
-	// Ref User
+	@Index
+	private Date date;
+	@Index
+	private String chatLog;
 
 	public Theme() {
 
 	}
 
-	public Theme(String url, String name) {
+	public Theme(String url) {
 		this.url = url;
-		this.name = name;
+	}
+
+	// Ref User
+
+	public String getChatLog() {
+		return chatLog;
+	}
+
+	public Date getDate() {
+		return date;
 	}
 
 	public Long getId() {
@@ -41,6 +53,14 @@ public class Theme implements Serializable {
 
 	public String getUrl() {
 		return url;
+	}
+
+	public void setChatLog(String chatLog) {
+		this.chatLog = chatLog;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public void setId(Long id) {

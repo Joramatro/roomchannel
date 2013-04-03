@@ -161,7 +161,7 @@
 							<input id="txtName" type="hidden" value="General"/>
 							<div class="clearfix"></div>
 	                        <p>First broadcast live video will appear here</p>
-	                        
+	                        <input type="hidden" id="currentUrl"/>;
 	                    </div>
 	                    <div style = "margin: 0 auto;margin-top: 0px; height:600px; width:1000px">
 	                        <div id="videoChannelMain" style="" class="videoChannel"> </div>

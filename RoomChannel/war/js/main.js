@@ -6,8 +6,7 @@ $(function(){
 		      dataType: "html",
 		      cache: false,
 	          data: {
-	        	  "url": $("#txtVideoUrl").val(),
-	        	  "name": $("#txtName").val()
+	        	  "url": $("#txtVideoUrl").val()
 	          },
 		      success: function(text){
 		    	  //Apprise("Live video broadcast for " + $('#nbrUsrs').text() + " people");

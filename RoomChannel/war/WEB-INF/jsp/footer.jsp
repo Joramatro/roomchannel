@@ -84,10 +84,11 @@
 		  	    		firstGallery =true;
 		  	    	}else{
 		  	    		$('#notification-firstVideo').click();
+		  	    		$("#log").html(data['chatLog']);
+		  	    		$("#currentUrl").val(data['url']);
 		  	    	}
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);
-		  	    	
 		  	    	
 		  	    	$(".oembed").oembed(null,{
 	    	    	    embedMethod: 'auto',    // "auto", "append", "fill" 

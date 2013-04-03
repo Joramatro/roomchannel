@@ -31,14 +31,21 @@ public class LoadVideoChannel {
 
 	@RequestMapping(value = "/loadChatText", method = RequestMethod.POST)
 	public void loadChat(@RequestParam("chatText") String chatText,
-			ModelMap model, HttpServletRequest request,
-			HttpServletResponse response) throws IOException, JSONException {
+			@RequestParam("url") String url, ModelMap model,
+			HttpServletRequest request, HttpServletResponse response)
+			throws IOException, JSONException {
 		ChannelService channelService = ChannelServiceFactory
 				.getChannelService();
 		String channelKey = "xyz";
 
 		JSONObject msg = new JSONObject();
 		msg.put("chatText", chatText);
+		if (url != null) {
+			Theme theme = new Theme(url);
+			theme.setChatLog(chatText);
+
+			theme = this.themeService.addTheme(theme);
+		}
 
 		logger.info("chatText ready to send");
 
@@ -49,8 +56,7 @@ public class LoadVideoChannel {
 	}
 
 	@RequestMapping(value = "/loadVideoChannel", method = RequestMethod.POST)
-	public void loadText(@RequestParam("url") String url,
-			@RequestParam("name") String name, ModelMap model,
+	public void loadText(@RequestParam("url") String url, ModelMap model,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException, JSONException {
 		ChannelService channelService = ChannelServiceFactory
@@ -58,15 +64,16 @@ public class LoadVideoChannel {
 		String channelKey = "xyz";
 
 		// IF USER logged, add as Ref<User>
-		Theme theme = new Theme(url, name);
+		Theme theme = new Theme(url);
 
-		this.themeService.addTheme(theme);
+		theme = this.themeService.addTheme(theme);
 
 		String urlOembed = "<a href='" + theme.getUrl()
 				+ "' class='oembed'></a>";
 		JSONObject msg = new JSONObject();
 		msg.put("urlOembed", urlOembed);
-		msg.put("name", theme.getName());
+		msg.put("url", theme.getUrl());
+		msg.put("chatLog", theme.getChatLog());
 
 		logger.info("msg done");
 

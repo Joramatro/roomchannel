@@ -451,8 +451,13 @@ var guggenheim = function(element,opts){
 	//set up elements
 	elements = container.querySelectorAll(options.selector)
 
-	/*if(!elements.length)
-		throw 'Gallery is empty'*/
+	if(!elements.length){
+		$("#guggenheim-container-init .guggenheim-slider").removeClass('guggenheim-slider');
+		$("#guggenheim-container-init .guggenheim-item").removeClass('guggenheim-item');
+		throw 'Gallery is empty';
+		
+	}
+		
 
 	setUpElements()
 

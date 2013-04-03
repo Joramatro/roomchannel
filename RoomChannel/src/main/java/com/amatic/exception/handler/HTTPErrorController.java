@@ -1,4 +1,4 @@
-package com.amatic.rc.exhandler;
+package com.amatic.exception.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ public class HTTPErrorController {
 			RequestMethod.POST })
 	public String handle404(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
-		return "mainChannel";
+		return "genErr";
 	}
 
 	// @RequestMapping(value="/errors/403.html")

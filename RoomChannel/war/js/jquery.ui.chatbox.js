@@ -66,6 +66,7 @@
           		      cache: false,
           	          data: {
           	        	  "chatText": $(e).html(),
+          	        	  "url": $("#currentUrl").val()
           	          },
           		      success: function(text){
           		    	  //Apprise("Live video broadcast for " + $('#nbrUsrs').text() + " people");

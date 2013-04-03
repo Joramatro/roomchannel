@@ -13,8 +13,8 @@ public class ThemeService {
 	@Autowired
 	private ThemeDao themeDao;
 
-	public void addTheme(Theme theme) {
-		this.themeDao.add(theme);
+	public Theme addTheme(Theme theme) {
+		return this.themeDao.add(theme);
 	}
 
 	public List<Theme> loadAllThemes() {

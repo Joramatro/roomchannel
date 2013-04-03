@@ -6,7 +6,7 @@ import com.amatic.rc.dto.Theme;
 
 public interface ThemeDao {
 
-	public void add(Theme theme);
+	public Theme add(Theme theme);
 
 	public List<Theme> loadAll();
 

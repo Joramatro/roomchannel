@@ -26,6 +26,7 @@
 	
 	<mvc:default-servlet-handler/>
 	
+	
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver" p:order="1" />
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" p:order="2" p:defaultErrorView="uncaughtException">
     	<property name="exceptionMappings">
