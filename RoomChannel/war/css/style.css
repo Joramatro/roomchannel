@@ -712,3 +712,12 @@ a.btn:hover ,button.btn:hover {
     margin: 10px auto;
     text-align: center;
 }
+
+div#log p:nth-of-type(even)
+{
+    background: #fdd;
+}
+div#log p:nth-of-type(odd)
+{
+    background: #dfd;
+}

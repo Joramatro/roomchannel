@@ -1,16 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-    </div><!--/span-->
-	</div><!--/row-->
-	
-	<div style="margin-top: 400px;">
-      <hr>
-
-      <footer>
-        <p>&copy; Amatic 2013</p>
-      </footer>
-	</div>
-    </div><!--/.fluid-container-->
 		<script type="text/javascript" src="/_ah/channel/jsapi"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/jquery.oembed.js"></script>
@@ -86,6 +75,7 @@
 		  	    		$('#notification-firstVideo').click();
 		  	    		$("#log").html(data['chatLog']);
 		  	    		$("#currentUrl").val(data['url']);
+		  	    		callPlayer('videoChannelMain','playVideo');
 		  	    	}
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);

@@ -1,6 +1,8 @@
 package com.amatic.rc.load.channel;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +44,11 @@ public class LoadVideoChannel {
 		msg.put("chatText", chatText);
 		if (url != null) {
 			Theme theme = new Theme(url);
+			SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy hh:mm");
+			Date now = new Date();
+			String strDate = sdf.format(now);
+			chatText = chatText.replace("<p>", "<p>" + strDate + " ");
+			chatText = chatText.replace(": </b>", " said:</b> ");
 			theme.setChatLog(chatText);
 
 			theme = this.themeService.addTheme(theme);

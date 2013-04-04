@@ -158,10 +158,9 @@
 	                    		<button type="button" class="submit-url btn btn-large" id="btnBroadcast">BROADCASTING LIVE!</button>
 	                		</div>
 	                        </form>
-							<input id="txtName" type="hidden" value="General"/>
 							<div class="clearfix"></div>
 	                        <p>First broadcast live video will appear here</p>
-	                        <input type="hidden" id="currentUrl"/>;
+	                        <input type="hidden" id="currentUrl"/>
 	                    </div>
 	                    <div style = "margin: 0 auto;margin-top: 0px; height:600px; width:1000px">
 	                        <div id="videoChannelMain" style="" class="videoChannel"> </div>
@@ -180,13 +179,13 @@
 					          <div class="accordion-group">
 					              <div class="accordion-heading">
 					                  <a class="accordion-toggle chatbox" data-toggle="collapse" href="#log" data-original-title="">
-					                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Chat box<i class="icon-chevron-down icon-white pull-right"></i>
+					                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Chat Box History<i class="icon-chevron-down icon-white pull-right"></i>
 					                      <%-- <input type="button" name="toggle" value="CHAT BOX"/> --%>
 					                  </a>
 					              </div>
 								   <div id="chat_div">
 								   </div>
-								   <div id="log" class="container clearfix">
+								   <div id="log" class="container clearfix accordion-body collapse in">
 								   </div>
 								 </div>
 							</div>
@@ -194,17 +193,34 @@
 					</div>
 					<!-- end chatbox -->
 	            </div>
+                
                 <!--#channels-->
-                <div id="Channels">
+                <!-- begin channels -->
+				<div class="row-fluid">
+				  <div class="span12">
+				      <div id="accordion2" class="accordion">
+				          <div class="accordion-group">
+				              <div class="accordion-heading">
+				                  <a class="accordion-toggle" data-toggle="collapse" href="#Channels" data-original-title="">
+				                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Channels<i class="icon-chevron-down icon-white pull-right"></i>
+				                  </a>
+				              </div>
+						   </div>
+						</div>
+					</div>		  
+				</div>
+				<!-- end channels -->
+                <div id="Channels" class="accordion-body collapse in">
                     <div class="container-fluid clearfix Services">
                         <div class="container clearfix TitleSection">
                             
-							<h1>Our <span>Services</span> </h1> 
+							<h1>Radio <span>Channels</span> </h1> 
 							                            
-							<h1><span>Lorem</span> ipsum <span>dolor</span> sit <span>amet</span></h1>
+							<h1><span>Check</span> them<span> out</span> !</h1>
 
                         </div>
-                        <div class="container clearfix">
+                        
+                        <%-- 
                             <div class="row-fluid">
                                 <div class="span12">
                                     <div class="slider-wrapper">
@@ -227,75 +243,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="container clearfix TitleSection">
+                            --%>
+                            <%-- <div class="container clearfix TitleSection">
                                 
 								<h1><span>We</span> make <span>our</span> clients <span>happy!</span></h1>
 
-                            </div>
-                            <div class="row-fluid">
-                                <div class="span6">
-                                    <div class="ca-menu">
-                                        <div>
-                                            <a href="#"> <span class="ca-icon">A</span>
-
-                                                <div class="ca-content">
-                                                     <h2 class="ca-main">Web Design</h2>
-
-                                                     <h3 class="ca-sub">Personalized to your needs</h3>
-
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="ca-menu">
-                                        <div>
-                                            <a href="#"> <span class="ca-icon">I</span>
-
-                                                <div class="ca-content">
-                                                     <h2 class="ca-main">Web Development</h2>
-
-                                                     <h3 class="ca-sub">Advanced use of technology</h3>
-
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row-fluid">
-                                <div class="span6">
-                                    <div class="ca-menu">
-                                        <div>
-                                            <a href="#"> <span class="ca-icon">C</span>
-
-                                                <div class="ca-content">
-                                                     <h2 class="ca-main">Wordpress</h2>
-
-                                                     <h3 class="ca-sub">Understanding visually</h3>
-
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="ca-menu">
-                                        <div>
-                                            <a href="#"> <span class="ca-icon">S</span>
-
-                                                <div class="ca-content">
-                                                     <h2 class="ca-main">Sophisticated Team</h2>
-
-                                                     <h3 class="ca-sub">Professionals in action</h3>
-
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> --%>
+                            
+                            <%-- 
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="ca-menu">
@@ -328,6 +283,8 @@
                                     </div>
                                 </div>
                             </div>
+                            --%>
+                            <%--
                             <div class="row-fluid">
                                  <h2>Pricing Tables </h2>
 
@@ -409,10 +366,131 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            --%>
+                            <!--#third-->
+			                <div id="LargeSlider">
+			                    <div class="container-fluid clearfix LargeSlider">
+			                        <div class="camera_wrap camera_emboss" id="camera_wrap_3">
+			                            <div data-src="images/camera/slides/1.jpg">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/3.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/poster.jpg">
+			                                <iframe width="100%" height="100%" src="http://www.youtube.com/embed/EokWzMUJcCU?feature=player_detailpage"
+			                                frameborder="0" allowfullscreen></iframe>
+			                            </div>
+			                            <div data-src="images/camera/slides/4.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/5.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/6.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/7.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/8.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/9.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                        </div>
+			                        <!-- #camera_wrap_3 -->
+			                    </div>
+			                </div>
+			                <!--#LargeSlider-->
+                        	<div class="container clearfix" style="margin-top: 80px;">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">1</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Create a new Channel</h2>
+
+                                                     <h3 class="ca-sub">Create your own channel</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6" style="margin-left:30px">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">2</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Share your Channel</h2>
+
+                                                     <h3 class="ca-sub">Give it access whom you want </h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%--
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">C</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Create share Channel</h2>
+
+                                                     <h3 class="ca-sub">Understanding visually</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">S</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Create  Channel</h2>
+
+                                                     <h3 class="ca-sub">Professionals in action</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>--%>
+                            </div>
                     </div>
                 </div>
+               
                 <!--#Services-->
+                <%-- 
                 <div id="second" class="Parallax">
                     <div class="ParallaxText">
                         	<h2>WORD <span>OF</span> THE <span>WISE</span></h2>
@@ -424,12 +502,28 @@
                         <p>- Jason Adams -</p>
                     </div>
                 </div>
+                --%>
                 <!--#second-->
-                <div id="Portfolio">
+                <!-- begin team -->
+					<div class="row-fluid">
+					  <div class="span12">
+					      <div id="accordion2" class="accordion">
+					          <div class="accordion-group">
+					              <div class="accordion-heading">
+					                  <a class="accordion-toggle" data-toggle="collapse" href="#Team" data-original-title="">
+					                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Team<i class="icon-chevron-down icon-white pull-right"></i>
+					                  </a>
+					              </div>
+							   </div>
+							</div>
+						</div>		  
+					</div>
+					<!-- end team -->
+                <div id="Team" class="accordion-body collapse in">
                     <div class="container-fluid clearfix Portfolio">
                         <div class="container clearfix TitleSection">
                             
-<h1>Our <span>Portfolio</span> </h1> 
+<h1>Our <span>Team</span> </h1> 
                             
 <h1><span>Lorem</span> ipsum <span>dolor</span> sit <span>amet</span></h1>
 
@@ -617,7 +711,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <!--#Portfolio-->
+                <%--
                 <div id="third" class="Parallax">
                     <div class="ParallaxText">
                         	<h2>WORD <span>OF</span> THE <span>WISE</span></h2>
@@ -629,58 +725,8 @@
                         <p>- Jason Adams -</p>
                     </div>
                 </div>
-                <!--#third-->
-                <div id="LargeSlider">
-                    <div class="container-fluid clearfix LargeSlider">
-                        <div class="camera_wrap camera_emboss" id="camera_wrap_3">
-                            <div data-src="images/camera/slides/1.jpg">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/3.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/poster.jpg">
-                                <iframe width="100%" height="100%" src="http://www.youtube.com/embed/EokWzMUJcCU?feature=player_detailpage"
-                                frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <div data-src="images/camera/slides/4.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/5.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/6.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/7.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/8.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                            <div data-src="images/camera/slides/9.jpg" data-time="1500" data-trasPeriod="4000"
-                            data-link="#" data-target="_blank">
-                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
-                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
-                            </div>
-                        </div>
-                        <!-- #camera_wrap_3 -->
-                    </div>
-                </div>
-                <!--#LargeSlider-->
+                --%>
+                <%-- 
                 <div id="fourth" class="Parallax">
                     <div class="ParallaxText">
                         	<h2>WORD <span>OF</span> THE <span>WISE</span></h2>
@@ -692,8 +738,24 @@
                         <p>- Jason Adams -</p>
                     </div>
                 </div>
+                --%>
                 <!--#fourth-->
-                <div id="Contact">
+                 <!-- begin team -->
+					<div class="row-fluid">
+					  <div class="span12">
+					      <div id="accordion2" class="accordion">
+					          <div class="accordion-group">
+					              <div class="accordion-heading">
+					                  <a class="accordion-toggle" data-toggle="collapse" href="#Contact" data-original-title="">
+					                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Contact<i class="icon-chevron-down icon-white pull-right"></i>
+					                  </a>
+					              </div>
+							   </div>
+							</div>
+						</div>		  
+					</div>
+					<!-- end team -->
+                <div id="Contact" class="accordion-body collapse in">
                     <div class="container-fluid clearfix Contact">
                         <div class="container clearfix TitleSection">
                             
@@ -846,10 +908,10 @@
                                     <a class="Picasa" rel="tooltip" href="#" data-original-title="Picasa">Picasa</a>
                                 </li>
                             </ul>
-                            <a href="#welcome" class="brand">Parallax<span>606</span>
+                            <a href="#welcome" class="brand">RADIO<span>CHANNEL</span>
                             </a>
-                            <p>All rights reserved. Theme by &copy;
-                                <a href="mailto:ahmedeabbas@yahoo.com">Coyier</a>
+                            <p>All rights reserved. Site by &copy;
+                                <a href="mailto:admin@radioChannel.com">Jorge</a>
                             </p>
                         </footer>
                     </div>
