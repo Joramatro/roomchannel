@@ -354,13 +354,13 @@ $(document).ready(function() {
 	
 });
 
-
+/*
 function callPlayer(frame_id, func, args) {
-	/*alert(1);
+	alert(1);
     if (window.jQuery && frame_id instanceof jQuery) frame_id = frame_id.get(0).id;
     var iframe = document.getElementById(frame_id);
     if (iframe && iframe.tagName.toUpperCase() != 'IFRAME') {
-        iframe = iframe.getElementsByTagName('iframe')[0];
+        iframe = $("#videoChannelMain .oembedall-container iframe");
     }
     if (iframe) {
     	alert("entra");
@@ -371,6 +371,20 @@ function callPlayer(frame_id, func, args) {
             "args": args || [],
             "id": frame_id
         }), "*");
-    }*/
+    }
+}
+*/
+
+
+
+// autoplay video
+function onPlayerReady(event) {
+    event.target.playVideo();
 }
 
+// when video ends
+function onPlayerStateChange(event) {        
+    if(event.data === 0) {  
+        alert('done');
+    }
+}

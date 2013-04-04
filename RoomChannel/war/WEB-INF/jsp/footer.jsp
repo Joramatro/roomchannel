@@ -21,7 +21,8 @@
         <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
         <script type="text/javascript" src="js/apprise-v2.js"></script>
         <script type="text/javascript" src="js/guggenheim.js"></script>
-        <script type="text/javascript" src="js/jquery.gritter.js"></script>        
+        <script type="text/javascript" src="js/jquery.gritter.js"></script>
+        <script src="http://www.youtube.com/player_api"></script>        
         <script>
             jQuery(function () {
 
@@ -36,6 +37,7 @@
 		</script>
 		<script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
 		<script>
+		var player;
 		var gallery;
 		var galleryInit;
   		var firstGallery=false;
@@ -62,7 +64,7 @@
 		  	    if(data['nbrUsrs']!= undefined){
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs']; 
 		  	    }else if(data['urlOembed']!= undefined){
-		  	    	if( $.trim( $('#videoChannelMain').html() ).length ) {		  	    				  	    			
+		  	    	if( player != undefined ) {		  	    				  	    			
 		  	    		video = addVideoPlaylist();
 		  	    		$(video).fadeTo(100, 0);
 		  	    		$(".guggenheim-slider").append(video);
@@ -71,22 +73,29 @@
 		  	    			$('#notification-firstGalVideo').click();
 		  	    		}
 		  	    		firstGallery =true;
+		  	    		
 		  	    	}else{
 		  	    		$('#notification-firstVideo').click();
 		  	    		$("#log").html(data['chatLog']);
 		  	    		$("#currentUrl").val(data['url']);
-		  	    		callPlayer('videoChannelMain','playVideo');
+		  	    		$("#txtVideoUrl").attr("id","txtVideoUrlActive");
+		  	    		$("#txtVideoUrl2").attr("id","txtVideoUrl");
+		  	    		
+		  	    		
+	  	    		    player = new YT.Player('videoChannelMain', {
+	  	    		      height: '390',
+	  	    		      width: '1024',
+	  	    		      videoId: '0Bmhjf0rKe8',
+	  	    		      events: {
+	  	    		        'onReady': onPlayerReady,
+	  	    		        'onStateChange': onPlayerStateChange
+	  	    		      }
+	  	    		    });
 		  	    	}
+		  	    	
 		  	    	$(".ParallaxText").hide();
 		  	    	$(".videoChannel").html(data['urlOembed']);
 		  	    	
-		  	    	$(".oembed").oembed(null,{
-	    	    	    embedMethod: 'auto',    // "auto", "append", "fill" 
-	    	    	    apikeys: {
-
-	    				},
-	    				maxHeight: 400, maxWidth:980
-	    	    	});
 		  	    	//cleaning oembed for next time
 		  	    	$("div .videoChannel").removeClass('videoChannel');
 		  	    	$("#broadcastBlock").show("slow");
@@ -98,8 +107,8 @@
 		  	    		cleanGalStyles();
 		  	    		btnGal=true;
 			  			gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
+			  			player.loadVideoById("bHQqvYy5KYo", 5, "large");
 		  	    	}
-		  	    	
 		  	    }else if(data['chatText']!= undefined){
 		  	    	if(!$("#chat_div").hasClass('ui-widget-content')){
 		  	    		$(".chatbox").click();

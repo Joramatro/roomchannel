@@ -66,8 +66,6 @@ public class LoadVideoChannel {
 	public void loadText(@RequestParam("url") String url, ModelMap model,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException, JSONException {
-		ChannelService channelService = ChannelServiceFactory
-				.getChannelService();
 		String channelKey = "xyz";
 
 		// IF USER logged, add as Ref<User>
@@ -82,7 +80,10 @@ public class LoadVideoChannel {
 		msg.put("url", theme.getUrl());
 		msg.put("chatLog", theme.getChatLog());
 
-		logger.info("msg done");
+		logger.info("video loaded done");
+		
+		ChannelService channelService = ChannelServiceFactory
+				.getChannelService();
 
 		channelService.sendMessage(new ChannelMessage(channelKey, msg
 				.toString()));
