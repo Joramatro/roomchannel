@@ -150,16 +150,33 @@
 	                        <h2>BROADCASTING <span>LIVE</span> VIDEO</h2> 
 	
 	                        <div class="clearfix"></div>
-	                        <blockquote>Start your playlist </blockquote>
+	                        <blockquote>Start here your playlist </blockquote>
 	                        <div class="clearfix"></div>
+	                        
 	                        <form class="broadcast-form form-inline">
 	                        <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="http://" />
 	                        <div class="submit-url-container">
 	                    		<button type="button" class="submit-url btn btn-large" id="btnBroadcast">BROADCASTING LIVE!</button>
 	                		</div>
 	                        </form>
-							<div class="clearfix"></div>
-	                        <p>First broadcast live video will appear here</p>
+	                        <div class="clearfix"></div>
+	                        <p>or search for youtube videos</p>
+	                        <div class="clearfix"></div>
+	                        
+	                        <form class="broadcast-form form-inline">
+	                        <input type="text" class="video-search-field" value="" placeholder=""/>
+	                        <div class="submit-video-search-container">
+			                <button name="searchButton" type="button" class="submit-video-search btn btn-small" onclick="searchClicked()">Search</button>
+				            </div>
+				            </form>
+				            <br/>
+				            <div id="videoResultsDiv"></div> 
+				            
+				            
+	                        
+	                        <div class="clearfix"></div>
+	                        
+	                        
 	                        <input type="hidden" id="currentUrl"/>
 	                    </div>
 	                    <div style = "margin: 0 auto;margin-top: 0px; height:600px; width:1000px">

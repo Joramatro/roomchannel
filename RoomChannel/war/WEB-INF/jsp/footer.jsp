@@ -22,7 +22,8 @@
         <script type="text/javascript" src="js/apprise-v2.js"></script>
         <script type="text/javascript" src="js/guggenheim.js"></script>
         <script type="text/javascript" src="js/jquery.gritter.js"></script>
-        <script src="http://www.youtube.com/player_api"></script>        
+        <script src="http://www.youtube.com/player_api"></script>
+        <script src="http://www.google.com/jsapi"></script>        
         <script>
             jQuery(function () {
 
