@@ -4,10 +4,10 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/jquery.oembed.js"></script>
 		<script type="text/javascript" src="/js/placeholder.js"></script>
+		<script type="text/javascript" src="js/knockout-2.2.1.js"></script>
 		<script type="text/javascript" src="/js/main.js"></script>
 		<script type="text/javascript" src="/js/login.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-		
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>		
         <script src="js/lean-slider.min.js"></script><!-- About Slider-->
         <script src="js/my_script.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -86,7 +86,7 @@
 	  	    		    player = new YT.Player('videoChannelMain', {
 	  	    		      height: '390',
 	  	    		      width: '1024',
-	  	    		      videoId: '0Bmhjf0rKe8',
+	  	    		      videoId: data['videoId'],
 	  	    		      events: {
 	  	    		        'onReady': onPlayerReady,
 	  	    		        'onStateChange': onPlayerStateChange

@@ -164,7 +164,7 @@
 	                        <div class="clearfix"></div>
 	                        
 	                        <form class="broadcast-form form-inline">
-	                        <input type="text" class="video-search-field" value="" placeholder=""/>
+	                        <input id="txtVideoSearch" type="text" class="video-search-field" value="" placeholder=""/>
 	                        <div class="submit-video-search-container">
 			                <button name="searchButton" type="button" class="submit-video-search btn btn-small" onclick="searchClicked()">Search</button>
 				            </div>
@@ -436,7 +436,7 @@
 			                    </div>
 			                </div>
 			                <!--#LargeSlider-->
-                        	<div class="container clearfix" style="margin-top: 80px;">
+                        <div class="container clearfix" style="margin-top: 80px;">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="ca-menu">
@@ -462,6 +462,21 @@
                                                      <h2 class="ca-main">Share your Channel</h2>
 
                                                      <h3 class="ca-sub">Give it access whom you want </h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">2</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Search Channel</h2>
+
+                                                     <h3 class="ca-sub">Look for channel title </h3>
 
                                                 </div>
                                             </a>
@@ -502,7 +517,7 @@
                                     </div>
                                 </div>
                             </div>--%>
-                            </div>
+                        </div>
                     </div>
                 </div>
                

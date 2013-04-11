@@ -63,7 +63,8 @@ public class LoadVideoChannel {
 	}
 
 	@RequestMapping(value = "/loadVideoChannel", method = RequestMethod.POST)
-	public void loadText(@RequestParam("url") String url, ModelMap model,
+	public void loadText(@RequestParam("url") String url,
+			@RequestParam("videoId") String videoId, ModelMap model,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException, JSONException {
 		String channelKey = "xyz";
@@ -78,10 +79,11 @@ public class LoadVideoChannel {
 		JSONObject msg = new JSONObject();
 		msg.put("urlOembed", urlOembed);
 		msg.put("url", theme.getUrl());
+		msg.put("videoId", videoId);
 		msg.put("chatLog", theme.getChatLog());
 
 		logger.info("video loaded done");
-		
+
 		ChannelService channelService = ChannelServiceFactory
 				.getChannelService();
 

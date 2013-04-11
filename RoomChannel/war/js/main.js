@@ -1,12 +1,18 @@
 $(function(){ 
     $("#btnBroadcast").live('click', function() {
+    	var videoId = youtube_parser($("#txtVideoUrl").val());
+    	if(videoId==0){
+    		alert("Url invalid");
+    		return;
+    	}
     	$.ajax({
 		      type: "POST",
 		      url: "/loadVideoChannel",
 		      dataType: "html",
 		      cache: false,
 	          data: {
-	        	  "url": $("#txtVideoUrl").val()
+	        	  "url": $("#txtVideoUrl").val(),
+	        	  "videoId": videoId
 	          },
 		      success: function(text){
 		    	  //Apprise("Live video broadcast for " + $('#nbrUsrs').text() + " people");
@@ -399,7 +405,7 @@ function searchClicked()
     script.setAttribute('id', 'jsonScript');
     script.setAttribute('type', 'text/javascript');
     script.setAttribute('src', 'http://gdata.youtube.com/feeds/' + 
-           'videos?vq=eminem we made you&max-results=8&' + 
+           'videos?vq='+$("#txtVideoSearch").val()+'&max-results=8&' + 
            'alt=json-in-script&callback=showMyVideos&' + 
            'orderby=relevance&sortorder=descending&format=5&fmt=18');
 
@@ -424,4 +430,15 @@ function showMyVideos(data)
     }
     html.push('</ul>');
     document.getElementById('videoResultsDiv').innerHTML = html.join('');
+}
+
+function youtube_parser(url){
+	var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+	var match = url.match(regExp);
+	if (match&&match[2].length==11){
+	    return match[2];
+	}else{
+	    //error
+		alert("url error");
+	}
 }
