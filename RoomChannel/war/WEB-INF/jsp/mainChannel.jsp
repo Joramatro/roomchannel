@@ -137,12 +137,10 @@
                 		</div>
                 	</div>
                 </div>
+                <%@ include file="/WEB-INF/jsp/lastPlayed.jsp"%>
+                <div style="height:1px"></div>
                 <!--#Radio-->
                 <div id="Radio">
-                	<div style="height:1px"></div>
-					
-					
-		            <%@ include file="/WEB-INF/jsp/lastPlayed.jsp"%>
 		            <div style="height:1px"></div>
 	                <div id="intro" class="Parallax">
 	                    <div class="ParallaxText">
@@ -179,7 +177,7 @@
 	                        
 	                        <input type="hidden" id="currentUrl"/>
 	                    </div>
-	                    <div style = "margin: 0 auto;margin-top: 0px; height:600px; width:1000px">
+	                    <div style = "margin: 0 auto;margin-top: -50px; height:600px; width:1200px">
 	                        <div id="videoChannelMain" style="" class=""> </div>
 	                    </div>	                    
 	                </div>

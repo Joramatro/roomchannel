@@ -26,7 +26,7 @@ function addVideoPlaylist(){
 	li.class = 'span3';
 	div = $("<div class='thumbnail clearfix'>");
 	li.append(div);
-	divChnl = $("<div class='videoChannel'>");
+	divChnl = $("<div id='videoChannel'>");
 	div.append(divChnl);
 	
 	divCaption = $("<div class='caption'>");
@@ -391,8 +391,19 @@ function onPlayerReady(event) {
 // when video ends
 function onPlayerStateChange(event) {        
     if(event.data === 0) {  
-        alert('done');
+        //alert('done');
+    	//alert(playerGal.getVideoUrl());
+    	player.loadVideoById($("#firstIdGal").val(), 0, "large");
     }
+}
+
+function onPlayerReadyGal(event) {
+    
+}
+
+// when video ends
+function onPlayerStateChangeGal(event) {        
+ 
 }
 
 function searchClicked()

@@ -39,6 +39,7 @@
 		<script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
 		<script>
 		var player;
+		var playerGal;
 		var gallery;
 		var galleryInit;
   		var firstGallery=false;
@@ -65,7 +66,7 @@
 		  	    if(data['nbrUsrs']!= undefined){
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs']; 
 		  	    }else if(data['urlOembed']!= undefined){
-		  	    	if( player != undefined ) {		  	    				  	    			
+		  	    	if( player != undefined ) {	
 		  	    		video = addVideoPlaylist();
 		  	    		$(video).fadeTo(100, 0);
 		  	    		$(".guggenheim-slider").append(video);
@@ -84,8 +85,8 @@
 		  	    		
 		  	    		
 	  	    		    player = new YT.Player('videoChannelMain', {
-	  	    		      height: '390',
-	  	    		      width: '1024',
+	  	    		      height: '500',
+	  	    		      width: '1200',
 	  	    		      videoId: data['videoId'],
 	  	    		      events: {
 	  	    		        'onReady': onPlayerReady,
@@ -95,20 +96,31 @@
 		  	    	}
 		  	    	
 		  	    	$(".ParallaxText").hide();
-		  	    	$(".videoChannel").html(data['urlOembed']);
+		  	    	//$(".videoChannel").html(data['urlOembed']);
 		  	    	
 		  	    	//cleaning oembed for next time
-		  	    	$("div .videoChannel").removeClass('videoChannel');
+		  	    	//$("div .videoChannel").removeClass('videoChannel');
 		  	    	$("#broadcastBlock").show("slow");
-		  	    	$("#guggenheim-container span.oembedall-closehide").html('');
+		  	    	//$("#guggenheim-container span.oembedall-closehide").html('');
 		  	    	//document.getElementById("broadcastLive").innerHTML = data[''];
 			  	    //$('#textAreaCh').append(data['text']);
 		  	    	//$(text).appendTo('.multiLoadNew1');
+	    		    playerGal = new YT.Player('videoChannel', {
+  	    		      height: '220',
+  	    		      width: '293',
+  	    		      videoId: data['videoId'],
+  	    		      events: {
+  	    		        'onReady': onPlayerReadyGal,
+  	    		        'onStateChange': onPlayerStateChangeGal
+  	    		      }
+  	    		    });
+	    		    $("#videoChannel").removeAttr('id');
 		  	    	if(firstGallery){
+		  	    		$("#firstIdGal").val(data['videoId']);
 		  	    		cleanGalStyles();
 		  	    		btnGal=true;
 			  			gallery = guggenheim('#guggenheim-container',{rows:2,cols:4});
-			  			player.loadVideoById("bHQqvYy5KYo", 5, "large");
+			  			//player.loadVideoById("bHQqvYy5KYo", 5, "large");
 		  	    	}
 		  	    }else if(data['chatText']!= undefined){
 		  	    	if(!$("#chat_div").hasClass('ui-widget-content')){

@@ -34,6 +34,7 @@
                        <a href="javascript:" class="btn" onclick='gallery.next()'>Next <i class="icon-arrow-right"></i></a>
 					<br /></p>
                     </div>
+                    <input type="hidden" id="firstIdGal"/>
                 </div>
             </div>
         </div>
