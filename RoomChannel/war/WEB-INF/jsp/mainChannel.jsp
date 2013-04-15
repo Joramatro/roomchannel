@@ -42,6 +42,12 @@
         <style>
 			.ui-autocomplete-loading { background: white url('/images/loading.gif') right center no-repeat; }
 		</style>
+		<link rel="stylesheet" href="http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
+		<link rel="stylesheet" href="css/jquery.fileupload-ui.css">
+		<!-- CSS adjustments for browsers with JavaScript disabled -->
+		<noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
+		<!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->		
     </head>
     
     <body class="clearfix" data-spy="scroll" data-target="#navbar" data-offset="10">
@@ -482,6 +488,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <%@ include file="/WEB-INF/jsp/fileupload.jsp"%>
                             <%--
                             <div class="row-fluid">
                                 <div class="span6">

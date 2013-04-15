@@ -25,12 +25,12 @@ function handleOpenIDResponse(openid_args) {
 }
 
 $(function(){
-  $(".login").live('click', function(e){
+  $(".login").on('click', function(e){
     var w = window.open("/home/?popup=true", "openid_popup", "width=550,height=610,location=1,status=1,resizable=yes");
     var coords = getCenteredCoords(380,120);
     w.moveTo(coords.x, coords.y);
   });
-  $(".logout").live('click', function(e){
+  $(".logout").on('click', function(e){
     $.ajax({
       type: "GET",
       url: "/popup_verify/?logout=true",

@@ -453,3 +453,18 @@ function youtube_parser(url){
 		alert("url error");
 	}
 }
+
+$(function() {
+	  /* activate the plugin */
+		$('#fileupload').fileupload({submit: function (e, data) {
+	        
+	    	var $this = $(this);
+	    	//debugger;
+	        $.getJSON('/rest/file/url?' + new Date().getTime(), function (result) {
+	        	data.url = result.url;
+	            $this.fileupload('send', data);
+	        });
+	        return false;
+	    }
+		});
+	});
