@@ -6,12 +6,21 @@
 
 <div class="container">
     <div class="page-header">
-        <h1>jQuery File Upload Demo</h1>
+        <h1>Set your channel name</h1>
     </div>
     <blockquote>
-        <p>File Upload widget with multiple file selection, drag&amp;drop support, progress bars and preview images for jQuery.<br>
-        Supports cross-domain, chunked and resumable file uploads and client-side image resizing.<br>
-        Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.</p>
+        <p>Write a creative name for the channel you want to create</p>
+    </blockquote>
+    <br>
+    <div>
+    	<input type="text" style="width:300px; height:40px;" placeholder="i.e Brian's Music Dj or The Comedy Home"/>
+    </div>
+    <br>
+    <div class="page-header">
+        <h1>and Set your channel pictures</h1>
+    </div>
+    <blockquote>
+        <p>Upload your profile pictures which will be displayed on your channel website</p>
     </blockquote>
     <br>
     <!-- The file upload form used as target for the file upload widget -->
@@ -24,9 +33,10 @@
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">
                     <i class="icon-plus icon-white"></i>
-                    <span>Add files...</span>
+                    <span>Add Picture...</span>
                     <input type="file" name="files[]" multiple>
                 </span>
+                <!--
                 <button type="submit" class="btn btn-primary start">
                     <i class="icon-upload icon-white"></i>
                     <span>Start upload</span>
@@ -35,6 +45,7 @@
                     <i class="icon-ban-circle icon-white"></i>
                     <span>Cancel upload</span>
                 </button>
+                 -->
                 <button type="button" class="btn btn-danger delete">
                     <i class="icon-trash icon-white"></i>
                     <span>Delete</span>
@@ -59,14 +70,12 @@
     </form>
     <br>
     <div class="well">
-        <h3>Demo Notes</h3>
+        <h3>Notes</h3>
         <ul>
-            <li>The maximum file size for uploads in this demo is <strong>5 MB</strong> (default file size is unlimited).</li>
-            <li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed in this demo (by default there is no file type restriction).</li>
-            <li>Uploaded files will be deleted automatically after <strong>5 minutes</strong> (demo setting).</li>
-            <li>You can <strong>drag &amp; drop</strong> files from your desktop on this webpage with Google Chrome, Mozilla Firefox and Apple Safari.</li>
-            <li>Please refer to the <a href="https://github.com/blueimp/jQuery-File-Upload">project website</a> and <a href="https://github.com/blueimp/jQuery-File-Upload/wiki">documentation</a> for more information.</li>
-            <li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> toolkit and Icons from <a href="http://glyphicons.com/">Glyphicons</a>.</li>
+            <li>The maximum file size for uploads is <strong>32 MB</strong>.</li>
+            <li>The maximum number of files for upload are <strong>10</strong>.</li>
+            <li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed.</li>
+            <li>You can <strong>drag &amp; drop</strong> files from your desktop on this place.</li>
         </ul>
     </div>
 </div>
@@ -142,7 +151,7 @@
                 <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
             {% } %}</td>
             <td class="name">
-                <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}">{%=file.name%}</a>
+                <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
             </td>
             <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
             <td colspan="2"></td>

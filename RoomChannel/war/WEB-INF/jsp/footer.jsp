@@ -22,28 +22,22 @@
         <script type="text/javascript" src="js/guggenheim.js"></script>
         <script type="text/javascript" src="js/jquery.gritter.js"></script>
         <script src="http://www.youtube.com/player_api"></script>
-        <script src="http://www.google.com/jsapi"></script>
-        
-        
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="js/vendor/jquery.ui.widget.js"></script>
-<!-- The Templates plugin is included to render the upload/download listings -->
-<script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
-<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="http://blueimp.github.com/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js"></script>
-<!-- Bootstrap JS and Bootstrap Image Gallery are not required, but included for the demo -->
-<script src="http://blueimp.github.com/cdn/js/bootstrap.min.js"></script>
-<script src="http://blueimp.github.com/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js"></script>
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="js/jquery.fileupload.js"></script>
-<!-- The File Upload file processing plugin -->
-<script src="js/jquery.fileupload-fp.js"></script>
-<!-- The File Upload user interface plugin -->
-<script src="js/jquery.fileupload-ui.js"></script>        
+        <script src="http://www.google.com/jsapi"></script>        
+		<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+		<script src="js/vendor/jquery.ui.widget.js"></script>
+		<!-- The Templates plugin is included to render the upload/download listings -->
+		<script src="js/tmpl.min.js"></script>
+		<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+		<script src="js/load-image.min.js"></script>		
+		<script src="js/bootstrap-image-gallery.min.js"></script>
+		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+		<script src="js/jquery.iframe-transport.js"></script>
+		<!-- The basic File Upload plugin -->
+		<script src="js/jquery.fileupload.js"></script>
+		<!-- The File Upload file processing plugin -->
+		<script src="js/jquery.fileupload-fp.js"></script>
+		<!-- The File Upload user interface plugin -->
+		<script src="js/jquery.fileupload-ui.js"></script>        
                 
         <script>
             jQuery(function () {
@@ -177,6 +171,7 @@
 		</script>
 		<script>
         //console.log(gallery);
+        //Create view model
 		</script>
 		<script type="text/javascript" src="/js/main.js"></script>
 		<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->

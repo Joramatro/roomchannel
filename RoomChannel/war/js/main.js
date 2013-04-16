@@ -357,7 +357,6 @@ $(document).ready(function() {
 	$("#guggenheim-container-init .guggenheim-item").removeClass('guggenheim-item');
 	
 	//$("#guggenheim-container-init span.oembedall-closehide").html('');
-	
 });
 
 /*
@@ -468,3 +467,18 @@ $(function() {
 	    }
 		});
 	});
+
+
+var buttonVm = new function(){
+	  var self = this;
+	  // Flags for visibility
+	  // Set first to true to cover your "first should be open" req
+	  self.button1Visible = ko.observable(false);
+
+	  self.toggle1 =  function(){
+	     self.button1Visible(!self.button1Visible());
+	  }
+	}
+
+var vm = buttonVm;
+ko.applyBindings(vm);

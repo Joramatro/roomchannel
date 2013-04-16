@@ -42,7 +42,7 @@
         <style>
 			.ui-autocomplete-loading { background: white url('/images/loading.gif') right center no-repeat; }
 		</style>
-		<link rel="stylesheet" href="http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
+		<link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
 		<link rel="stylesheet" href="css/jquery.fileupload-ui.css">
 		<!-- CSS adjustments for browsers with JavaScript disabled -->
 		<noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
@@ -445,7 +445,7 @@
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>
-                                            <a href="#"> <span class="ca-icon">1</span>
+                                            <a data-bind="click: toggle1" href="#"> <span class="ca-icon">1</span>
 
                                                 <div class="ca-content">
                                                      <h2 class="ca-main">Create a new Channel</h2>
@@ -456,8 +456,13 @@
                                             </a>
                                         </div>
                                     </div>
+                                    <div data-bind="visible: button1Visible">
+                                    <%@ include file="/WEB-INF/jsp/fileupload.jsp"%>
+                                    </div>
                                 </div>
-                                <div class="span6" style="margin-left:30px">
+                              </div>
+                              <div class="row-fluid">
+                                <div class="span6">
                                     <div class="ca-menu">
                                         <div>
                                             <a href="#"> <span class="ca-icon">2</span>
@@ -472,10 +477,12 @@
                                         </div>
                                     </div>
                                 </div>
+                              </div>
+                              <div class="row-fluid">
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>
-                                            <a href="#"> <span class="ca-icon">2</span>
+                                            <a href="#"> <span class="ca-icon">3</span>
 
                                                 <div class="ca-content">
                                                      <h2 class="ca-main">Search Channel</h2>
@@ -488,7 +495,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <%@ include file="/WEB-INF/jsp/fileupload.jsp"%>
                             <%--
                             <div class="row-fluid">
                                 <div class="span6">

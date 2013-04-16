@@ -24,6 +24,9 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreFailureException;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.images.ServingUrlOptions;
 import com.google.appengine.labs.repackaged.com.google.common.collect.Lists;
 
 @Path("/file")
@@ -67,13 +70,22 @@ public class FileResource {
 			URISyntaxException {
 		Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
 		BlobKey blobKey = blobs.get("files[]");
-		// res.sendRedirect("/rest/file/" + blobKey.getKeyString() + "/meta");
+		res.sendRedirect(blobKey.getKeyString() + "/meta");
 
 		BlobInfo info = blobInfoFactory.loadBlobInfo(blobKey);
+
 		String name = info.getFilename();
 		long size = info.getSize();
 		String url = "/rest/file/" + blobKey.getKeyString();
-		FileMeta meta = new FileMeta(name, size, url);
+
+		ImagesService imagesService = ImagesServiceFactory.getImagesService();
+		ServingUrlOptions.Builder.withBlobKey(blobKey).crop(true).imageSize(80);
+		int sizePreview = 80;
+		String urlPreview = imagesService
+				.getServingUrl(ServingUrlOptions.Builder.withBlobKey(blobKey)
+						.crop(true).imageSize(sizePreview));
+
+		FileMeta meta = new FileMeta(name, size, url, urlPreview);
 
 		List<FileMeta> metas = Lists.newArrayList(meta);
 		Entity entity = new Entity(metas);
@@ -91,7 +103,15 @@ public class FileResource {
 		String name = info.getFilename();
 		long size = info.getSize();
 		String url = "/rest/file/" + key;
-		FileMeta meta = new FileMeta(name, size, url);
+
+		ImagesService imagesService = ImagesServiceFactory.getImagesService();
+		ServingUrlOptions.Builder.withBlobKey(blobKey).crop(true).imageSize(80);
+
+		String urlPreview = imagesService
+				.getServingUrl(ServingUrlOptions.Builder.withBlobKey(blobKey)
+						.crop(true).imageSize(80));
+
+		FileMeta meta = new FileMeta(name, size, url, urlPreview);
 
 		List<FileMeta> metas = Lists.newArrayList(meta);
 		Entity entity = new Entity(metas);
