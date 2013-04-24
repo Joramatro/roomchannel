@@ -5,19 +5,25 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="container">
+	<div data-bind="visible: button2Invisible"> 
     <div class="page-header">
         <h1>Set your channel name</h1>
     </div>
     <blockquote>
-        <p>Write a creative name for the channel you want to create</p>
+        Write a creative name for the channel you want to create
     </blockquote>
     <br>
-    <div>
-    	<input type="text" style="width:300px; height:40px;" placeholder="i.e Brian's Music Dj or The Comedy Home"/>
+    <div style="text-align: left; vertical-align:middle">
+    	<input data-bind='value: titleToAdd, valueUpdate: "afterkeydown"' type="text" style="width:380px; height:40px;margin-left:20px;font-size: 20px;" placeholder="i.e Brian's Music Dj or The Comedy Home"/>
+    	<button data-bind="click: toggle2,enable: titleToAdd().length > 0" type="button" class="btn" style="height: 45px;width: 120px;font-size: 30px;margin-bottom: 8px;">Next!</button>
+    </div>	
+    <br><br>
+
     </div>
+    <div data-bind="visible: button2Visible">
     <br>
     <div class="page-header">
-        <h1>and Set your channel pictures</h1>
+        <h1>Set your channel pictures</h1>
     </div>
     <blockquote>
         <p>Upload your profile pictures which will be displayed on your channel website</p>
@@ -77,6 +83,9 @@
             <li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed.</li>
             <li>You can <strong>drag &amp; drop</strong> files from your desktop on this place.</li>
         </ul>
+    </div>
+    <br><br><br>
+    <button type="button" class="btn" style="height: 45px;width: 300px;font-size: 30px;">Start my channel!</button>
     </div>
 </div>
 <!-- modal-gallery is the modal dialog used for the image gallery -->

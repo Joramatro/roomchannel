@@ -471,14 +471,25 @@ $(function() {
 
 var buttonVm = new function(){
 	  var self = this;
-	  // Flags for visibility
-	  // Set first to true to cover your "first should be open" req
 	  self.button1Visible = ko.observable(false);
+	  self.button1OtherButtons = ko.observable(true);
+	  self.button2Visible = ko.observable(false);
+	  self.button2Invisible = ko.observable(true);
+	  this.titleToAdd = ko.observable("");
 
 	  self.toggle1 =  function(){
 	     self.button1Visible(!self.button1Visible());
+	     self.button1OtherButtons(!self.button1OtherButtons());
 	  }
+	  self.toggle2 =  function(){
+		     self.button2Visible(!self.button2Visible());
+		     self.button2Invisible(!self.button2Invisible());
+		  }
 	}
 
+
+
 var vm = buttonVm;
+
 ko.applyBindings(vm);
+

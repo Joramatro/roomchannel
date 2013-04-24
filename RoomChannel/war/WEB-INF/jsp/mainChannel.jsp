@@ -455,13 +455,13 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    </div>
-                                    <div data-bind="visible: button1Visible">
-                                    <%@ include file="/WEB-INF/jsp/fileupload.jsp"%>
-                                    </div>
+                                    </div> 
                                 </div>
                               </div>
-                              <div class="row-fluid">
+                              <div data-bind="visible: button1Visible">
+                                    <%@ include file="/WEB-INF/jsp/fileupload.jsp"%>
+                              </div>
+                              <div data-bind="visible: button1OtherButtons" class="row-fluid">
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>
@@ -478,16 +478,16 @@
                                     </div>
                                 </div>
                               </div>
-                              <div class="row-fluid">
+                              <div data-bind="visible: button1OtherButtons" class="row-fluid">
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>
                                             <a href="#"> <span class="ca-icon">3</span>
 
                                                 <div class="ca-content">
-                                                     <h2 class="ca-main">Search Channel</h2>
+                                                     <h2 class="ca-main">Search for Channels</h2>
 
-                                                     <h3 class="ca-sub">Look for channel title </h3>
+                                                     <h3 class="ca-sub">Look for a kind of channel</h3>
 
                                                 </div>
                                             </a>
