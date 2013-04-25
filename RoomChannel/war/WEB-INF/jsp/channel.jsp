@@ -67,7 +67,7 @@
                      
                         <ul class="nav">
                             <li class="active">
-                                <a href="#welcome">Home</a>
+                                <a href="#welcome">Channel</a>
                             </li>
                             <li>
                                 <a href="#Radio">Radio</a>
@@ -76,10 +76,10 @@
                                 <a href="#Channels">Channels</a>
                             </li>
                             <li>
-                                <a href="#Contact">Contact</a>
+                                <a href="#Contact">Profile</a>
                             </li>
                             <li>
-                                <a href="#Login" class="login">Login</a>
+                                <a href="#Login" class="login">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -661,21 +661,23 @@
                                      <h2>Contact Info</h2>
 
                                     <div class="well">
-                                        <p></p>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+                                            dis parturient montes.</p>
                                         <hr>
                                         <div class="contact-info">
                                             <ul>
-                                                <li> <i class="icon-globe" style="margin-right:10px"></i>RadioChannel</li>
+                                                <li> <i class="icon-globe" style="margin-right:10px"></i>Lorem ipsum dolor</li>
                                                 <br>
-                                                <%-- <li> <i class="icon-bullhorn" style="margin-right:10px"></i>+(20) (0) 491.27.29</li>
-                                                <br> --%>
+                                                <li> <i class="icon-bullhorn" style="margin-right:10px"></i>+(20) (0) 491.27.29</li>
+                                                <br>
                                                 <li> <i class="icon-envelope" style="margin-right:10px"></i>
 
-                                                    <a href="mailto:admin@radiochannel.com">admin@radiochannel.com</a>
+                                                    <a href="mailto:ahmedeabbas@yahoo.com">Some@yahoo.com</a>
                                                 </li>
                                                 <br>
-                                                <%-- <li> <i class="icon-map-marker" style="margin-right:10px"></i>Lorem ipsum dolor
-                                                    consectetuer adipiscing elit.</li> --%>
+                                                <li> <i class="icon-map-marker" style="margin-right:10px"></i>Lorem ipsum dolor
+                                                    consectetuer adipiscing elit.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -687,7 +689,10 @@
 <h2>Get In Touch With Us</h2>
 
                                     <div class="well">
-                                        <p>Give us your feedback, suggeestion or any comments you want.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+                                            dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                            nec, pellentesque eu, pretium quis, sem.</p>
                                         <form class="form-horizontal"
                                         id="registerHere" method='post' action=''>
                                             <fieldset>

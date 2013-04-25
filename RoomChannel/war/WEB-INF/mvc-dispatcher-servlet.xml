@@ -66,6 +66,13 @@
 	<aop:aspectj-autoproxy/>
 	<bean id="loginAspect" class="com.amatic.rc.aop.login.LoginAspect" />
 	
-		
+	<util:map id ="attributesMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String">
+		<entry key="email" value="list1@cc.com" />
+		<entry key="nickname" value="" />
+	</util:map>
+	<bean id="OIdUserBean" class="com.dyuproject.openid.OpenIdUser">
+		<property name="attributes" ref="attributesMap"/>
+	</bean>	
 	
 </beans>
