@@ -493,3 +493,28 @@ var vm = buttonVm;
 
 ko.applyBindings(vm);
 
+
+$(function(){ 
+    $("#btnSaveChn").live('click', function() {
+    	//check name channel is not repeated
+//    	if(channelExists){
+//    		alert("channel name repeated");
+//    		return;
+//    	}
+    	$.ajax({
+		      type: "POST",
+		      url: "/newChannel",
+		      dataType: "html",
+		      cache: false,
+	          data: {
+	        	  "channelName": $("#nameChannel").val()
+	          },
+		      success: function(text){
+		    	  $("#startChannel-form").attr("action", "/ch/" + $("#nameChannel").val());
+		    	  $("#nameChannelUpload").val($("#nameChannel").val());
+		      }
+		    });
+    });
+});
+
+

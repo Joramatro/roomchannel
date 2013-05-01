@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.amatic.rc.dao.UserDao;
-import com.amatic.rc.user.User;
+import com.amatic.rc.dto.User;
 
 @Service
 public class UserService {

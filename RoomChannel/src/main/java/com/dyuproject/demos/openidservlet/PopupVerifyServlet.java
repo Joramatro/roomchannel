@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.mortbay.util.ajax.JSON;
 
 import com.amatic.rc.constants.WebConstants;
-import com.amatic.rc.user.User;
+import com.amatic.rc.dto.User;
 import com.dyuproject.openid.Constants;
 import com.dyuproject.openid.OpenIdUser;
 import com.dyuproject.openid.RelyingParty;

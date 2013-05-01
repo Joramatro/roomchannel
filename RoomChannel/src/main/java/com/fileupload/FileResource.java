@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +19,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.amatic.rc.dto.Channel;
+import com.amatic.rc.service.UChannelService;
 import com.google.appengine.api.blobstore.BlobInfo;
 import com.google.appengine.api.blobstore.BlobInfoFactory;
 import com.google.appengine.api.blobstore.BlobKey;
@@ -36,11 +41,15 @@ public class FileResource {
 			.getBlobstoreService();
 	private final BlobInfoFactory blobInfoFactory = new BlobInfoFactory();
 
+	@Autowired
+	private UChannelService uChannelService;
+
 	/* step 1. get a unique url */
 
 	@DELETE
 	@Path("/{key}")
-	public Response delete(@PathParam("key") String key) {
+	public Response delete(@PathParam("key") String key,
+			@Context HttpServletRequest req, @Context HttpServletResponse res) {
 		Status status;
 		try {
 			blobstoreService.delete(new BlobKey(key));
@@ -48,6 +57,13 @@ public class FileResource {
 		} catch (BlobstoreFailureException bfe) {
 			status = Status.NOT_FOUND;
 		}
+		HttpSession session = req.getSession();
+		Channel channel = uChannelService.getChannel((String) session
+				.getAttribute("newChannel"));
+		List<String> lImages = channel.getlImages();
+		lImages.remove(key);
+		uChannelService.update(channel);
+
 		return Response.status(status).build();
 	}
 
@@ -70,9 +86,16 @@ public class FileResource {
 			URISyntaxException {
 		Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
 		BlobKey blobKey = blobs.get("files[]");
-		res.sendRedirect(blobKey.getKeyString() + "/meta");
+		// res.sendRedirect(blobKey.getKeyString() + "/meta");
 
 		BlobInfo info = blobInfoFactory.loadBlobInfo(blobKey);
+		HttpSession session = req.getSession();
+
+		Channel channel = uChannelService.getChannel((String) session
+				.getAttribute("newChannel"));
+		List<String> lImages = channel.getlImages();
+		lImages.add(blobKey.getKeyString());
+		uChannelService.update(channel);
 
 		String name = info.getFilename();
 		long size = info.getSize();

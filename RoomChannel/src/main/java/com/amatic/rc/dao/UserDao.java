@@ -2,7 +2,7 @@ package com.amatic.rc.dao;
 
 import java.util.List;
 
-import com.amatic.rc.user.User;
+import com.amatic.rc.dto.User;
 
 public interface UserDao {
 

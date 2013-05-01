@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.amatic.rc.dao.UserDao;
-import com.amatic.rc.user.User;
+import com.amatic.rc.dto.User;
 import com.googlecode.objectify.Ref;
 
 @Repository
@@ -22,6 +22,7 @@ public class UserDaoImpl implements UserDao {
 		updateUser.setMail(user.getMail());
 		updateUser.setName(user.getName());
 		updateUser.setVotes(user.getVotes());
+		updateUser.setChannels(user.getChannels());
 	}
 
 	@Override

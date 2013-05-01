@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
 import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
+import com.google.appengine.labs.repackaged.com.google.common.base.Throwables;
+
 @ControllerAdvice
 public class GeneralHandler {
 
@@ -31,6 +33,7 @@ public class GeneralHandler {
 		// odelAndView mav = new ModelAndView();
 
 		logger.info("error handled");
+		logger.severe(Throwables.getStackTraceAsString(ex));
 		return errorModelAndView(ex);
 	}
 

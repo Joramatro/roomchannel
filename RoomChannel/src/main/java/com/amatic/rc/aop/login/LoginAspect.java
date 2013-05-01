@@ -1,19 +1,13 @@
 package com.amatic.rc.aop.login;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.amatic.rc.constants.WebConstants;
 import com.amatic.rc.service.UserService;
-import com.amatic.rc.user.User;
 import com.dyuproject.openid.OpenIdUser;
 
 @Aspect
@@ -36,29 +30,26 @@ public class LoginAspect {
 		// stop stopwatch
 
 		// throw new Exception();
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
-				.getRequestAttributes()).getRequest();
-		HttpSession session = request.getSession();
-		User user = (User) session
-				.getAttribute(WebConstants.SessionConstants.RC_USER);
+		/*
+		 * HttpServletRequest request = ((ServletRequestAttributes)
+		 * RequestContextHolder .getRequestAttributes()).getRequest();
+		 * HttpSession session = request.getSession(); User user = (User)
+		 * session .getAttribute(WebConstants.SessionConstants.RC_USER);
+		 * 
+		 * // Saltando Uservalidation
+		 * 
+		 * if (user == null) { user = new User(); user.setMail((String)
+		 * oIdUserBean.getAttribute("email")); user.setName((String)
+		 * oIdUserBean.getAttribute("nickname"));
+		 * 
+		 * // session.setAttribute(WebConstants.SessionConstants.RC_USER, //
+		 * user); /* try { user = this.userService.findUser(user.getMail()); }
+		 * catch (com.googlecode.objectify.NotFoundException nf) {
+		 * this.userService.create(user, false); }
+		 */
 
-		// Saltando Uservalidation
-
-		if (user == null) {
-			user = new User();
-			user.setMail((String) oIdUserBean.getAttribute("email"));
-			user.setName((String) oIdUserBean.getAttribute("nickname"));
-
-			// session.setAttribute(WebConstants.SessionConstants.RC_USER,
-			// user);
-			/*
-			 * try { user = this.userService.findUser(user.getMail()); } catch
-			 * (com.googlecode.objectify.NotFoundException nf) {
-			 * this.userService.create(user, false); }
-			 */
-
-			user.setNewUser(true);
-		}
+		// user.setNewUser(true);
+		// }
 		// return retVal;
 	}
 }

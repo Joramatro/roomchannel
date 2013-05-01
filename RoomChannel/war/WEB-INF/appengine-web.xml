@@ -41,8 +41,8 @@
 	</inbound-services>
 	
   	<static-error-handlers>
-	    <handler file="/err/genErr.jsp"/>
-	    <handler file="/err/over_quota.html" error-code="over_quota"/>
+	    <handler file="/WEB-INF/jsp/errors/genErr.jsp"/>
+	    <handler file="/WEB-INF/jsp/errors/over_quota.html" error-code="over_quota"/>
     </static-error-handlers>
 
 </appengine-web-app>

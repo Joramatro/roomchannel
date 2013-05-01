@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="container">
+	
 	<div data-bind="visible: button2Invisible"> 
     <div class="page-header">
         <h1>Set your channel name</h1>
@@ -14,8 +15,8 @@
     </blockquote>
     <br>
     <div style="text-align: left; vertical-align:middle">
-    	<input data-bind='value: titleToAdd, valueUpdate: "afterkeydown"' type="text" style="width:380px; height:40px;margin-left:20px;font-size: 20px;" placeholder="i.e Brian's Music Dj or The Comedy Home"/>
-    	<button data-bind="click: toggle2,enable: titleToAdd().length > 0" type="button" class="btn" style="height: 45px;width: 120px;font-size: 30px;margin-bottom: 8px;">Next!</button>
+    	<input id="nameChannel" data-bind='value: titleToAdd, valueUpdate: "afterkeydown"' type="text" style="width:380px; height:40px;margin-left:20px;font-size: 20px;" placeholder="i.e Brian's Music Dj or The Comedy Home"/>
+    	<button data-bind="click: toggle2,enable: titleToAdd().length > 0" type="button" id="btnSaveChn" class="btn saveChn" style="height: 45px;width: 120px;font-size: 30px;margin-bottom: 8px;">Next!</button>
     </div>	
     <br><br>
 
@@ -31,8 +32,8 @@
     <br>
     <!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" method="POST" enctype="multipart/form-data">
-        <!-- Redirect browsers with JavaScript disabled to the origin page -->
-        <noscript><input type="hidden" name="redirect" value="http://blueimp.github.com/jQuery-File-Upload/"></noscript>
+    	<input id="channelNameUpload" name="channelNameUpload" type="hidden"/>
+    	
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row fileupload-buttonbar">
             <div class="span7">
@@ -85,8 +86,11 @@
         </ul>
     </div>
     <br><br><br>
-    <button type="button" class="btn" style="height: 45px;width: 300px;font-size: 30px;">Start my channel!</button>
+    <form id="startChannel-form" action="" method="get">
+    	<button  class="btn" style="height: 45px;width: 300px;font-size: 30px;">Start my channel!</button>
+    </form>
     </div>
+    
 </div>
 <!-- modal-gallery is the modal dialog used for the image gallery -->
 <div id="modal-gallery" class="modal modal-gallery hide fade" data-filter=":odd" tabindex="-1">

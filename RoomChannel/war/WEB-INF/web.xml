@@ -100,22 +100,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    </init-param>
 	</filter>			
 	
-	<error-page>
-    	<exception-type>java.lang.Exception</exception-type>
-    	<location>/err/genErr.jsp</location>  
-	</error-page> 
+ 
 	<error-page>
     	<error-code>404</error-code>
-    	<location>/errors/404</location>
+    	<location>/WEB-INF/jsp/errors/404.html</location>
 	</error-page>
-	<error-page>
-    	<exception-type>java.lang.Throwable</exception-type>
-    	<location>/err/genErr.jsp</location>  
-	</error-page>
-	<error-page>
-    	<error-code>500</error-code>
-    	<location>/err/genErr.jsp</location>
-	</error-page>
+
 	
 	<servlet-mapping>
 	    <servlet-name>home-servlet</servlet-name>
@@ -140,7 +130,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
     <servlet-name>jersey</servlet-name>
-    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
     <init-param> 
         <param-name>com.sun.jersey.config.property.resourceConfigClass</param-name> 
         <param-value>com.sun.jersey.api.core.PackagesResourceConfig</param-value> 

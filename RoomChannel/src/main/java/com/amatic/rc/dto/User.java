@@ -1,14 +1,18 @@
-package com.amatic.rc.user;
+package com.amatic.rc.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import com.dyuproject.openid.OpenIdUser;
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.Load;
 
 @Entity
 public class User implements Serializable {
@@ -31,6 +35,9 @@ public class User implements Serializable {
 
 	@Index
 	private Date date;
+
+	@Load
+	private List<Ref<Channel>> channels = new ArrayList<Ref<Channel>>();
 
 	@Ignore
 	private boolean newUser = false;
@@ -55,6 +62,10 @@ public class User implements Serializable {
 				.get("email");
 		this.name = (String) ((HashMap) openIdUser.getAttributes().get("info"))
 				.get("name");
+	}
+
+	public List<Ref<Channel>> getChannels() {
+		return channels;
 	}
 
 	public Date getDate() {
@@ -94,6 +105,10 @@ public class User implements Serializable {
 			newUser = false;
 			return false;
 		}
+	}
+
+	public void setChannels(List<Ref<Channel>> channels) {
+		this.channels = channels;
 	}
 
 	public void setDate(Date date) {

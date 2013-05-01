@@ -4,54 +4,40 @@
         <script type="text/javascript" src="/_ah/channel/jsapi"></script>
 		<script type="text/javascript" src="/js/jquery.oembed.js"></script>
 		<script type="text/javascript" src="/js/placeholder.js"></script>
-		<script type="text/javascript" src="js/knockout-2.2.1.js"></script>
+		<script type="text/javascript" src="/js/knockout-2.2.1.js"></script>
 		<script type="text/javascript" src="/js/login.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>		
-        <script src="js/lean-slider.min.js"></script><!-- About Slider-->
-        <script src="js/my_script.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.1.3.min.js"></script><!-- parallax-->
-        <script src="js/modernizr-2.6.1.min.js"></script><!--blur slidShow -->
-        <script src="js/jquery.quicksand.min.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/jquery.mobile.customized.min.js"></script><!-- camera Slider-->
-        <script src="js/camera.min.js"></script><!-- camera Slider-->
-        <script src="js/jquery.parallax-1.1.3.min.js"></script><!--  parallax-->
-        <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
-        <script type="text/javascript" src="js/apprise-v2.js"></script>
-        <script type="text/javascript" src="js/guggenheim.js"></script>
-        <script type="text/javascript" src="js/jquery.gritter.js"></script>
+        <script src="/js/lean-slider.min.js"></script><!-- About Slider-->
+        <script src="/js/my_script.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.easing.1.3.min.js"></script><!-- parallax-->
+        <script src="/js/modernizr-2.6.1.min.js"></script><!--blur slidShow -->
+        <script src="/js/jquery.quicksand.min.js"></script>
+        <script src="/js/jquery.validate.min.js"></script>   
+        <script src="/js/jquery.parallax-1.1.3.min.js"></script><!--  parallax-->
+        <script src="/js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
+        <script type="text/javascript" src="/js/apprise-v2.js"></script>
+        <script type="text/javascript" src="/js/guggenheim.js"></script>
+        <script type="text/javascript" src="/js/jquery.gritter.js"></script>
         <script src="http://www.youtube.com/player_api"></script>
         <script src="http://www.google.com/jsapi"></script>        
 		<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-		<script src="js/vendor/jquery.ui.widget.js"></script>
+		<script src="/js/vendor/jquery.ui.widget.js"></script>
 		<!-- The Templates plugin is included to render the upload/download listings -->
-		<script src="js/tmpl.min.js"></script>
+		<script src="/js/tmpl.min.js"></script>
 		<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-		<script src="js/load-image.min.js"></script>		
-		<script src="js/bootstrap-image-gallery.min.js"></script>
+		<script src="/js/load-image.min.js"></script>		
+		<script src="/js/bootstrap-image-gallery.min.js"></script>
 		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-		<script src="js/jquery.iframe-transport.js"></script>
+		<script src="/js/jquery.iframe-transport.js"></script>
 		<!-- The basic File Upload plugin -->
-		<script src="js/jquery.fileupload.js"></script>
+		<script src="/js/jquery.fileupload.js"></script>
 		<!-- The File Upload file processing plugin -->
-		<script src="js/jquery.fileupload-fp.js"></script>
+		<script src="/js/jquery.fileupload-fp.js"></script>
 		<!-- The File Upload user interface plugin -->
-		<script src="js/jquery.fileupload-ui.js"></script>        
+		<script src="/js/jquery.fileupload-ui.js"></script>        
                 
-        <script>
-            jQuery(function () {
-
-                jQuery('#camera_wrap_3').camera({
-                    height: '65%',
-                    pagination: false,
-                    thumbnails: true,
-                    imagePath: '../images/'
-                });
-
-            });
-		</script>
-		<script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
+		<script type="text/javascript" src="/js/jquery.ui.chatbox.js"></script>
 		<script>
 		var player;
 		var playerGal;
@@ -175,7 +161,7 @@
 		</script>
 		<script type="text/javascript" src="/js/main.js"></script>
 		<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE8+ -->
-		<!--[if gte IE 8]><script src="js/cors/jquery.xdr-transport.js"></script><![endif]-->
+		<!--[if gte IE 8]><script src="/js/cors/jquery.xdr-transport.js"></script><![endif]-->
 		<!--[if IE]>
 		<script type="text/javascript">
 			add_placeholder('multiElement', 'http://');

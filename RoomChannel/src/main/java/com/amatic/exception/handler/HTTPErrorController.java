@@ -15,7 +15,7 @@ public class HTTPErrorController {
 			RequestMethod.POST })
 	public String handle404(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
-		return "genErr";
+		return "error.jsp";
 	}
 
 	// @RequestMapping(value="/errors/403.html")

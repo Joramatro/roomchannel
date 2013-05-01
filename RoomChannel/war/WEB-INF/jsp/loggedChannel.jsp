@@ -79,7 +79,7 @@
                                 <a href="#Contact">Contact</a>
                             </li>
                             <li>
-                                <a href="#Login" class="login">Login</a>
+                                <a href="#Login" class="logout">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -240,28 +240,206 @@
 							<h1><span>Check</span> them<span> out</span> !</h1>
 
                         </div>
-                        <div class="row-fluid">
-                            <div class="span12">
-                                <div class="slider-wrapper">
-                                    <div id="slider">
-                                        <div class="slide1">
-                                            <img src="images/1.jpg" alt="" />
+                        
+                        <%-- 
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="slider-wrapper">
+                                        <div id="slider">
+                                            <div class="slide1">
+                                                <img src="images/1.jpg" alt="" />
+                                            </div>
+                                            <div class="slide2">
+                                                <img src="images/2.jpg" alt="" />
+                                            </div>
+                                            <div class="slide3">
+                                                <img src="images/3.jpg" alt="" />
+                                            </div>
+                                            <div class="slide4">
+                                                <img src="images/4.jpg" alt="" />
+                                            </div>
                                         </div>
-                                        <div class="slide2">
-                                            <img src="images/2.jpg" alt="" />
-                                        </div>
-                                        <div class="slide3">
-                                            <img src="images/3.jpg" alt="" />
-                                        </div>
-                                        <div class="slide4">
-                                            <img src="images/4.jpg" alt="" />
-                                        </div>
+                                        <div id="slider-direction-nav"></div>
+                                        <div id="slider-control-nav"></div>
                                     </div>
-                                    <div id="slider-direction-nav"></div>
-                                    <div id="slider-control-nav"></div>
                                 </div>
                             </div>
-                        </div>
+                            --%>
+                            <%-- <div class="container clearfix TitleSection">
+                                
+								<h1><span>We</span> make <span>our</span> clients <span>happy!</span></h1>
+
+                            </div> --%>
+                            
+                            <%-- 
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">d</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Brand Creation</h2>
+
+                                                     <h3 class="ca-sub">24/7 for you needs</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">O</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Corporate Identity</h2>
+
+                                                     <h3 class="ca-sub">Lorem ipsum dolor</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            --%>
+                            <%--
+                            <div class="row-fluid">
+                                 <h2>Pricing Tables </h2>
+
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span4">
+                                    <div class="well PricingTables Standard">
+                                        	<h2>Standard</h2>
+
+                                         <h3>$15.99 / month</h3>
+
+                                        <p><span class="label">POPULAR</span>
+                                        </p>
+                                        <ul>
+                                            <li><i class="icon-ok-sign"></i>10 users</li>
+                                            <li><i class="icon-ok-sign"></i>5TB of space</li>
+                                            <li><i class="icon-ok-sign"></i>About Us</li>
+                                            <li><i class="icon-ok-sign"></i>News Archive</li>
+                                            <li><i class="icon-ok-sign"></i>Our Service</li>
+                                            <li><i class="icon-ok-sign"></i>Our Team</li>
+                                            <li><i class="icon-ok-sign"></i>Clients Testimonials</li>
+                                            <li><i class="icon-ok-sign"></i>Job Opportunities</li>
+                                            <li><i class="icon-ok-sign"></i>F.A.Q</li>
+                                        </ul>
+                                        <p class="Special">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>
+                                            <a class="btn btn-large" href="#"><i class="icon-ok icon-white"></i> Select plan</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="well PricingTables Professional">
+                                        	<h2>Professional</h2>
+
+                                         <h3>$10.99 / month</h3>
+
+                                        <p><span class="label label-success">POPULAR</span>
+                                        </p>
+                                        <ul>
+                                            <li><i class="icon-ok-sign"></i>10 users</li>
+                                            <li><i class="icon-ok-sign"></i>5TB of space</li>
+                                            <li><i class="icon-ok-sign"></i>About Us</li>
+                                            <li><i class="icon-ok-sign"></i>News Archive</li>
+                                            <li><i class="icon-ok-sign"></i>Our Service</li>
+                                            <li><i class="icon-ok-sign"></i>Our Team</li>
+                                            <li><i class="icon-ok-sign"></i>Clients Testimonials</li>
+                                            <li><i class="icon-ok-sign"></i>Job Opportunities</li>
+                                            <li><i class="icon-ok-sign"></i>F.A.Q</li>
+                                        </ul>
+                                        <p class="Special">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>
+                                            <a class="btn btn-success btn-large" href="#"><i class="icon-ok icon-white"></i> Select plan</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="well PricingTables Premium">
+                                        	<h2>Premium</h2>
+
+                                         <h3>$8.99 / month</h3>
+
+                                        <p><span class="label label-info">BUDGET</span>
+                                        </p>
+                                        <ul>
+                                            <li><i class="icon-ok-sign"></i>10 users</li>
+                                            <li><i class="icon-ok-sign"></i>5TB of space</li>
+                                            <li><i class="icon-ok-sign"></i>About Us</li>
+                                            <li><i class="icon-ok-sign"></i>News Archive</li>
+                                            <li><i class="icon-ok-sign"></i>Our Service</li>
+                                            <li><i class="icon-ok-sign"></i>Our Team</li>
+                                            <li><i class="icon-ok-sign"></i>Clients Testimonials</li>
+                                            <li><i class="icon-ok-sign"></i>Job Opportunities</li>
+                                            <li><i class="icon-ok-sign"></i>F.A.Q</li>
+                                        </ul>
+                                        <p class="Special">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>
+                                            <a class="btn btn-large" href="#"><i class="icon-ok icon-white"></i> Select plan</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            --%>
+                            <!--#third-->
+			                <div id="LargeSlider">
+			                    <div class="container-fluid clearfix LargeSlider">
+			                        <div class="camera_wrap camera_emboss" id="camera_wrap_3">
+			                            <div data-src="images/camera/slides/1.jpg">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/3.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/poster.jpg">
+			                                <iframe width="100%" height="100%" src="http://www.youtube.com/embed/EokWzMUJcCU?feature=player_detailpage"
+			                                frameborder="0" allowfullscreen></iframe>
+			                            </div>
+			                            <div data-src="images/camera/slides/4.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/5.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/6.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/7.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/8.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                            <div data-src="images/camera/slides/9.jpg" data-time="1500" data-trasPeriod="4000"
+			                            data-link="#" data-target="_blank">
+			                                <div class="fadeIn camera_effected Caption">" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh
+			                                    erat, sagittis sit amet congue at, aliquam eu libero "</div>
+			                            </div>
+			                        </div>
+			                        <!-- #camera_wrap_3 -->
+			                    </div>
+			                </div>
+			                <!--#LargeSlider-->
                         <div class="container clearfix" style="margin-top: 80px;">
                             <div class="row-fluid">
                                 <div class="span6">

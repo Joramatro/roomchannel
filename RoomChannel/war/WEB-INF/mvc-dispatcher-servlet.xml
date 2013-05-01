@@ -17,28 +17,20 @@
 
 	<!-- I need DI a message into controller, so component scan is disabled, 
 		to avoid double instatetial movieController bean. <context:component-scan 
-		base-package="com.auanaum.controller" /> -->
-	<context:component-scan base-package="com.amatic">
+		base-package="com" /> -->
+	<context:component-scan base-package="com">
 		<context:include-filter type="regex" expression="com.amatic.rc.*" />
+		<context:include-filter type="regex" expression="com.fileupload.*" />
 	</context:component-scan>
-
+	
+	<context:annotation-config />
+	
 	<mvc:annotation-driven />
 	
 	<mvc:default-servlet-handler/>
 	
 	
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver" p:order="1" />
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" p:order="2" p:defaultErrorView="uncaughtException">
-    	<property name="exceptionMappings">
-    	    <props>
-			    <prop key="DataAccessException">genErr</prop>
-			    <prop key="NoSuchRequestHandlingMethodException">genErr</prop>
-			    <prop key="TypeMismatchException">genErr</prop>
-			    <prop key="MissingServletRequestParameterException">genErr</prop>
-			    <prop key="java.lang.Throwable">genErr</prop>
-		    </props>
-	    </property>
-	</bean>
 	
 	
 	<bean
