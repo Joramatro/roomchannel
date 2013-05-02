@@ -28,7 +28,8 @@ public class ChannelDisconnected extends HttpServlet {
 
 		logger.info("- " + presence.clientId());
 
-		SessionCounter.setNumberSessions(false);
+		SessionCounter.setNumberSessions(presence.isConnected(),
+				presence.clientId());
 
 	}
 

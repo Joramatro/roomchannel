@@ -28,7 +28,8 @@ public class ChannelConnected extends HttpServlet {
 
 		logger.info("+ " + presence.clientId());
 
-		SessionCounter.setNumberSessions(true);
+		SessionCounter.setNumberSessions(presence.isConnected(),
+				presence.clientId());
 	}
 
 }

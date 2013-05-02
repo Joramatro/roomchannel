@@ -7,90 +7,10 @@
 <!DOCTYPE html>
 <html lang="en">
     
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <title>Radiochannel</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link href='http://fonts.googleapis.com/css?family=Kelly+Slab' rel='stylesheet'
-        type='text/css'>
-        <link href="/css/reset.css" rel="stylesheet">
-        <link href="/css/parallax_style_1.1.3.css" rel="stylesheet" />
-        <link href="/css/bootstrap.css" rel="stylesheet">
-        <link href="/css/style.css" rel="stylesheet" />
-        <link href="/css/about_slider/lean-slider.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/css/camera.css" />
-        <link rel="stylesheet" href="/css/blur.css" />
-        <!--blur slidShow -->
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <!-- Fav and touch icons -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/icon/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icon/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icon/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="/icon/apple-touch-icon-57-precomposed.png">
-        <link rel="shortcut icon" href="/icon/favicon.ico">
-        <link rel="stylesheet" href="/css/jquery.oembed.css"/>
-		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-		<link rel="stylesheet" href="/css/apprise-v2.css" type="text/css" />
-		<link type="text/css" href="/css/jquery.ui.chatbox.css" rel="stylesheet" />
-		<link type="text/css" href="/css/jquery.gritter.css" rel="stylesheet" />
-        <style>
-			.ui-autocomplete-loading { background: white url('/images/loading.gif') right center no-repeat; }
-		</style>
-		<link rel="stylesheet" href="/css/bootstrap-image-gallery.min.css">
-		<link rel="stylesheet" href="/css/jquery.fileupload-ui.css">
-		<!-- CSS adjustments for browsers with JavaScript disabled -->
-		<noscript><link rel="stylesheet" href="/css/jquery.fileupload-ui-noscript.css"></noscript>
-		<!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->		
-    </head>
+    <%@ include file="/WEB-INF/jsp/header.jsp"%>
     
     <body class="clearfix" data-spy="scroll" data-target="#navbar" data-offset="10">
-    	<%@ include file="/WEB-INF/jsp/header.jsp"%>
-        <div id="navbar" class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
-
-                    </a>
-                    <a class="brand" href="#">Radio<span>Channel</span>
-                    </a>
-                    <div class="brand"><label style="display:inline;float left; font-size:32px" id="nbrUsrs"><img src="/images/loading.gif"/> Users now </div>
-                    <div class="nav-collapse collapse pull-right">
-                     
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="#welcome">Home</a>
-                            </li>
-                            <li>
-                                <a href="#Radio">Radio</a>
-                            </li>
-                            <li>
-                                <a href="#Channels">Channels</a>
-                            </li>
-                            <li>
-                                <a href="#Contact">Contact</a>
-                            </li>
-                            <li>
-                                <a href="#Login" class="login">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="notification-firstVideo" style="display:none">
-					</div>
-					<div id="notification-firstGalVideo" style="display:none">
-					</div>
-                    <!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>
+    	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
         <div class="container-fluid clearfix">
             <div class="row-fluid">
                 <div id="welcome">
@@ -449,21 +369,36 @@
                     </div>
                 </div>
                 --%>
+				<div class="row-fluid">
+				  <div class="span12">
+				      <div id="accordion2" class="accordion">
+				          <div class="accordion-group">
+				              <div class="accordion-heading">
+				                  <a class="accordion-toggle" data-toggle="collapse" href="#Profile" data-original-title="">
+				                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Profile<i class="icon-chevron-down icon-white pull-right"></i>
+				                  </a>
+				              </div>
+						   </div>
+						</div>
+					</div>		  
+				</div>
 
-					<div class="row-fluid">
-					  <div class="span12">
-					      <div id="accordion2" class="accordion">
-					          <div class="accordion-group">
-					              <div class="accordion-heading">
-					                  <a class="accordion-toggle" data-toggle="collapse" href="#Contact" data-original-title="">
-					                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Contact<i class="icon-chevron-down icon-white pull-right"></i>
-					                  </a>
-					              </div>
-							   </div>
-							</div>
-						</div>		  
-					</div>
-					<!-- end team -->
+				<%@ include file="/WEB-INF/jsp/profile.jsp"%>
+
+
+				<div class="row-fluid">
+				  <div class="span12">
+				      <div id="accordion2" class="accordion">
+				          <div class="accordion-group">
+				              <div class="accordion-heading">
+				                  <a class="accordion-toggle" data-toggle="collapse" href="#Contact" data-original-title="">
+				                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Contact<i class="icon-chevron-down icon-white pull-right"></i>
+				                  </a>
+				              </div>
+						   </div>
+						</div>
+					</div>		  
+				</div>
                 <div id="Contact" class="accordion-body collapse in">
                     <div class="container-fluid clearfix Contact">
                         <div class="container clearfix TitleSection">

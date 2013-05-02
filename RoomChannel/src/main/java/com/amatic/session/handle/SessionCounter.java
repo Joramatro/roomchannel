@@ -2,6 +2,7 @@ package com.amatic.session.handle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
@@ -26,23 +27,29 @@ public class SessionCounter implements HttpSessionListener {
 
 	private static List sessions = new ArrayList();
 
-	private static Integer nbrConnections = new Integer(0);
+	private static ConcurrentHashMap<String, Integer> nbrConnects = new ConcurrentHashMap<String, Integer>();
 
-	public static void setNumberSessions(boolean lastConnected) {
+	public static void setNumberSessions(boolean isConnected, String channelKey) {
 		try {
 			ChannelService channelService = ChannelServiceFactory
 					.getChannelService();
 
-			String channelKey = "xyz";
-
 			JSONObject msg = new JSONObject();
-
-			if (lastConnected) {
-				msg.put("nbrUsrs", ++nbrConnections);
-			} else {
-				msg.put("nbrUsrs", --nbrConnections);
+			int nbrConnections;
+			// initializing to 0 as nbr connections for the hashmap for new
+			// channelkey
+			if (nbrConnects.get(channelKey) == null) {
+				nbrConnects.put(channelKey, new Integer(0));
 			}
 
+			if (isConnected) {
+				nbrConnections = nbrConnects.get(channelKey).intValue() + 1;
+
+			} else {
+				nbrConnections = nbrConnects.get(channelKey).intValue() - 1;
+			}
+			nbrConnects.put(channelKey, nbrConnections);
+			msg.put("nbrUsrs", nbrConnections);
 			channelService.sendMessage(new ChannelMessage(channelKey, msg
 					.toString()));
 		} catch (Exception e) {

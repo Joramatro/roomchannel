@@ -1,6 +1,7 @@
 package com.amatic.rc.main;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -25,6 +26,7 @@ import com.amatic.rc.dto.User;
 import com.amatic.rc.service.ThemeService;
 import com.amatic.rc.service.UChannelService;
 import com.amatic.rc.service.UserService;
+import com.amatic.rc.utils.ChannelUtils;
 import com.dyuproject.openid.OpenIdUser;
 import com.google.appengine.api.channel.ChannelService;
 import com.google.appengine.api.channel.ChannelServiceFactory;
@@ -67,7 +69,7 @@ public class MainChannelController {
 		if (channel == null) {
 			return "channelNotFound";
 		}
-		String token = channelService.createChannel(channel.getKey());
+		String token = channelService.createChannel("asd");
 
 		// load channel images
 
@@ -125,6 +127,8 @@ public class MainChannelController {
 
 			user.setNewUser(true);
 		}
+
+		model.addAttribute("user", user);
 		// return "loggedChannel";
 		return "mainChannel";
 	}
@@ -134,7 +138,7 @@ public class MainChannelController {
 	public void newChannel(ModelMap model,
 			@RequestParam("channelName") String chName,
 			HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+			throws IOException, NoSuchAlgorithmException {
 
 		HttpSession session = request.getSession();
 		User user = (User) session
@@ -142,7 +146,7 @@ public class MainChannelController {
 
 		Channel channel = new Channel();
 
-		channel.setKey(user.getMail());
+		channel.setKey(ChannelUtils.SHA1(chName));
 		channel.setNbrViewers(1);
 		channel.setOwner(user.getMail());
 		channel.setName(chName);
@@ -151,7 +155,7 @@ public class MainChannelController {
 
 		List<Ref<Channel>> lChannels = user.getChannels();
 		lChannels.add(Ref.create(Key.create(Channel.class, channel.getId())));
-		// user.setChannels(lChannels);
+
 		user = this.userService.update(user);
 		request.getSession().setAttribute(
 				WebConstants.SessionConstants.RC_USER, user);
@@ -159,7 +163,6 @@ public class MainChannelController {
 		request.getSession().setAttribute("newChannel", chName);
 
 		return;
-		// response.sendRedirect("/ch/" + chName);
 
 	}
 
