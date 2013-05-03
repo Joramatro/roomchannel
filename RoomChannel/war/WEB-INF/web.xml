@@ -137,7 +137,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     </init-param> 
     <init-param> 
         <param-name>com.sun.jersey.config.property.packages</param-name> 
-        <param-value>com.fileupload</param-value> 
+        <param-value>com.amatic.rc.fileupload.controller;com.amatic.rc.fileupload.dto</param-value> 
     </init-param>
     <init-param>
       <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>

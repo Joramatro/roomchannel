@@ -165,16 +165,16 @@
                                 <div class="slider-wrapper">
                                     <div id="slider">
                                         <div class="slide1">
-                                            <img src="images/1.jpg" alt="" />
+                                            <img src="/images/1.jpg" alt="" />
                                         </div>
                                         <div class="slide2">
-                                            <img src="images/2.jpg" alt="" />
+                                            <img src="/images/2.jpg" alt="" />
                                         </div>
                                         <div class="slide3">
-                                            <img src="images/3.jpg" alt="" />
+                                            <img src="/images/3.jpg" alt="" />
                                         </div>
                                         <div class="slide4">
-                                            <img src="images/4.jpg" alt="" />
+                                            <img src="/images/4.jpg" alt="" />
                                         </div>
                                     </div>
                                     <div id="slider-direction-nav"></div>
@@ -273,102 +273,7 @@
                         </div>
                     </div>
                 </div>
-               
-                <!--#Services-->
-                <%-- 
-                <div id="second" class="Parallax">
-                    <div class="ParallaxText">
-                        	<h2>WORD <span>OF</span> THE <span>WISE</span></h2>
-
-                        <div class="clearfix"></div>
-                        <blockquote>A man must be big enough to admit his mistakes, smart enough to profit
-                            from them, and strong enough to correct them.</blockquote>
-                        <div class="clearfix"></div>
-                        <p>- Jason Adams -</p>
-                    </div>
-                </div>
-                --%>
-                <!-- begin team -->
-				<%--<div class="row-fluid">
-					  <div class="span12">
-					      <div id="accordion2" class="accordion">
-					          <div class="accordion-group">
-					              <div class="accordion-heading">
-					                  <a class="accordion-toggle" data-toggle="collapse" href="#Team" data-original-title="">
-					                      <i class="icon-th icon-white"></i> <span class="divider-vertical"></span> Team<i class="icon-chevron-down icon-white pull-right"></i>
-					                  </a>
-					              </div>
-							   </div>
-							</div>
-						</div>		  
-					</div>
-                 
-                <div id="Team" class="accordion-body collapse in">
-                    <div class="container-fluid clearfix Portfolio">
-                        <div class="container clearfix TitleSection">
-                            
-					<h1>Our <span>Team</span> </h1> 
-					                            
-					<h1><span>Lorem</span> ipsum <span>dolor</span> sit <span>amet</span></h1>
-
-                        </div>
-                        <div class="container clearfix">
-                            <div class="span12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat,
-                                    sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis
-                                    vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
-                            </div>
-                            <div class="row-fluid">
-                                <div class="span12">
-                                    <nav id="filter"></nav>
-                                    <section id="container">
-                                        <ul id="stage">
-                                            <li data-tags="Photographies">
-                                                <div class="filter-thumb-container">
-                                                    <div class="filter-thumb"> <span><img src="images/portfolio/1.jpg" alt="Portfolio Filter" /></span>
-
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                     <h4>Lorem ipsum dolor </h4> 
-                                                    <p>Lorem ipsum</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                --%>
-                <!--#Portfolio-->
-                <%--
-                <div id="third" class="Parallax">
-                    <div class="ParallaxText">
-                        	<h2>WORD <span>OF</span> THE <span>WISE</span></h2>
-
-                        <div class="clearfix"></div>
-                        <blockquote>A man must be big enough to admit his mistakes, smart enough to profit
-                            from them, and strong enough to correct them.</blockquote>
-                        <div class="clearfix"></div>
-                        <p>- Jason Adams -</p>
-                    </div>
-                </div>
-                --%>
-                <%-- 
-                <div id="fourth" class="Parallax">
-                    <div class="ParallaxText">
-                        	<h2>WORD <span>OF</span> THE <span>WISE</span></h2>
-
-                        <div class="clearfix"></div>
-                        <blockquote>A man must be big enough to admit his mistakes, smart enough to profit
-                            from them, and strong enough to correct them.</blockquote>
-                        <div class="clearfix"></div>
-                        <p>- Jason Adams -</p>
-                    </div>
-                </div>
-                --%>
+				<c:if test="${!empty user}">
 				<div class="row-fluid">
 				  <div class="span12">
 				      <div id="accordion2" class="accordion">
@@ -384,8 +289,7 @@
 				</div>
 
 				<%@ include file="/WEB-INF/jsp/profile.jsp"%>
-
-
+				</c:if>
 				<div class="row-fluid">
 				  <div class="span12">
 				      <div id="accordion2" class="accordion">
@@ -549,7 +453,7 @@
                             <a href="#welcome" class="brand">RADIO<span>CHANNEL</span>
                             </a>
                             <p>All rights reserved. Site by &copy;
-                                <a href="mailto:admin@radioChannel.com">Jorge</a>
+                                <a href="mailto:admin@radioChannel.com">Jorge Amat Romero</a>
                             </p>
                         </footer>
                     </div>

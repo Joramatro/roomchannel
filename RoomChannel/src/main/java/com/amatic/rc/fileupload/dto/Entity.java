@@ -1,4 +1,6 @@
-package com.fileupload;
+package com.amatic.rc.fileupload.dto;
+
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -6,13 +8,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FileUrl {
-	String url;
+public class Entity {
+	private List<FileMeta> files;
 
-	public FileUrl() {
+	public Entity() {
 	}
 
-	public FileUrl(String url) {
-		this.url = url;
+	public Entity(List<FileMeta> files) {
+		this.files = files;
 	}
 }

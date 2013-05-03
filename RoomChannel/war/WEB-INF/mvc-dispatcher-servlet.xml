@@ -20,7 +20,6 @@
 		base-package="com" /> -->
 	<context:component-scan base-package="com">
 		<context:include-filter type="regex" expression="com.amatic.rc.*" />
-		<context:include-filter type="regex" expression="com.fileupload.*" />
 	</context:component-scan>
 	
 	<context:annotation-config />

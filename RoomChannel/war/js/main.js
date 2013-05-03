@@ -199,6 +199,25 @@ $(function(){
 
 	});
 	
+	$('#notification-nickUpdate').click(function(){
+
+		$.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: 'Nick updated',
+			// (string | mandatory) the text inside the notification
+			text: "Your nickname has been updated",
+			// (string | optional) the image to display on the left
+			image: '/images/Intro.jpg',
+			// (bool | optional) if you want it to fade out on its own or just sit there
+			sticky: false,
+			// (int | optional) the time you want it to be alive for before fading out
+			time: '10000'
+		});
+
+		return false;
+
+	});
+	
 	$('#gritter-item-1').live('click', function(){
 		window.location.href = "#Radio";
 	});
@@ -475,7 +494,9 @@ var buttonVm = new function(){
 	  self.button1OtherButtons = ko.observable(true);
 	  self.button2Visible = ko.observable(false);
 	  self.button2Invisible = ko.observable(true);
-	  this.titleToAdd = ko.observable("");
+	  self.stringValue = ko.observable(document.getElementById("nick").value);
+	  self.nameProfile = ko.observable(document.getElementById("nick").value);
+	  self.titleToAdd = ko.observable("");
 
 	  self.toggle1 =  function(){
 	     self.button1Visible(!self.button1Visible());
@@ -516,5 +537,64 @@ $(function(){
 		    });
     });
 });
+
+
+$(function(){ /* DOM ready */
+    $("#nickUpdate").on('click', function() {
+    	$.ajax({
+		      type: "POST",
+		      url: "/changeUserName",
+		      dataType: "html",
+		      cache: false,
+	          data: "userName=" + $("#nick").val(),		      
+		      success: function(text){
+		    	  if(text == '</html>'){		    		  
+		    		  $("#nick").removeClass('contacto').addClass('contactoR');
+		    		  $("#nick").attr('title', 'This Nick is already in used by other User. Please type another one!');
+		    		  $("#nick").attr('alt', 'This Nick is already in used by other User. Please type another one!');
+		    		  Apprise("That Nick is already in used by other user. Please type another one!");
+		    	  }
+		    	  else if(!$("#nick").val()){
+		    		  $("#nick").removeClass('contacto').addClass('contactoR');
+		    		  $("#nick").attr('title', 'Type here your nick. Otherwise you will act as anonymous!');
+		    		  $("#nick").attr('alt', 'Type here your nick. Otherwise you will act as anonymous!');
+		    		  $("#favForm").attr("action", "/anonymous/favourites/");
+		    		  $("#nickMenu").text($("#nick").val());
+		    		  $("#nickMenuUnfold").text($("#nick").val());
+		    		  $('#notification-nickUpdate').click();
+		    	  }else{
+			    	  $("#nick").removeClass('contactoR').addClass('contacto');
+			    	  $("#nick").attr('title', 'Type here to change your nick.');
+		    		  $("#nick").attr('alt', 'Type here to change your nick.');
+		    		  $("#favForm").attr("action", "/"+$("#nick").val()+"/favourites/");
+		    		  $("#nickMenu").text($("#nick").val());
+		    		  $("#nickMenuUnfold").text($("#nick").val());
+		    		  $('#notification-nickUpdate').click();
+		    	  }
+		      }
+		    });
+       
+    });
+});
+
+
+$(function(){ /* DOM ready */
+    $(".deleteChannel").on('click', function() {
+    	//$("channelNameDelete").val(this.value);
+    	alert($(this).attr('id'));
+    	$.ajax({
+		      type: "POST",
+		      url: "/deleteChannel",
+		      dataType: "html",
+		      cache: false,
+	          data: "channelName=" + $(this).attr('id'),		      
+		      success: function(text){
+		    	  alert("borrado");
+		      }	  
+    	 });
+    });
+});
+
+
 
 

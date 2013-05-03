@@ -1,4 +1,4 @@
-package com.fileupload;
+package com.amatic.rc.fileupload.controller;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -22,6 +22,9 @@ import javax.ws.rs.core.Response.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.amatic.rc.dto.Channel;
+import com.amatic.rc.fileupload.dto.Entity;
+import com.amatic.rc.fileupload.dto.FileMeta;
+import com.amatic.rc.fileupload.dto.FileUrl;
 import com.amatic.rc.service.UChannelService;
 import com.google.appengine.api.blobstore.BlobInfo;
 import com.google.appengine.api.blobstore.BlobInfoFactory;

@@ -68,6 +68,10 @@ public class User implements Serializable {
 		return channels;
 	}
 
+	public List<Channel> getChannelsDeref() {
+		return Deref.deref(channels);
+	}
+
 	public Date getDate() {
 		return date;
 	}

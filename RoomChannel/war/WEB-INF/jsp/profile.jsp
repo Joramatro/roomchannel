@@ -6,234 +6,121 @@
 
 
 <div id="Profile" class="accordion-body collapse in">
-<div class="container-fluid">
-	 		<!-- main content -->
-	 		
-	 
-	 
-	 <!-- row -->
-	 <div class="row-fluid">
+<div class="container clearfix">
+<div class="row-fluid">
 	 
 	 <div class="span12">
-	 	
 	 	<!-- box-r -->
 	 	<div class="box-r"> 		
 		<div class="box-r-top">			
-			<span class="box-r-top-icon"><i class="icon-plus tra"></i></span><span class="box-r-top-title">
-				Components
+			<span class="box-r-top-icon"><i class="icon-user tra"></i></span><span class="box-r-top-title">
+				User: <input id="nick" data-bind="value: stringValue, valueUpdate: 'afterkeydown'" class="search-query r6 minih" maxlength="20" type="text" value="${user.name}" alt="Type here to change your nick." title="Type here to change your nick" placeholder="Put your Nickname here"/> 
+				<button id="nickUpdate" data-bind="enable: stringValue().length > 0" type="button" class="btn btn-mini margin-left">Update</button>
 			</span>
-			<div class="box-r-top-right">
-				
-			</div>
+			
+			<label style="padding-top: 15px;"> Account: <span style="font-weight: bold;">${user.logMail}</span></label>
+
+			<span class="box-r-top-right">
+				<span id="badge_users" class="box-badge hide"></span>
+			</span>
 		</div>					
 		<div id="box_0_content" class="box-r-content">
      		
-     			<div class="container-fluid margin-top container-box">
+		<div class="container-fluid container-box margin-top">
+		<div class="row-fluid">
+			<div class="span6">
+			<label style="padding-top: 15px;"> My Channels: </label>
+			<div class="chart-area"><div id="chart5" style="height:10px"></div></div>
+			<table class="table table-condensed table-hover margin-bottom0">
+  			<tbody>
+  			<c:if test="${empty user.channels}">
+  				(no Channels created yet)
+  			</c:if>
+			<c:forEach  var="myChannel" items="${user.channelsDeref}" varStatus="count">
+			<tr>
+			<td><a href="/ch/${myChannel.name}">${myChannel.name}</a></td>
+			<td>viewed: <span style="font-weight: bold;">${myChannel.nbrViewers}</span> times</td>
+			<td><span class="pull-right"><a href="#" id="${myChannel.name}" class="btn btn-mini deleteChannel">Delete</a></span></td>
+			</tr>
+			</c:forEach>
+			<input id="channelNameDelete" type="hidden" value=""/>
+			</tbody>
+			</table>
+			<div class="chart-area">Chat Log (last 10 comments):<div id="chart5" style="height:145px"></div></div>
 			
-				<div class="row-fluid margin-bottom">
-				
-				<div class="span8">
+			</div>
+			
+						
+			<div class="span6">
 					
-     			<h4>Tables</h4>
-     			<small>
-     			Own dynamic table library. Hande big tables with partially loaded data.<br>
-     			Author: Thomas John (http://thomasjohn.eu), 2012<br>
-     			<a href="orders.html">Example</a>
-     			</small>
-				
-				<hr>
-				
-				<h4>Notifications &amp;badges</h4>
-				<small>
-     			Own easy to use library for notifications and badges (sum badges).<br>
-     			Author: Thomas John (http://thomasjohn.eu), 2012<br>
-     			<a href="index.html">Example</a>
-     			</small>
-     			
-				<hr>
-				
-				<h4>Live</h4>
-				<small>
-     			Own library - read data from server (cycle) or/and by request.<br>
-     			Author: Thomas John (http://thomasjohn.eu), 2012<br>
-     			Example: Check console.
-     			</small>
-     			
-				<hr>
-				
-				<h4>+Charts</h4>
-				<small>
-     			With own interface to Flot (static charts and animated donuts).<br>
-     			Author (interface): Thomas John (http://thomasjohn.eu), 2012<br>
-     			<a href="charts.html">Example</a>
-     			</small>
-     			
-				<hr>
-				
-				<h4>+Calendar</h4>
-				<small>
-     			Styled FullCalendar.<br>
-     			<a href="index.html">Example</a>
-     			</small>
-     			
-				<hr>
-				
-				<h4>+File Manager</h4>
-				<small>
-     			Example file manager: Elfinder.<br>
-     			<a href="filemanager.html">Example</a>
-     			</small>
-     			
-				</div>
-				
-				<div class="span4">
-				
-				
-				<h4>Thank you</h4>
-			
-				<hr>
-				
-				<small>
-				
-				Flot - <a href="http://www.flotcharts.org" target="_blank">Website</a>
-				<br><br>
-				
-				Copyright (c) 2007-2009 IOLA and Ole Laursen<br>
-<br>
-"Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:<br>
-<br>
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.<br>
-<br>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE."
-
-				</small>
-				<hr>
-				<small>
-				
-				FullCalendar - <a href="http://arshaw.com/fullcalendar/" target="_blank">Website</a>
-				<br><br>
-				
-				Copyright (c) 2009 Adam Shaw<br>
-<br>
-"Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:<br>
-<br>
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.<br>
-<br>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-
-				</small>
-				<hr>
-				<small>
-				
-				Elfinder - <a href="https://github.com/Studio-42/elFinder" target="_blank">Website</a>
-				<br><br>
-				
-				Copyright (c) 2009-2012, Studio 42<br>
-All rights reserved.<br>
-<br>
-"Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:<br>
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.<br>
-    * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in the
-      documentation and/or other materials provided with the distribution.<br>
-    * Neither the name of the Studio 42 Ltd. nor the
-      names of its contributors may be used to endorse or promote products
-      derived from this software without specific prior written permission.<br>
-<br>
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL "STUDIO 42" BE LIABLE FOR ANY DIRECT, INDIRECT,
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
-
-				</small>
-				
-				</div>
-				
-				</div>
-				</div>
-				
-		</div>		
-     	</div>
-     	<!-- end: box-r -->
-     	
-	 </div>
-	 
-	 </div>
-	 <!-- row end -->
-	 
-	 <!-- row -->
-	 <div class="row-fluid">
-	 
-	 <div class="span12">
-	 	
-	 	<!-- box-r -->
-	 	<div class="box-r"> 		
-		<div class="box-r-top">			
-			<span class="box-r-top-icon"><i class="icon-heart tra"></i></span><span class="box-r-top-title">
-				Icons
-			</span>
-			<div class="box-r-top-right">
-				
+			<div class="ibox-hero padding-10"><div id="chart4" style="height:245px"></div></div>
 			</div>
-		</div>					
-		<div id="box_0b_content" class="box-r-content">
+			
+		</div>
+		</div>
+	
+		<!-- table full -->
 		
-			<div class="container-fluid container-box margin-top">
-			
-				<div class="row-fluid">
-				
-				<div class="span12">
-					<a href="http://glyphicons.com/" target="_blank">140 icons in sprite form, available in dark gray (default) and white, provided by Glyphicons.</a>
-				</div>
-				
-				</div>
-				
+		<div class="table-head">		
+		
+			<div id="box_tsea1_content" class="collapse in">
+			<div class="table-search">			
+			<select class="minih input-medium">
+						<option>Today</option>
+						<option>Last month</option>
+						<option>All</option>
+			</select>			
 			</div>
+			</div>
+				
+			<div class="table-search-opt">
+			<a class="pull-left" href="users.html#self" data-toggle="collapse" data-target="#box_tsea1_content"><i id="box_tsea1_expand" class="icon-minus-sign"></i></a>
+			<div style="text-align:right">
+			<form class="form-search form-nomargin">
+			<i id="tab_2_srem" class="icon-remove-circle tra icon-rpos"></i><input id="tab_2_svalue" class="search-query r6 minih" type="text"><button id="tab_2_search" type="button" class="btn btn-mini margin-left">Search</button>
+			</form>
+			</div>
+			</div>		
+		
+		</div>
+	
+		<div id="tab_2"></div>
+		
+		<div class="table-foot">	
+			
+			<div class="pull-left">
+			<div class="btn-group">
+				<button id="tab_2_unselect" class="btn btn-mini" type="button"><i class="icon-remove-circle"></i></button>
+				<button id="tab_2_selectall" class="btn btn-mini" type="button">All</button>
+			</div>
+			
+			<div class="btn-group">
+				<button id="tab_2_add" class="btn btn-mini" type="button">Add</button>
+			</div>
+			
+			<div class="btn-group">
+				<button id="tab_2_a1" class="btn btn-mini" type="button">Freeze</button>
+			</div>			
+			</div>
+			
+			<div style="text-align:right">
+				<select id="tab_2_rowsn" data-table-rowsn="yes" class="minih r6 margin-right tab_2_navi">
+				<option value="10">10</option>
+				<option value="50">50</option>
+				<option value="1">1</option>
+				</select>
+				<span id="tab_2_navi" class="btn-group"></span>
+			</div>
+		</div>
+		
+		<!-- end: table full -->
 
-		</div>
-		</div>
-	
-	</div>
-	
-	</div>
+		</div>				
+     	</div>
+     	<!-- end: box-r -->	
+	 </div>
 	 
-
+	 </div>
 <!-- end: main content -->
 </div>
 </div>

@@ -5,8 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
         <div id="navbar" class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
+            <div class="navbar-inner" >
+                <div class="container" style="display: inline;">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
  <span class="icon-bar"></span>
  <span class="icon-bar"></span>
@@ -19,7 +19,7 @@
                      
                         <ul class="nav pull-right">
                             <li class="active">
-                                <a href="#welcome">Channel</a>
+                                <a href="#welcome">Home</a>
                             </li>
                             <li>
                                 <a href="#Radio">Radio</a>
@@ -39,7 +39,7 @@
                             </c:when>
 							<c:otherwise>
                             <li class="dropdown">
-                                <a data-toggle="dropdown" href="chat.html#">Hey, ${user.name} <b class="caret"></b></a>
+                                <a data-toggle="dropdown" href="#" >Hey, <span id="nickMenu">${user.name }</span>&nbsp;<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="modal-header">
@@ -48,7 +48,7 @@
                                             <h3>User: (set your name in your profile)</h3>
                                             </c:when>
                                             <c:otherwise>
-                                            <h3>User: ${user.name}</h3>
+                                            <h3>User: <span id="nickMenuUnfold">${user.name}</span></h3>
                                             </c:otherwise>
                                             </c:choose>
                                         </div>
@@ -57,8 +57,8 @@
                                                 <div class="span1"><img src="img/avatar/photo.png" alt="avatar"></div>
                                                 <div class="span3 pull-right">
                                                     <h5>${user.logMail}</h5>
-                                                    <a href="#Profile" class="link-modal">Privacy</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="#Profile" class="link-modal">Terms</a>
+                                                    <a href="#Profile" class="link-modal">My Channels</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="#Profile" class="link-modal">Favourites</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,6 +78,8 @@
                     <div id="notification-firstVideo" style="display:none">
 					</div>
 					<div id="notification-firstGalVideo" style="display:none">
+					</div>
+					<div id="notification-nickUpdate" style="display:none">
 					</div>
                     <!--/.nav-collapse -->
                 </div>
