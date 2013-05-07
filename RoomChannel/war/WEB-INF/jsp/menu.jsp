@@ -39,7 +39,7 @@
                             </c:when>
 							<c:otherwise>
                             <li class="dropdown">
-                                <a data-toggle="dropdown" href="#" >Hey, <span id="nickMenu">${user.name }</span>&nbsp;<b class="caret"></b></a>
+                                <a data-toggle="dropdown" href="#" >Hey,<span id="nickMenu">&nbsp;${user.name }</span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="modal-header">
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
-                                                <div class="span1"><img src="img/avatar/photo.png" alt="avatar"></div>
+                                                <div class="span1"><img src="${user.avatarUrl}" alt="avatar"></div>
                                                 <div class="span3 pull-right">
                                                     <h5>${user.logMail}</h5>
                                                     <a href="#Profile" class="link-modal">My Channels</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

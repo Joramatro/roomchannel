@@ -17,7 +17,6 @@ public class UChannelDaoImpl implements UChannelDao {
 		updateChannel.setKey(channel.getKey());
 		updateChannel.setNbrViewers(channel.getNbrViewers());
 		updateChannel.setName(channel.getName());
-		updateChannel.setOwner(channel.getOwner());
 	}
 
 	@Override

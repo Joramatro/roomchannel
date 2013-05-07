@@ -57,11 +57,10 @@
 
                                 
 							<h1>"${channel.name}"</h1><b>
-							<c:if test="${empty channel.owner}">
-							- Powered by ${channel.owner} |
-							</c:if> 
+							Powered by ${channel.userDeref.name} | 
 							Viewed: ${channel.nbrViewers} times</b>
-
+							<br><br>
+							<img src="${channel.userDeref.avatarUrl}" alt="avatar"> 
                     		</div>
                 		</div>
                 	</div>

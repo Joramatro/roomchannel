@@ -31,6 +31,9 @@ public class User implements Serializable {
 	private int votes;
 
 	@Index
+	private String avatarUrl;
+
+	@Index
 	private String ipAddress;
 
 	@Index
@@ -41,6 +44,7 @@ public class User implements Serializable {
 
 	@Ignore
 	private boolean newUser = false;
+
 	@Ignore
 	private static int cont = 0;
 
@@ -62,6 +66,10 @@ public class User implements Serializable {
 				.get("email");
 		this.name = (String) ((HashMap) openIdUser.getAttributes().get("info"))
 				.get("name");
+	}
+
+	public String getAvatarUrl() {
+		return avatarUrl;
 	}
 
 	public List<Ref<Channel>> getChannels() {
@@ -109,6 +117,10 @@ public class User implements Serializable {
 			newUser = false;
 			return false;
 		}
+	}
+
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
 	}
 
 	public void setChannels(List<Ref<Channel>> channels) {

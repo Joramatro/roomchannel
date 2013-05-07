@@ -5,16 +5,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<div id="Profile" class="accordion-body collapse in">
+<div id="Profile" class="accordion-body collapse in" style="background: rgb(226, 226, 247);">
 <div class="container clearfix">
 <div class="row-fluid">
 	 
 	 <div class="span12">
 	 	<!-- box-r -->
 	 	<div class="box-r"> 		
-		<div class="box-r-top">			
-			<span class="box-r-top-icon"><i class="icon-user tra"></i></span><span class="box-r-top-title">
-				User: <input id="nick" data-bind="value: stringValue, valueUpdate: 'afterkeydown'" class="search-query r6 minih" maxlength="20" type="text" value="${user.name}" alt="Type here to change your nick." title="Type here to change your nick" placeholder="Put your Nickname here"/> 
+		<div class="box-r-top">						
+			<span class="box-r-top-title">
+				Nick: <input id="nick" data-bind="value: stringValue, valueUpdate: 'afterkeydown'" class="search-query r6 minih" maxlength="20" type="text" value="${user.name}" alt="Type here to change your nick." title="Type here to change your nick" placeholder="Put your Nickname here"/> 
 				<button id="nickUpdate" data-bind="enable: stringValue().length > 0" type="button" class="btn btn-mini margin-left">Update</button>
 			</span>
 			
@@ -23,8 +23,10 @@
 			<span class="box-r-top-right">
 				<span id="badge_users" class="box-badge hide"></span>
 			</span>
+			<br>
+			<%@ include file="/WEB-INF/jsp/avatar.jsp"%>
 		</div>					
-		<div id="box_0_content" class="box-r-content">
+		<div id="box_0_content" class="box-r-content" style="margin-top:-55px">
      		
 		<div class="container-fluid container-box margin-top">
 		<div class="row-fluid">

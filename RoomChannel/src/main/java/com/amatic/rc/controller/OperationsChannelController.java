@@ -74,8 +74,7 @@ public class OperationsChannelController {
 		Channel channel = new Channel();
 
 		channel.setKey(ChannelUtils.SHA1(chName));
-		channel.setNbrViewers(1);
-		channel.setOwner(user.getName());
+		channel.setNbrViewers(0);
 		channel.setName(chName);
 		channel.setUser(Ref.create(Key.create(User.class, user.getMail())));
 		uChannelService.addChannel(channel);

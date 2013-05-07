@@ -23,6 +23,7 @@ public class UserDaoImpl implements UserDao {
 		updateUser.setName(user.getName());
 		updateUser.setVotes(user.getVotes());
 		updateUser.setChannels(user.getChannels());
+		updateUser.setAvatarUrl(user.getAvatarUrl());
 	}
 
 	@Override

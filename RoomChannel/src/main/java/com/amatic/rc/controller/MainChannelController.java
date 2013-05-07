@@ -69,6 +69,10 @@ public class MainChannelController {
 		HttpSession session = request.getSession();
 		User user = (User) session
 				.getAttribute(WebConstants.SessionConstants.RC_USER);
+		// for Refs
+		if (user != null) {
+			user = this.userService.findUser(user.getMail());
+		}
 		if (user == null) {
 			user = new User();
 			user.setMail((String) oIdUserBean.getAttribute("email"));

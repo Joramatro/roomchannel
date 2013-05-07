@@ -18,8 +18,6 @@ public class Channel {
 	@Index
 	Integer nbrViewers;
 	@Index
-	String owner;
-	@Index
 	String name;
 	@Load
 	Ref<User> user;
@@ -46,12 +44,12 @@ public class Channel {
 		return nbrViewers;
 	}
 
-	public String getOwner() {
-		return owner;
-	}
-
 	public Ref<User> getUser() {
 		return user;
+	}
+
+	public User getUserDeref() {
+		return Deref.deref(user);
 	}
 
 	public void setId(Long id) {
@@ -72,10 +70,6 @@ public class Channel {
 
 	public void setNbrViewers(Integer nbrViewers) {
 		this.nbrViewers = nbrViewers;
-	}
-
-	public void setOwner(String owner) {
-		this.owner = owner;
 	}
 
 	public void setUser(Ref<User> user) {

@@ -488,6 +488,22 @@ $(function() {
 	});
 
 
+$(function() {
+	  /* activate the plugin */
+		$('#profileupload').fileupload({submit: function (e, data) {
+	        
+	    	var $this = $(this);
+	    	//debugger;
+	        $.getJSON('/rest/profile/url?' + new Date().getTime(), function (result) {
+	        	data.url = result.url;
+	            $this.fileupload('send', data);
+	        });
+	        return false;
+	    }
+		});
+	});
+
+
 var buttonVm = new function(){
 	  var self = this;
 	  self.button1Visible = ko.observable(false);
@@ -558,7 +574,6 @@ $(function(){ /* DOM ready */
 		    		  $("#nick").removeClass('contacto').addClass('contactoR');
 		    		  $("#nick").attr('title', 'Type here your nick. Otherwise you will act as anonymous!');
 		    		  $("#nick").attr('alt', 'Type here your nick. Otherwise you will act as anonymous!');
-		    		  $("#favForm").attr("action", "/anonymous/favourites/");
 		    		  $("#nickMenu").text($("#nick").val());
 		    		  $("#nickMenuUnfold").text($("#nick").val());
 		    		  $('#notification-nickUpdate').click();
@@ -566,7 +581,6 @@ $(function(){ /* DOM ready */
 			    	  $("#nick").removeClass('contactoR').addClass('contacto');
 			    	  $("#nick").attr('title', 'Type here to change your nick.');
 		    		  $("#nick").attr('alt', 'Type here to change your nick.');
-		    		  $("#favForm").attr("action", "/"+$("#nick").val()+"/favourites/");
 		    		  $("#nickMenu").text($("#nick").val());
 		    		  $("#nickMenuUnfold").text($("#nick").val());
 		    		  $('#notification-nickUpdate').click();

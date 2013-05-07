@@ -4,7 +4,7 @@
 <%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<div class="container">
+<div class="container" style="background: rgb(226, 226, 247);">
 	
 	<div data-bind="visible: button2Invisible"> 
     <div class="page-header">
@@ -31,9 +31,7 @@
     </blockquote>
     <br>
     <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" method="POST" enctype="multipart/form-data">
-    	<input id="channelNameUpload" name="channelNameUpload" type="hidden"/>
-    	
+    <form id="fileupload" method="POST" enctype="multipart/form-data">    	
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row fileupload-buttonbar">
             <div class="span7">
@@ -75,7 +73,7 @@
         <!-- The table listing the files available for upload/download -->
         <table role="presentation" class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
     </form>
-    <br>
+    <br>  
     <div class="well">
         <h3>Notes</h3>
         <ul>
