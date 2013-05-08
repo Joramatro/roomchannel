@@ -46,7 +46,74 @@
 		<!-- CSS adjustments for browsers with JavaScript disabled -->
 		<noscript><link rel="stylesheet" href="/css/jquery.fileupload-ui-noscript.css"></noscript>
 		<!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->		
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		
+		
+		<style type="text/css">
+
+    	<c:forEach var="image" items="${channel.lImages}" varStatus="status" end="6">
+			<c:if test="${status.count eq 1}">
+				.cb-slideshow li:nth-child(1) span {
+  					background-image: url(../images/blur_slider/1.jpg);
+				}
+			</c:if>
+			<c:if test="${status.count eq 2}">
+				.cb-slideshow li:nth-child(2) span {
+				  background-image: url(../images/blur_slider/2.jpg);
+				  -webkit-animation-delay: 6s;
+				  -moz-animation-delay: 6s;
+				  -o-animation-delay: 6s;
+				  -ms-animation-delay: 6s;
+				  animation-delay: 6s;
+				}				
+			</c:if>
+			<c:if test="${status.count eq 3}">
+				.cb-slideshow li:nth-child(3) span {
+				  background-image: url(../images/blur_slider/3.jpg);
+				  -webkit-animation-delay: 12s;
+				  -moz-animation-delay: 12s;
+				  -o-animation-delay: 12s;
+				  -ms-animation-delay: 12s;
+				  animation-delay: 12s;
+				}			
+			</c:if>
+			<c:if test="${status.count eq 4}">
+				.cb-slideshow li:nth-child(4) span {
+				  background-image: url(../images/blur_slider/4.jpg);
+				  -webkit-animation-delay: 18s;
+				  -moz-animation-delay: 18s;
+				  -o-animation-delay: 18s;
+				  -ms-animation-delay: 18s;
+				  animation-delay: 18s;
+				}			
+			</c:if>
+			<c:if test="${status.count eq 5}">
+				.cb-slideshow li:nth-child(5) span {
+				  background-image: url(../images/blur_slider/5.jpg);
+				  -webkit-animation-delay: 24s;
+				  -moz-animation-delay: 24s;
+				  -o-animation-delay: 24s;
+				  -ms-animation-delay: 24s;
+				  animation-delay: 24s;
+				}			
+			</c:if>
+			<c:if test="${status.count eq 6}">
+				.cb-slideshow li:nth-child(6) span {
+				  background-image: url(../images/blur_slider/6.jpg);
+				  -webkit-animation-delay: 30s;
+				  -moz-animation-delay: 30s;
+				  -o-animation-delay: 30s;
+				  -ms-animation-delay: 30s;
+				  animation-delay: 30s;
+				}			
+			</c:if>															
+		</c:forEach>
+
+		</style>			
+		
+	
+		
+				
     </head>
 
 

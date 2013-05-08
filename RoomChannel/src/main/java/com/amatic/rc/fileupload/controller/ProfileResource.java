@@ -65,6 +65,7 @@ public class ProfileResource {
 		User user = (User) session
 				.getAttribute(WebConstants.SessionConstants.RC_USER);
 		user.setAvatarUrl(null);
+		user = userService.update(user);
 		session.setAttribute(WebConstants.SessionConstants.RC_USER, user);
 
 		return Response.status(status).build();

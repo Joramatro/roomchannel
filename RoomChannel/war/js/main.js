@@ -609,6 +609,35 @@ $(function(){ /* DOM ready */
     });
 });
 
+var numberOfRowsAdd = $("#tbLogotypeAdd>tbody>tr").length;
+$(function(){ 
+	$("#tbLogotypeAdd").bind("DOMSubtreeModified", function() {
+	    if($("#tbLogotypeAdd>tbody>tr").length !== numberOfRowsAdd){
+	        numberOfRowsAdd = $("#tbLogotypeAdd>tbody>tr").length;
+	        if(numberOfRowsAdd==0){
+	        	$("#divLogotypeAddBtn").css("display", "block");
+	        }else{
+	        	$("#divLogotypeAddBtn").css("display", "none");
+	        }
+	    }
+	});
+});
+
+var numberOfRowsChg = $("#tbLogotypeChg>tbody>tr").length;
+$(function(){ 
+	$("#tbLogotypeChg").bind("DOMSubtreeModified", function() {
+	    if($("#tbLogotypeChg>tbody>tr").length !== numberOfRowsChg){
+	        numberOfRowsChg = $("#tbLogotypeChg>tbody>tr").length;
+	        if(numberOfRowsChg==0){
+	        	$("#divLogotypeChgBtn").css("display", "block");
+	        	$("#imgLogotype").css("display", "none");
+	        }else{
+	        	$("#divLogotypeChgBtn").css("display", "none");
+	        	$("#imgLogotype").css("display", "none");
+	        }
+	    }
+	});
+});
 
 
 
