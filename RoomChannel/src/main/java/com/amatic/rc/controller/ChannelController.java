@@ -89,6 +89,12 @@ public class ChannelController {
 
 		model.addAttribute("lastPlayedList", listThemes);
 
+		User userCh = userService.findUser(channel.getUserDeref().getMail());
+
+		List<Channel> userChannels = userCh.getChannelsDeref();
+
+		model.addAttribute("userChannels", userChannels);
+
 		return "channel";
 		// return "mainChannel";
 	}

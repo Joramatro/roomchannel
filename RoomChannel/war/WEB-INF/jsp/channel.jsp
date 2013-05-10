@@ -155,9 +155,10 @@
 				<!-- end channels -->
                 <div id="Channels" class="accordion-body collapse in">
                     <div class="container-fluid clearfix Services">
+                    	<c:if test="${fn:length(userChannels) > 0}">
                         <div class="container clearfix TitleSection">
                             
-							<h1>Radio <span>Channels</span> </h1> 
+							<h1>Radio <span>Channels</span> from <span> ${channel.name}</span></h1> 
 							                            
 							<h1><span>Check</span> them<span> out</span> !</h1>
 
@@ -166,24 +167,18 @@
                             <div class="span12">
                                 <div class="slider-wrapper">
                                     <div id="slider">
-                                        <div class="slide1">
-                                            <img src="/images/1.jpg" alt="" />
+                                    <c:forEach var="channel" items="${userChannels}" varStatus="status" end="10">
+                                        <div class="slide${status.count}">
+                                            <a href="/ch/${channel.name}"><img src="${channel.lImages[0]}" alt="" /></a>
                                         </div>
-                                        <div class="slide2">
-                                            <img src="/images/2.jpg" alt="" />
-                                        </div>
-                                        <div class="slide3">
-                                            <img src="/images/3.jpg" alt="" />
-                                        </div>
-                                        <div class="slide4">
-                                            <img src="/images/4.jpg" alt="" />
-                                        </div>
+                                    </c:forEach>    
                                     </div>
                                     <div id="slider-direction-nav"></div>
                                     <div id="slider-control-nav"></div>
                                 </div>
                             </div>
                         </div>
+                        </c:if>
                         <div class="container clearfix" style="margin-top: 80px;">
                             <div class="row-fluid">
                                 <div class="span6">

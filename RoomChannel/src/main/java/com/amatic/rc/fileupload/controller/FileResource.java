@@ -94,18 +94,21 @@ public class FileResource {
 		BlobInfo info = blobInfoFactory.loadBlobInfo(blobKey);
 		HttpSession session = req.getSession();
 
+		String name = info.getFilename();
+		long size = info.getSize();
+
+		ImagesService imagesService = ImagesServiceFactory.getImagesService();
+
+		int sizeImage = ImagesService.SERVING_SIZES_LIMIT;
+		String url = imagesService.getServingUrl(ServingUrlOptions.Builder
+				.withBlobKey(blobKey).crop(true).imageSize(sizeImage));
+
 		Channel channel = uChannelService.getChannel((String) session
 				.getAttribute("newChannel"));
 		List<String> lImages = channel.getlImages();
-		lImages.add(blobKey.getKeyString());
+		lImages.add(url);
 		uChannelService.update(channel);
 
-		String name = info.getFilename();
-		long size = info.getSize();
-		String url = "/rest/file/" + blobKey.getKeyString();
-
-		ImagesService imagesService = ImagesServiceFactory.getImagesService();
-		ServingUrlOptions.Builder.withBlobKey(blobKey).crop(true).imageSize(80);
 		int sizePreview = 80;
 		String urlPreview = imagesService
 				.getServingUrl(ServingUrlOptions.Builder.withBlobKey(blobKey)

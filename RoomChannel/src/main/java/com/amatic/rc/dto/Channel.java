@@ -1,6 +1,7 @@
 package com.amatic.rc.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.googlecode.objectify.Ref;
@@ -23,6 +24,12 @@ public class Channel {
 	Ref<User> user;
 	@Index
 	List<String> lImages = new ArrayList<String>();
+	@Index
+	private Date dateCreated;
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
 
 	public Long getId() {
 		return id;
@@ -50,6 +57,10 @@ public class Channel {
 
 	public User getUserDeref() {
 		return Deref.deref(user);
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
 	public void setId(Long id) {

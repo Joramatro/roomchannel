@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.amatic.rc.constants.WebConstants;
+import com.amatic.rc.dto.Channel;
 import com.amatic.rc.dto.Theme;
 import com.amatic.rc.dto.User;
 import com.amatic.rc.service.ThemeService;
@@ -90,6 +91,11 @@ public class MainChannelController {
 		}
 
 		model.addAttribute("user", user);
+
+		List<Channel> lastChannels = uChannelService.getLastChannels();
+
+		model.addAttribute("lastChannels", lastChannels);
+
 		// return "loggedChannel";
 		return "mainChannel";
 	}

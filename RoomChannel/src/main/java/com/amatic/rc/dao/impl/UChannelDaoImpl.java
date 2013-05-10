@@ -2,6 +2,9 @@ package com.amatic.rc.dao.impl;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.amatic.rc.dao.UChannelDao;
@@ -21,7 +24,7 @@ public class UChannelDaoImpl implements UChannelDao {
 
 	@Override
 	public long create(Channel channel) {
-
+		channel.setDateCreated(new Date());
 		Result<Key<Channel>> result = ofy().save().entity(channel);
 
 		assert channel.id == null;
@@ -40,6 +43,19 @@ public class UChannelDaoImpl implements UChannelDao {
 				.first().get();
 
 		return channel;
+	}
+
+	@Override
+	public List<Channel> getLastChannels() {
+
+		List<Channel> lastChannels = ofy().load().type(Channel.class)
+				.order("-dateCreated").list();
+
+		if (lastChannels.size() > 10) {
+			lastChannels = lastChannels.subList(0, 10);
+		}
+
+		return lastChannels;
 	}
 
 	@Override

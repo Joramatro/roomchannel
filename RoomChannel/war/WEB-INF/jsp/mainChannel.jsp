@@ -164,18 +164,11 @@
                             <div class="span12">
                                 <div class="slider-wrapper">
                                     <div id="slider">
-                                        <div class="slide1">
-                                            <img src="/images/1.jpg" alt="" />
+                                    <c:forEach var="channel" items="${lastChannels}" varStatus="status" end="10">
+                                        <div class="slide${status.count}">
+                                            <a href="/ch/${channel.name}"><img src="/${channel.lImages[0]}" width="945" height="460" alt="" /></a>
                                         </div>
-                                        <div class="slide2">
-                                            <img src="/images/2.jpg" alt="" />
-                                        </div>
-                                        <div class="slide3">
-                                            <img src="/images/3.jpg" alt="" />
-                                        </div>
-                                        <div class="slide4">
-                                            <img src="/images/4.jpg" alt="" />
-                                        </div>
+                                    </c:forEach>
                                     </div>
                                     <div id="slider-direction-nav"></div>
                                     <div id="slider-control-nav"></div>
