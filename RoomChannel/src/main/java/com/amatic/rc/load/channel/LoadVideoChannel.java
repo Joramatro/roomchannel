@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.amatic.rc.constants.WebConstants;
 import com.amatic.rc.dto.Theme;
+import com.amatic.rc.dto.User;
 import com.amatic.rc.service.ThemeService;
+import com.amatic.rc.service.UserService;
 import com.google.appengine.api.channel.ChannelMessage;
 import com.google.appengine.api.channel.ChannelService;
 import com.google.appengine.api.channel.ChannelServiceFactory;
@@ -31,6 +34,9 @@ public class LoadVideoChannel {
 	@Autowired
 	private ThemeService themeService;
 
+	@Autowired
+	private UserService userService;
+
 	@RequestMapping(value = "/loadChatText", method = RequestMethod.POST)
 	public void loadChat(@RequestParam("chatText") String chatText,
 			@RequestParam("url") String url, ModelMap model,
@@ -38,7 +44,6 @@ public class LoadVideoChannel {
 			throws IOException, JSONException {
 		ChannelService channelService = ChannelServiceFactory
 				.getChannelService();
-		String channelKey = "xyz";
 
 		JSONObject msg = new JSONObject();
 		msg.put("chatText", chatText);
@@ -56,8 +61,24 @@ public class LoadVideoChannel {
 
 		logger.info("chatText ready to send");
 
-		channelService.sendMessage(new ChannelMessage(channelKey, msg
-				.toString()));
+		User user = (User) request.getSession().getAttribute(
+				WebConstants.SessionConstants.RC_USER);
+		if (user != null) {
+			StringBuffer sb = new StringBuffer(chatText);
+			if (user.getChatHistory() == null) {
+				user.setChatHistory("<br>");
+			}
+			user.setChatHistory(sb.append(user.getChatHistory()).toString());
+			user = this.userService.update(user);
+			request.getSession().setAttribute(
+					WebConstants.SessionConstants.RC_USER, user);
+
+			logger.info("chatText saved in chatHistory for user"
+					+ user.getName());
+		}
+
+		channelService.sendMessage(new ChannelMessage((String) request
+				.getSession().getAttribute("channelKey"), msg.toString()));
 
 		return;
 	}
@@ -67,7 +88,9 @@ public class LoadVideoChannel {
 			@RequestParam("videoId") String videoId, ModelMap model,
 			HttpServletRequest request, HttpServletResponse response)
 			throws IOException, JSONException {
-		String channelKey = "xyz";
+
+		ChannelService channelService = ChannelServiceFactory
+				.getChannelService();
 
 		// IF USER logged, add as Ref<User>
 		Theme theme = new Theme(url);
@@ -84,13 +107,9 @@ public class LoadVideoChannel {
 
 		logger.info("video loaded done");
 
-		ChannelService channelService = ChannelServiceFactory
-				.getChannelService();
-
-		channelService.sendMessage(new ChannelMessage(channelKey, msg
-				.toString()));
+		channelService.sendMessage(new ChannelMessage((String) request
+				.getSession().getAttribute("channelKey"), msg.toString()));
 
 		return;
 	}
-
 }

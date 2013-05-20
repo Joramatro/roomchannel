@@ -52,11 +52,13 @@ public class MainChannelController {
 	public String maininit(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 
+		HttpSession session = request.getSession();
+
 		ChannelService channelService = ChannelServiceFactory
 				.getChannelService();
 		String channelKey = "xyz";
 		String token = channelService.createChannel(channelKey);
-
+		session.setAttribute("channelKey", channelKey);
 		logger.info("channel definitions done");
 
 		model.addAttribute("token", token);
@@ -67,7 +69,7 @@ public class MainChannelController {
 		model.addAttribute("lastPlayedList", listThemes);
 
 		// Saltando Uservalidation
-		HttpSession session = request.getSession();
+
 		User user = (User) session
 				.getAttribute(WebConstants.SessionConstants.RC_USER);
 		// for Refs

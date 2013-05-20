@@ -721,3 +721,12 @@ div#log p:nth-of-type(odd)
 {
     background: #dfd;
 }
+
+div#chart5 p:nth-of-type(even)
+{
+    background: #fdd;
+}
+div#chart5 p:nth-of-type(odd)
+{
+    background: #dfd;
+}

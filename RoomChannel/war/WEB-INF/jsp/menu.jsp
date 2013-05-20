@@ -54,7 +54,16 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
-                                                <div class="span1"><img src="${user.avatarUrl}" alt="avatar"></div>
+                                                <div id="logoImg" class="span1">
+	                                                <c:choose>
+													<c:when test="${!empty user.avatarUrl}">
+														<img src="${user.avatarUrl}" alt="avatar">
+													</c:when>
+													<c:otherwise>
+														<img src='/images/Intro.jpg' alt="avatar">
+													</c:otherwise>
+	                                                </c:choose>
+                                                </div>
                                                 <div class="span3 pull-right">
                                                     <h5>${user.logMail}</h5>
                                                     <a href="#Profile" class="link-modal">My Channels</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -80,6 +89,8 @@
 					<div id="notification-firstGalVideo" style="display:none">
 					</div>
 					<div id="notification-nickUpdate" style="display:none">
+					</div>
+					<div id="notification-channelDeleted" style="display:none">
 					</div>
                     <!--/.nav-collapse -->
                 </div>

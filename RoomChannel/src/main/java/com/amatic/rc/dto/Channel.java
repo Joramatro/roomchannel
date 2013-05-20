@@ -14,8 +14,10 @@ import com.googlecode.objectify.annotation.Load;
 public class Channel {
 	@Id
 	public Long id;
+
 	@Index
 	String key;
+
 	@Index
 	Integer nbrViewers;
 	@Index
@@ -26,6 +28,8 @@ public class Channel {
 	List<String> lImages = new ArrayList<String>();
 	@Index
 	private Date dateCreated;
+	@Index
+	List<String> lImagesKeys = new ArrayList<String>();
 
 	public Date getDateCreated() {
 		return dateCreated;
@@ -41,6 +45,10 @@ public class Channel {
 
 	public List<String> getlImages() {
 		return lImages;
+	}
+
+	public List<String> getlImagesKeys() {
+		return lImagesKeys;
 	}
 
 	public String getName() {
@@ -73,6 +81,10 @@ public class Channel {
 
 	public void setlImages(List<String> lImages) {
 		this.lImages = lImages;
+	}
+
+	public void setlImagesKeys(List<String> lImagesKeys) {
+		this.lImagesKeys = lImagesKeys;
 	}
 
 	public void setName(String name) {

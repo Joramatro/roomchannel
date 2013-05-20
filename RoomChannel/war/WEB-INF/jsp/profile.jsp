@@ -48,8 +48,7 @@
 			<input id="channelNameDelete" type="hidden" value=""/>
 			</tbody>
 			</table>
-			<div class="chart-area">Chat Log (last 10 comments):<div id="chart5" style="height:145px"></div></div>
-			
+			<div class="chart-area">Chat Log (last 10 comments):<div id="chart5" style="height:145px">${user.chatHistory}</div></div>
 			</div>
 			
 						

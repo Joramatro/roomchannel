@@ -1,7 +1,9 @@
 package com.amatic.rc.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -21,6 +23,7 @@ import com.amatic.rc.constants.WebConstants;
 import com.amatic.rc.dto.User;
 import com.amatic.rc.service.UserService;
 import com.dyuproject.openid.OpenIdUser;
+import com.google.appengine.labs.repackaged.org.json.JSONException;
 
 @Controller
 public class ProfileController {
@@ -51,6 +54,27 @@ public class ProfileController {
 			request.getSession().setAttribute(
 					WebConstants.SessionConstants.RC_USER, user);
 		}
+	}
+
+	@RequestMapping(value = "/saveChatTextUser", method = RequestMethod.POST)
+	public void loadChat(@RequestParam("chatText") String chatText,
+			ModelMap model, HttpServletRequest request,
+			HttpServletResponse response) throws IOException, JSONException {
+		User user = (User) request.getSession().getAttribute(
+				WebConstants.SessionConstants.RC_USER);
+		if (user != null) {
+
+			SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy hh:mm");
+			Date now = new Date();
+			String strDate = sdf.format(now);
+			chatText = chatText.replace("<p>", "<p>" + strDate + " ");
+			chatText = chatText.replace(": </b>", " said:</b> ");
+			StringBuffer sb = new StringBuffer(chatText);
+			user.setChatHistory(sb.append(chatText).toString());
+
+			this.userService.update(user);
+		}
+		return;
 	}
 
 }

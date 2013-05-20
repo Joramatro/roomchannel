@@ -55,6 +55,14 @@ public class OperationsChannelController {
 		HttpSession session = request.getSession();
 		User user = (User) session
 				.getAttribute(WebConstants.SessionConstants.RC_USER);
+		Channel channel = uChannelService.getChannel(chName);
+		List<Ref<Channel>> lChannels = user.getChannels();
+		lChannels
+				.remove(Ref.create(Key.create(Channel.class, channel.getId())));
+
+		user = this.userService.update(user);
+
+		uChannelService.deleteChannel(channel);
 
 		return;
 

@@ -107,6 +107,9 @@ public class FileResource {
 				.getAttribute("newChannel"));
 		List<String> lImages = channel.getlImages();
 		lImages.add(url);
+		List<String> lImagesKeys = channel.getlImagesKeys();
+		lImagesKeys.add(blobKey.getKeyString());
+
 		uChannelService.update(channel);
 
 		int sizePreview = 80;

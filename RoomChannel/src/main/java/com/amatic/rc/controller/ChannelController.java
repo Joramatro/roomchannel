@@ -72,7 +72,8 @@ public class ChannelController {
 		channel.setNbrViewers(channel.getNbrViewers() + 1);
 		uChannelService.update(channel);
 
-		String token = channelService.createChannel("asd");
+		session.setAttribute("channelKey", channel.getKey());
+		String token = channelService.createChannel(channel.getKey());
 
 		// load channel images
 

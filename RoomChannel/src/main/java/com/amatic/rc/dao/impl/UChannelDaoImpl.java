@@ -9,14 +9,21 @@ import org.springframework.stereotype.Repository;
 
 import com.amatic.rc.dao.UChannelDao;
 import com.amatic.rc.dto.Channel;
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Result;
 
 @Repository
 public class UChannelDaoImpl implements UChannelDao {
 
+	private final BlobstoreService blobstoreService = BlobstoreServiceFactory
+			.getBlobstoreService();
+
 	public void copyChannel(Channel updateChannel, Channel channel) {
 		updateChannel.setlImages(channel.getlImages());
+		updateChannel.setlImagesKeys(channel.getlImagesKeys());
 		updateChannel.setKey(channel.getKey());
 		updateChannel.setNbrViewers(channel.getNbrViewers());
 		updateChannel.setName(channel.getName());
@@ -34,6 +41,15 @@ public class UChannelDaoImpl implements UChannelDao {
 		assert channel.id != null;
 
 		return channel.getId();
+	}
+
+	@Override
+	public void delete(Channel channel) {
+		for (String image : channel.getlImagesKeys()) {
+			blobstoreService.delete(new BlobKey(image));
+		}
+		ofy().delete().type(Channel.class).id(channel.getId()).now();
+
 	}
 
 	@Override

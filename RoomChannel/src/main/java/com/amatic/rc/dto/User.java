@@ -21,6 +21,14 @@ public class User implements Serializable {
      */
 	private static final long serialVersionUID = -5268433891024599063L;
 
+	public static int getCont() {
+		return cont;
+	}
+
+	public static void setCont(int cont) {
+		User.cont = cont;
+	}
+
 	@Id
 	private String mail;
 
@@ -48,13 +56,7 @@ public class User implements Serializable {
 	@Ignore
 	private static int cont = 0;
 
-	public static int getCont() {
-		return cont;
-	}
-
-	public static void setCont(int cont) {
-		User.cont = cont;
-	}
+	private String chatHistory;
 
 	public User() {
 
@@ -78,6 +80,10 @@ public class User implements Serializable {
 
 	public List<Channel> getChannelsDeref() {
 		return Deref.deref(channels);
+	}
+
+	public String getChatHistory() {
+		return chatHistory;
 	}
 
 	public Date getDate() {
@@ -125,6 +131,10 @@ public class User implements Serializable {
 
 	public void setChannels(List<Ref<Channel>> channels) {
 		this.channels = channels;
+	}
+
+	public void setChatHistory(String chatHistory) {
+		this.chatHistory = chatHistory;
 	}
 
 	public void setDate(Date date) {

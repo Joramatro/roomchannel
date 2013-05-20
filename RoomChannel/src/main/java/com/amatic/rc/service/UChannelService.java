@@ -17,6 +17,10 @@ public class UChannelService {
 		return this.channelDao.create(channel);
 	}
 
+	public void deleteChannel(Channel channel) {
+		this.channelDao.delete(channel);
+	}
+
 	public Channel getChannel(String channel) {
 		return this.channelDao.get(channel);
 	}

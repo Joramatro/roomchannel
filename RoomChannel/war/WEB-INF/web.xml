@@ -104,6 +104,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<error-page>
     	<error-code>404</error-code>
     	<location>/WEB-INF/jsp/errors/404.html</location>
+    	<error-code>500</error-code>
+    	<location>/WEB-INF/jsp/errors/500.html</location>
 	</error-page>
 
 	

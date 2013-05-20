@@ -99,12 +99,18 @@ $('.left').live('click', function() {
 $(document).ready(function(){
     var box = null;
     $(".chatbox").click(function(event, ui) {
+
         if(box) {
             box.chatbox("option", "boxManager").toggleBox();
         }
         else {
       	  $("#log").collapse('show');
-            box = $("#chat_div").chatbox({id:"user", 
+	        if($.trim($("#nickMenu").text()).length == 0){
+	        	userId = 'user';
+	        }else{
+	        	userId = $("#nickMenu").text();;
+	        }
+            box = $("#chat_div").chatbox({id: userId, 
                                           user:{key : "value"},
                                           title : "Chat Box",
                                           messageSent : function(id, user, msg) {
@@ -162,14 +168,19 @@ $(function(){
 	});
 
 	$('#notification-firstVideo').click(function(){
-
+		if($('div#logoImg img').attr('src') == ''){
+			imageUrl = '/images/Intro.jpg';
+		}
+		else{
+			imageUrl = $('div#logoImg img').attr('src');
+		}
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
 			title: 'First Video Broadcast',
 			// (string | mandatory) the text inside the notification
 			text: "Live video broadcast for " + $('#nbrUsrs').text() + " people in main reproductor",
 			// (string | optional) the image to display on the left
-			image: '/images/Intro.jpg',
+			image: imageUrl,
 			// (bool | optional) if you want it to fade out on its own or just sit there
 			sticky: false,
 			// (int | optional) the time you want it to be alive for before fading out
@@ -181,14 +192,19 @@ $(function(){
 	});
 	
 	$('#notification-firstGalVideo').click(function(){
-
+		if($('div#logoImg img').attr('src') == ''){
+			imageUrl = '/images/Intro.jpg';
+		}
+		else{
+			imageUrl = $('div#logoImg img').attr('src');
+		}
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
 			title: 'Video broadcast on Playlist',
 			// (string | mandatory) the text inside the notification
 			text: "Video broadcast has been added to your Playlist, following videos broadcast will be queued on it. Video broadcast for " + $('#nbrUsrs').text() + " people",
 			// (string | optional) the image to display on the left
-			image: '/images/Intro.jpg',
+			image: imageUrl,
 			// (bool | optional) if you want it to fade out on its own or just sit there
 			sticky: false,
 			// (int | optional) the time you want it to be alive for before fading out
@@ -200,14 +216,19 @@ $(function(){
 	});
 	
 	$('#notification-nickUpdate').click(function(){
-
+		if($('div#logoImg img').attr('src') == ''){
+			imageUrl = '/images/Intro.jpg';
+		}
+		else{
+			imageUrl = $('div#logoImg img').attr('src');
+		}
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
 			title: 'Nick updated',
 			// (string | mandatory) the text inside the notification
 			text: "Your nickname has been updated",
 			// (string | optional) the image to display on the left
-			image: '/images/Intro.jpg',
+			image: imageUrl,
 			// (bool | optional) if you want it to fade out on its own or just sit there
 			sticky: false,
 			// (int | optional) the time you want it to be alive for before fading out
@@ -217,6 +238,31 @@ $(function(){
 		return false;
 
 	});
+	
+	
+	$('#notification-channelDeleted').click(function(){
+		if($('div#logoImg img').attr('src') == ''){
+			imageUrl = '/images/Intro.jpg';
+		}
+		else{
+			imageUrl = $('div#logoImg img').attr('src');
+		}
+		$.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: 'Channel deleted',
+			// (string | mandatory) the text inside the notification
+			text: "Your channel selected has been deleted succesfully",
+			// (string | optional) the image to display on the left
+			image: imageUrl,
+			// (bool | optional) if you want it to fade out on its own or just sit there
+			sticky: false,
+			// (int | optional) the time you want it to be alive for before fading out
+			time: '10000'
+		});
+
+		return false;
+
+	});	
 	
 	$('#gritter-item-1').live('click', function(){
 		window.location.href = "#Radio";
@@ -593,9 +639,10 @@ $(function(){ /* DOM ready */
 
 
 $(function(){ /* DOM ready */
-    $(".deleteChannel").on('click', function() {
-    	//$("channelNameDelete").val(this.value);
-    	alert($(this).attr('id'));
+    $(".deleteChannel").on('click', function(e) {
+    	//alert($(this).attr('id'));
+    	var element = $(this).closest('tr');
+    	e.preventDefault();
     	$.ajax({
 		      type: "POST",
 		      url: "/deleteChannel",
@@ -603,7 +650,8 @@ $(function(){ /* DOM ready */
 		      cache: false,
 	          data: "channelName=" + $(this).attr('id'),		      
 		      success: function(text){
-		    	  alert("borrado");
+		    	  element.css("display", "none");
+		    	  $('#notification-channelDeleted').click();
 		      }	  
     	 });
     });
@@ -616,8 +664,14 @@ $(function(){
 	        numberOfRowsAdd = $("#tbLogotypeAdd>tbody>tr").length;
 	        if(numberOfRowsAdd==0){
 	        	$("#divLogotypeAddBtn").css("display", "block");
+	        	if(document.getElementById("logoUpdated") != null){
+	        		document.getElementById("logoUpdated").style.display = 'none';
+	        	}
 	        }else{
 	        	$("#divLogotypeAddBtn").css("display", "none");
+	        	if(document.getElementById("logoUpdated") == null){
+	        		$(".fileupload-buttonbar").append("<div id='logoUpdated'><label>Logotype updated!</label></div>")
+	        	}
 	        }
 	    }
 	});
@@ -631,9 +685,15 @@ $(function(){
 	        if(numberOfRowsChg==0){
 	        	$("#divLogotypeChgBtn").css("display", "block");
 	        	$("#imgLogotype").css("display", "none");
+	        	if(document.getElementById("logoUpdated") != null){
+	        		document.getElementById("logoUpdated").style.display = 'none';
+	        	}
 	        }else{
 	        	$("#divLogotypeChgBtn").css("display", "none");
 	        	$("#imgLogotype").css("display", "none");
+	        	if(document.getElementById("logoUpdated") == null){
+	        		$(".fileupload-buttonbar").append("<div id='logoUpdated'><label>Logotype updated!</label></div>")
+	        	}
 	        }
 	    }
 	});
