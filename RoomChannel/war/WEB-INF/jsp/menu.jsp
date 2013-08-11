@@ -33,8 +33,9 @@
                             <li class="divider-vertical"></li>
                             <c:choose>
 							<c:when test="${empty user}">
+							<li id="msg"></li>
                             <li>
-                                <a href="#Login" class="login">Login</a>
+                                <a id="login" href="#Login" class="login">Login</a>
                             </li>
                             </c:when>
 							<c:otherwise>
@@ -73,7 +74,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <a href="#Profile" class="btn btn-info pull-left">Show my profile</a>
-                                            <a class="btn btn-info logout" href="login.html">Logout</a>
+                                            <a id="login" class="btn btn-info logout">Logout</a>
                                         </div>
                                     </li>
                                 </ul>

@@ -113,7 +113,7 @@ public class HomeServlet extends HttpServlet {
 			throws IOException, ServletException {
 		if (request.getSession().getAttribute(
 				WebConstants.SessionConstants.RC_USER) != null) {
-			response.sendRedirect("/WEB-INF/jsp/login/logged.html");
+			response.sendRedirect("/login/logged.html");
 			return;
 		}
 		String loginWith = request.getParameter("loginWith");
@@ -155,7 +155,7 @@ public class HomeServlet extends HttpServlet {
 					}
 
 					// new user
-					request.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp")
+					request.getRequestDispatcher("/login/login.jsp")
 							.forward(request, response);
 				}
 				return;
@@ -179,7 +179,7 @@ public class HomeServlet extends HttpServlet {
 					response.sendRedirect(request.getContextPath() + "/home/");
 				} else {
 					// failed verification
-					request.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp")
+					request.getRequestDispatcher("/login/login.jsp")
 							.forward(request, response);
 				}
 				return;
@@ -207,7 +207,7 @@ public class HomeServlet extends HttpServlet {
 		}
 		request.setAttribute(OpenIdServletFilter.ERROR_MSG_ATTR, errorMsg);
 
-		request.getRequestDispatcher("/WEB-INF/jsp/login/login.jsp").forward(
+		request.getRequestDispatcher("/login/login.jsp").forward(
 				request, response);
 	}
 

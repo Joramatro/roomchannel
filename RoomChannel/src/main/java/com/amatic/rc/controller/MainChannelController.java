@@ -3,6 +3,7 @@ package com.amatic.rc.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.annotation.Resource;
@@ -72,25 +73,25 @@ public class MainChannelController {
 
 		User user = (User) session
 				.getAttribute(WebConstants.SessionConstants.RC_USER);
-		// for Refs
-		if (user != null) {
-			user = this.userService.findUser(user.getMail());
-		}
-		if (user == null) {
-			user = new User();
-			user.setMail((String) oIdUserBean.getAttribute("email"));
-			user.setName((String) oIdUserBean.getAttribute("nickname"));
-
-			session.setAttribute(WebConstants.SessionConstants.RC_USER, user);
-
-			try {
-				user = this.userService.findUser(user.getMail());
-			} catch (com.googlecode.objectify.NotFoundException nf) {
-				this.userService.create(user, false);
-			}
-
-			user.setNewUser(true);
-		}
+//		// for Refs
+//		if (user != null) {
+//			user = this.userService.findUser(user.getMail());
+//		}
+//		if (user == null) {
+//			user = new User();
+//			user.setMail((String) oIdUserBean.getAttribute("email"));
+//			user.setName((String) oIdUserBean.getAttribute("nickname"));
+//
+//			session.setAttribute(WebConstants.SessionConstants.RC_USER, user);
+//
+//			try {
+//				user = this.userService.findUser(user.getMail());
+//			} catch (com.googlecode.objectify.NotFoundException nf) {
+//				this.userService.create(user, false);
+//			}
+//
+//			user.setNewUser(true);
+//		}
 
 		model.addAttribute("user", user);
 
@@ -101,5 +102,52 @@ public class MainChannelController {
 		// return "loggedChannel";
 		return "mainChannel";
 	}
+	
+    @SuppressWarnings("unchecked")
+    @RequestMapping(value = "/preAuth", method = RequestMethod.GET)
+    public void getPreAuth(ModelMap model, HttpServletRequest request,
+            HttpServletResponse response) throws IOException {
+
+        User userA = (User) request.getSession().getAttribute(
+                WebConstants.SessionConstants.RC_USER);
+        if (userA == null) {
+            OpenIdUser userOId = (OpenIdUser) request.getSession()
+                    .getAttribute(OpenIdUser.ATTR_NAME);
+            Map<String, Object> mUserOId = (Map<String, Object>) userOId
+                    .getAttributes().get("info");
+            String mail;
+            if (mUserOId.get("email") != null) {
+                mail = (String) mUserOId.get("email");
+            } else {
+                mail = userOId.getIdentity();
+            }
+            try {
+                userA = this.userService.findUser(mail);
+                userA.setIpAddress(this.getClienAddress(request));
+                userA = this.userService.updateUserIp(userA);
+            } catch (com.googlecode.objectify.NotFoundException nf) {
+                userA = new User();
+                userA.setMail(mail);
+                userA.setIpAddress(this.getClienAddress(request));
+                this.userService.create(userA, false);
+                User.setCont(0);
+                userA.setNewUser(true);
+            }
+
+            request.getSession().setAttribute(
+                    WebConstants.SessionConstants.RC_USER, userA);
+        }
+
+        response.sendRedirect("/");
+    }
+
+    public String getClienAddress(HttpServletRequest request) {
+        request.getHeader("VIA");
+        String ipAddress = request.getHeader("X-FORWARDED-FOR");
+        if (ipAddress == null) {
+            ipAddress = request.getRemoteAddr();
+        }
+        return ipAddress;
+    }
 
 }

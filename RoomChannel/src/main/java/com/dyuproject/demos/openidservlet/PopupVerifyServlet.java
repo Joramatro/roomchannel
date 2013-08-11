@@ -69,7 +69,7 @@ public class PopupVerifyServlet extends HttpServlet {
 						String returnTo = params
 								.get(Constants.OPENID_TRUST_ROOT)
 								+ request.getContextPath()
-								+ "/WEB-INF/jsp/login/popup_verify.html";
+								+ "/login/popup_verify.html";
 						params.put(Constants.OPENID_RETURN_TO, returnTo);
 						params.put(Constants.OPENID_REALM, returnTo);
 						params.put("openid.ns.ui",

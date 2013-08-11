@@ -96,7 +96,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	  <load-on-startup>1</load-on-startup>
 	    <init-param>
 	      <param-name>forwardUri</param-name>
-	      <param-value>WEB-INF/jsp/login/login.jsp</param-value>
+	      <param-value>login/login.jsp</param-value>
 	    </init-param>
 	</filter>			
 	
