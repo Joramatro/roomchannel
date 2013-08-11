@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-  <application></application>
+  <application>roomchannel</application>
   <version>1</version>
 
   <!--
@@ -40,9 +40,5 @@
 	    <service>xmpp_subscribe</service>
 	</inbound-services>
 	
-  	<static-error-handlers>
-	    <handler file="/WEB-INF/jsp/errors/genErr.jsp"/>
-	    <handler file="/WEB-INF/jsp/errors/over_quota.html" error-code="over_quota"/>
-    </static-error-handlers>
 
 </appengine-web-app>

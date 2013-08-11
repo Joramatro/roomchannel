@@ -179,7 +179,65 @@
                             </div>
                         </div>
                         </c:if>
-                        <div class="container clearfix" style="margin-top: 80px;">
+                                       <c:choose>
+				<c:when test="${empty user}">
+				
+                         <div class="container clearfix" style="margin-top: 80px;">
+                            <div class="row-fluid login">
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">1</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Create a new Channel</h2>
+
+                                                     <h3 class="ca-sub">Create your own channel</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div> 
+                                </div>
+                              </div>
+                              <div  class="row-fluid login">
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">2</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Share your Channel</h2>
+
+                                                     <h3 class="ca-sub">Give it access whom you want </h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="row-fluid login">
+                                <div class="span6">
+                                    <div class="ca-menu">
+                                        <div>
+                                            <a href="#"> <span class="ca-icon">3</span>
+
+                                                <div class="ca-content">
+                                                     <h2 class="ca-main">Search for Channels</h2>
+
+                                                     <h3 class="ca-sub">Look for a kind of channel</h3>
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+				</c:when>
+                <c:otherwise>
+                         <div class="container clearfix" style="margin-top: 80px;">
                             <div class="row-fluid">
                                 <div class="span6">
                                     <div class="ca-menu">
@@ -268,6 +326,9 @@
                                 </div>
                             </div>--%>
                         </div>
+                     </c:otherwise>
+                     </c:choose>
+
                     </div>
                 </div>               
 				<c:if test="${!empty user}">

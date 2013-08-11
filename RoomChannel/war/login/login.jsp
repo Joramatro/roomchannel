@@ -12,12 +12,12 @@
 <div id="content">
 
   <div class="logo">
-		<h1><a title="Auanaum" href="#"><span class="red">AUANAUM</span></a></h1>
-		<input type="image" src="/images/logo3.jpg" width="95px" height="40px" class="button-sel" alt="www.auanaum.com" title="www.auanaum.com"/>
+		<h1><a title="Room Channel" href="#"><span class="red">Room Channel</span></a></h1>
+		<input type="image" src="/images/logo3.jpg" width="95px" height="40px" class="button-sel" alt="www.roomchannel.com" title="www.roomchannel.com"/>
   </div>            
 
 <div class="subheader" style="margin-left:20px">
-    <h1>Log In</h1> to participate in Auanaum
+    <h1>Log In</h1> to participate in Room Channel
 </div>
 <div id="mainbar">
 
@@ -31,7 +31,7 @@
 
             <!-- Simple OpenID Selector -->
             <div id="openid_choice" style="">
-	            <p style="margin-right: 250px;">Your email address won't be published nor used for any other purpose than validating your Auanaum account.<br></br>
+	            <p style="margin-right: 250px;">Your email address won't be published nor used for any other purpose than validating your account.<br></br>
                 Please click the logo to <b>log in</b> with one of your account below:
                 </p>
 	            <div id="openid_btns" class=".login-page .openid_large_btn">

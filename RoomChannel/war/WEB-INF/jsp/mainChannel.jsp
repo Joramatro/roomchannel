@@ -166,7 +166,7 @@
                                     <div id="slider">
                                     <c:forEach var="channel" items="${lastChannels}" varStatus="status" end="10">
                                         <div class="slide${status.count}">
-                                            <a href="/ch/${channel.name}"><img src="/${channel.lImages[0]}" width="945" height="460" alt="" /></a>
+                                            <a href="/ch/${channel.name}"><img src="${channel.lImages[0]}" width="945" height="460" alt="" /></a>
                                         </div>
                                     </c:forEach>
                                     </div>
@@ -181,7 +181,7 @@
 				<c:when test="${empty user}">
 				
                          <div class="container clearfix" style="margin-top: 80px;">
-                            <div class="row-fluid">
+                            <div class="row-fluid login">
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>
@@ -198,7 +198,7 @@
                                     </div> 
                                 </div>
                               </div>
-                              <div  class="row-fluid">
+                              <div  class="row-fluid login">
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>
@@ -215,7 +215,7 @@
                                     </div>
                                 </div>
                               </div>
-                              <div class="row-fluid">
+                              <div class="row-fluid login">
                                 <div class="span6">
                                     <div class="ca-menu">
                                         <div>

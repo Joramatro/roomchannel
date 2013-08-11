@@ -1,5 +1,6 @@
 package com.amatic.rc.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +12,12 @@ import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Load;
 
 @Entity
-public class Channel {
+public class Channel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3476708644369957063L;
+
 	@Id
 	public Long id;
 
