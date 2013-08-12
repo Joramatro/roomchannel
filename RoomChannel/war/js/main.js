@@ -500,11 +500,16 @@ function showMyVideos(data)
         var entry = entries[i];
         var playCount = entry.yt$statistics.viewCount.valueOf() + ' views';
         var title = entry.title.$t;
-        var lnk = '<a href = \"' + entry.link[0].href + '\">link</a>';
+        var lnk = '<a href = \"javascript:copyLink(\''+ entry.link[0].href +'\')\">COPY LINK</a>';
         html.push('<li>', title, ', ', playCount, ', ', lnk, '</li>');
     }
     html.push('</ul>');
     document.getElementById('videoResultsDiv').innerHTML = html.join('');
+}
+
+function copyLink(url)
+{
+	document.getElementById('txtVideoUrl').value = url;
 }
 
 function youtube_parser(url){
