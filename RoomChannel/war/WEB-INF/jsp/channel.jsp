@@ -80,12 +80,13 @@
 	                        <div class="clearfix"></div>
 	                        
 	                        <form class="broadcast-form form-inline">
-	                        <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="http://" />
+	                        <input id="txtVideoUrl" class="broadcast-field" type="text" value="" placeholder="Paste here Youtube video URL" />
 	                        <div class="submit-url-container">
 	                    		<button type="button" class="submit-url btn btn-large" id="btnBroadcast">BROADCASTING LIVE!</button>
 	                		</div>
 	                        </form>
 	                        <div class="clearfix"></div>
+	                        <div style=" margin-left: 70%; margin-top: 10%; size: 10%; ">
 	                        <p>or search for youtube videos</p>
 	                        <div class="clearfix"></div>
 	                        
@@ -95,8 +96,9 @@
 			                <button name="searchButton" type="button" class="submit-video-search btn btn-small" onclick="searchClicked()">Search</button>
 				            </div>
 				            </form>
+				            </div>
 				            <br/>
-				            <div id="videoResultsDiv"></div> 
+				            <div id="videoResultsDiv" style=" margin-top: -20%; "></div> 
 				            
 				            
 	                        

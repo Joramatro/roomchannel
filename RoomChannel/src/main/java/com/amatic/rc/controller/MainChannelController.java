@@ -94,6 +94,13 @@ public class MainChannelController {
 //		}
 
 		model.addAttribute("user", user);
+		if (user != null){
+			// loading <Ref> attributes
+			user = userService.findUser(user.getMail());
+			List<Channel> userChannels = user.getChannelsDeref();
+
+			model.addAttribute("userChannels", userChannels);
+		}
 
 		List<Channel> lastChannels = uChannelService.getLastChannels();
 

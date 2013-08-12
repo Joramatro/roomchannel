@@ -65,7 +65,7 @@
 		  	    data = JSON.parse(msg.data);
 		  	    //$('#numberUsers').text(data['nbrUsr']);
 		  	    if(data['nbrUsrs']!= undefined){
-		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs'] + " &nbsp;now"; 
+		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs'] + " &nbsp;now <a href='javascript:' class='btn' style='margin-top:-15%'>Chatroom</a>"; 
 		  	    }else if(data['urlOembed']!= undefined){
 		  	    	if( player != undefined ) {	
 		  	    		video = addVideoPlaylist();

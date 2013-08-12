@@ -12,9 +12,9 @@
  <span class="icon-bar"></span>
 
                     </a>
-                    <a class="brand" href="#">Radio<span>Channel</span>
+                    <a class="brand" href="/">Radio<span>Channel</span>
                     </a>
-                    <div class="brand"><label style="display:inline;float left; font-size:21px" id="nbrUsrs"><span>People...</span><img src="/images/loading.gif"/></div>
+                    <div class="brand"><label style="display:inline;float left; font-size:21px" class="chatbox" id="nbrUsrs"><span>People...</span><img src="/images/loading.gif"/></div>
                     <div class="nav-collapse collapse">
                      
                         <ul class="nav pull-right">
