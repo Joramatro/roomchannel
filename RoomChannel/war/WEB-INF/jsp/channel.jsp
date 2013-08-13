@@ -160,18 +160,23 @@
                     	<c:if test="${fn:length(userChannels) > 0}">
                         <div class="container clearfix TitleSection">
                             
-							<h1>Radio <span>Channels</span> from <span> ${channel.name}</span></h1> 
+							<h1>Radio <span>Channels</span> from <span> ${channel.userDeref.name}</span></h1> 
 							                            
 							<h1><span>Check</span> them<span> out</span> !</h1>
 
                         </div>
-                        <div class="row-fluid">
+                        <div class="row-fluid" style=" width:1000px;height:480px; margin: 0 auto; ">
                             <div class="span12">
                                 <div class="slider-wrapper">
                                     <div id="slider">
                                     <c:forEach var="channel" items="${userChannels}" varStatus="status" end="10">
                                         <div class="slide${status.count}">
-                                            <a href="/ch/${channel.name}"><img src="${channel.lImages[0]}" alt="" /></a>
+                                        	<c:if test="${!empty channel.lImages}">	
+												<a href="/ch/${channel.name}"><img src="${channel.lImages[0]}" style="width:1000px;height:480px;" alt="${channel.name}" title="${channel.name}" /></a>
+											</c:if>
+											<c:if test="${empty channel.lImages}">
+                                            	<a href="/ch/${channel.name}"><img src="/images/blur_slider/1.jpg" style="width:1000px;height:480px;" alt="${channel.name}" title="${channel.name}"/></a>
+                                        	</c:if>
                                         </div>
                                     </c:forEach>    
                                     </div>

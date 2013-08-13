@@ -15,14 +15,18 @@
               </div>
               <div id="gallery-init" class="accordion-body collapse in">
 				<div class="accordion-inner paddind">
+					<p>
+                       <a href="javascript:" class="btn" onclick='galleryInit.prev()'><i class="icon-arrow-left"></i> Prev</a>
+                       <a href="javascript:" class="btn" onclick='galleryInit.next()'>Next <i class="icon-arrow-right"></i></a>
+					<br /><br /></p>
 					<div id="guggenheim-container-init">                                                            
 						 <ul class="thumbnails guggenheim-slider">
 					 		<c:forEach  var="video" items="${lastPlayedList}" varStatus="count">
+					 		<c:if test="${!empty video.videoId}">
 								<li class='span3 guggenheim-item'>
 									<div class='thumbnail clearfix'>
-									<div>
-										<a href='${video.url}' class='oembed'></a>
-									</div>
+									<div id="videoChannelLast${count.index}" style="" class=""> </div>
+										<%-- <a href='${video.url}' class='oembed'></a>--%>									
 									<div class='caption' style="display: inline-table;">
 									<h5></h5>
 									<a href='javascript:' class='btn'><i class='icon-search'></i></a>
@@ -32,13 +36,10 @@
 									</div>
 									</div>
 								</li>
+								</c:if>
 							</c:forEach>
 						</ul>                                                           
 					</div>
-						<p>
-	                       <a href="javascript:" class="btn" onclick='galleryInit.prev()'><i class="icon-arrow-left"></i> Prev</a>
-	                       <a href="javascript:" class="btn" onclick='galleryInit.next()'>Next <i class="icon-arrow-right"></i></a>
-						<br /></p>
                     </div>
                 </div>
             </div>

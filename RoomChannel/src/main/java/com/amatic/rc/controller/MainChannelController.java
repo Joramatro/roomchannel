@@ -46,6 +46,11 @@ public class MainChannelController {
 
 	@Autowired
 	private UserService userService;
+	
+	private static String token;
+	
+	private static final String MAIN_CHANNEL_KEY = "xyz";
+	
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/index", "/" }, method = { RequestMethod.GET,
@@ -57,9 +62,10 @@ public class MainChannelController {
 
 		ChannelService channelService = ChannelServiceFactory
 				.getChannelService();
-		String channelKey = "xyz";
-		String token = channelService.createChannel(channelKey);
-		session.setAttribute("channelKey", channelKey);
+		if(token == null){
+			token = channelService.createChannel(MAIN_CHANNEL_KEY);
+		}
+		session.setAttribute("channelKey", MAIN_CHANNEL_KEY);
 		logger.info("channel definitions done");
 
 		model.addAttribute("token", token);
@@ -73,10 +79,10 @@ public class MainChannelController {
 
 		User user = (User) session
 				.getAttribute(WebConstants.SessionConstants.RC_USER);
-//		// for Refs
-//		if (user != null) {
-//			user = this.userService.findUser(user.getMail());
-//		}
+		//Ref<?> value has not been initialized
+		if (user != null) {
+			user = this.userService.findUser(user.getMail());
+		}
 //		if (user == null) {
 //			user = new User();
 //			user.setMail((String) oIdUserBean.getAttribute("email"));
@@ -94,13 +100,6 @@ public class MainChannelController {
 //		}
 
 		model.addAttribute("user", user);
-		if (user != null){
-			// loading <Ref> attributes
-			user = userService.findUser(user.getMail());
-			List<Channel> userChannels = user.getChannelsDeref();
-
-			model.addAttribute("userChannels", userChannels);
-		}
 
 		List<Channel> lastChannels = uChannelService.getLastChannels();
 

@@ -19,6 +19,8 @@ public class Theme implements Serializable {
 	@Index
 	String url;
 	@Index
+	String videoId;
+	@Index
 	String name;
 	@Index
 	private Date date;
@@ -31,6 +33,11 @@ public class Theme implements Serializable {
 
 	public Theme(String url) {
 		this.url = url;
+	}
+	
+	public Theme(String url, String videoId) {
+		this.url = url;
+		this.videoId = videoId;
 	}
 
 	// Ref User
@@ -73,6 +80,14 @@ public class Theme implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getVideoId() {
+		return videoId;
+	}
+
+	public void setVideoId(String videoId) {
+		this.videoId = videoId;
 	}
 
 }

@@ -42,7 +42,7 @@
 			pw.close();
 			%>
 			<br/> <br/>
-			<p>Please report this trace to <a href="mailto:admin@videochannel.com">administrator</a></p>
+			<p>Please report this trace to <a href="mailto:admin@roomchannel.com">administrator</a></p>
 		</div>
 
 		<%@ include file="/WEB-INF/jsp/footer.jsp"%>	

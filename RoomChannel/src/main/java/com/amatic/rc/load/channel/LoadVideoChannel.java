@@ -93,14 +93,11 @@ public class LoadVideoChannel {
 				.getChannelService();
 
 		// IF USER logged, add as Ref<User>
-		Theme theme = new Theme(url);
+		Theme theme = new Theme(url, videoId);
 
 		theme = this.themeService.addTheme(theme);
 
-		String urlOembed = "<a href='" + theme.getUrl()
-				+ "' class='oembed'></a>";
 		JSONObject msg = new JSONObject();
-		msg.put("urlOembed", urlOembed);
 		msg.put("url", theme.getUrl());
 		msg.put("videoId", videoId);
 		msg.put("chatLog", theme.getChatLog());

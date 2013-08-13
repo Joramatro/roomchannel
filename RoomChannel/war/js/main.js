@@ -75,7 +75,7 @@ $('.remove').live('click', function() {
  });
 
 $('.right').live('click', function() {
-	$(this).parent().parent().parent().animate({height: 'toggle'},300).after( $(this).parent().parent().parent().next() ).animate({height: 'toggle'},300);
+	$(this).parent().parent().animate({height: 'toggle'},300).after( $(this).parent().parent().next() ).animate({height: 'toggle'},300);
 	//cleanGalStyles();
 	//$("#guggenheim-container").css('visibility','hidden');
 	btnGal=true;
@@ -86,7 +86,7 @@ $('.right').live('click', function() {
 });
 
 $('.left').live('click', function() {
-	$(this).parent().parent().parent().animate({height: 'toggle'},300).before( $(this).parent().parent().parent().prev() ).animate({height: 'toggle'},300);
+	$(this).parent().parent().animate({height: 'toggle'},300).before( $(this).parent().parent().prev() ).animate({height: 'toggle'},300);
 	//cleanGalStyles();
 	btnGal=true;
 	//gallery = guggenheim('#guggenheim-container',{rows:2,cols:4}); 
@@ -408,20 +408,10 @@ $(function(){
 
 $(document).ready(function() {
 	
-	$(".oembed").oembed(null,{
-	    embedMethod: 'auto',    // "auto", "append", "fill" 
-	    apikeys: {
-
-		},
-		maxHeight: 400, maxWidth:980
-	});
-	
-	
 	galleryInit = guggenheim('#guggenheim-container-init',{rows:2,cols:4});
 	$("#guggenheim-container-init .guggenheim-slider").removeClass('guggenheim-slider');
-	$("#guggenheim-container-init .guggenheim-item").removeClass('guggenheim-item');
-	
-	//$("#guggenheim-container-init span.oembedall-closehide").html('');
+	$("#guggenheim-container-init .guggenheim-item").removeClass('guggenheim-item');	
+
 });
 
 /*
@@ -467,6 +457,15 @@ function onPlayerReadyGal(event) {
 
 // when video ends
 function onPlayerStateChangeGal(event) {        
+ 
+}
+
+function onPlayerReadyLast(event) {
+    
+}
+
+// when video ends
+function onPlayerStateChangeLast(event) {        
  
 }
 
@@ -519,7 +518,7 @@ function youtube_parser(url){
 	    return match[2];
 	}else{
 	    //error
-		alert("url error");
+		alert("Please, check the URL introduced. At the moment just Youtube URLs are accepted");
 	}
 }
 
@@ -598,7 +597,8 @@ $(function(){
 	        	  "channelName": $("#nameChannel").val()
 	          },
 		      success: function(text){
-		    	  $("#startChannel-form").attr("action", "/ch/" + $("#nameChannel").val());
+		    	  var nameChn = ($("#nameChannel").val()).replace(/\s/g , "-")
+		    	  $("#startChannel-form").attr("action", "/ch/" + nameChn);
 		    	  $("#nameChannelUpload").val($("#nameChannel").val());
 		      }
 		    });

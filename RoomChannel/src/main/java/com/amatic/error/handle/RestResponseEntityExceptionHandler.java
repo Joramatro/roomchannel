@@ -19,8 +19,7 @@ public class RestResponseEntityExceptionHandler extends
 
 	Logger logger = Logger.getLogger(RestResponseEntityExceptionHandler.class.getName());
 	
-	@ExceptionHandler(value = { IllegalArgumentException.class,
-			IllegalStateException.class })
+	@ExceptionHandler(value = Exception.class)
 	protected ResponseEntity<Object> handleConflict(RuntimeException ex,
 			WebRequest request) {
 		String bodyOfResponse = "This should be application specific";

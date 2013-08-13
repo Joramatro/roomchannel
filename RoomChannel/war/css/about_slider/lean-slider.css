@@ -31,6 +31,7 @@
 
 .lean-slider-slide.current {
     display: block;
+    z-index: 1;
 }
 
 .slider-wrapper {
@@ -74,10 +75,12 @@
     -o-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
     opacity: 0.2;
+    z-index: 1;
 }
 
 .slider-wrapper:hover #slider-direction-nav {
     opacity: 1;
+    z-index: 1;
 }
 
 #slider-direction-nav a {
@@ -87,11 +90,13 @@
     height: 37px;
     background: url(../../images/arrows.png) no-repeat 0 0;
     text-indent: -9999px;
+    z-index: 1;
 }
 
 #slider-direction-nav .lean-slider-next {
     float: right;
     background-position: 100% 0;
+    z-index: 1;
 }
 
 #slider-control-nav {
@@ -106,10 +111,12 @@
     -o-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
     opacity: 0.2;
+    z-index: 1;
 }
 
 .slider-wrapper:hover #slider-control-nav {
     opacity: 1;
+    z-index: 1;
 }
 
 #slider-control-nav a {
@@ -124,6 +131,7 @@
     -ms-transition: none;
     -o-transition: none;
     transition: none;
+    z-index: 1;
 }
 
 #slider-control-nav a.active {

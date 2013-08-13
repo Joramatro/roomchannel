@@ -15,13 +15,6 @@
               </div>
               <div id="gallery" class="accordion-body collapse in">
                   <div class="accordion-inner paddind">
-                      <div id="guggenheim-container">
-                                                            
-                                                            
-                         <ul class="thumbnails guggenheim-slider">
-                         </ul>
-                                                            
-						</div>
 					<p>
                        <a href="javascript:" class="btn" onclick='gallery.reset()'><i class="icon-refresh"></i> Reset</a> |
                        <%--
@@ -32,7 +25,16 @@
                        --%>
                        <a href="javascript:" class="btn" onclick='gallery.prev()'><i class="icon-arrow-left"></i> Prev</a>
                        <a href="javascript:" class="btn" onclick='gallery.next()'>Next <i class="icon-arrow-right"></i></a>
-					<br /></p>
+					<br /><br /></p>                  
+                  
+                  
+                      <div id="guggenheim-container">
+                                                            
+                                                            
+                         <ul class="thumbnails guggenheim-slider">
+                         </ul>
+                                                            
+						</div>
                     </div>
                     <input type="hidden" id="firstIdGal"/>
                 </div>

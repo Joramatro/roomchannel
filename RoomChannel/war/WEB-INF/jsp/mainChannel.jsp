@@ -162,13 +162,18 @@
 							<h1><span>Check</span> them<span> out</span> !</h1>
 
                         </div>
-                        <div class="row-fluid">
+                        <div class="row-fluid" style=" width:1000px;height:480px; margin: 0 auto; ">
                             <div class="span12">
                                 <div class="slider-wrapper">
                                     <div id="slider">
                                     <c:forEach var="channel" items="${lastChannels}" varStatus="status" end="10">
                                         <div class="slide${status.count}">
-                                            <a href="/ch/${channel.name}"><img src="${channel.lImages[0]}" width="945" height="460" alt="" /></a>
+                                        <c:if test="${!empty channel.lImages}">
+                                            <a href="/ch/${channel.name}"><img src="${channel.lImages[0]}" style="width:1000px;height:480px;" alt="${channel.name}" title="${channel.name}"/></a>
+                                        </c:if>
+                                        <c:if test="${empty channel.lImages}">
+                                            <a href="/ch/${channel.name}"><img src="/images/blur_slider/1.jpg" style="width:1000px;height:480px;" alt="${channel.name}" title="${channel.name}"/></a>
+                                        </c:if>
                                         </div>
                                     </c:forEach>
                                     </div>
@@ -292,39 +297,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <%--
-                            <div class="row-fluid">
-                                <div class="span6">
-                                    <div class="ca-menu">
-                                        <div>
-                                            <a href="#"> <span class="ca-icon">C</span>
-
-                                                <div class="ca-content">
-                                                     <h2 class="ca-main">Create share Channel</h2>
-
-                                                     <h3 class="ca-sub">Understanding visually</h3>
-
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="ca-menu">
-                                        <div>
-                                            <a href="#"> <span class="ca-icon">S</span>
-
-                                                <div class="ca-content">
-                                                     <h2 class="ca-main">Create  Channel</h2>
-
-                                                     <h3 class="ca-sub">Professionals in action</h3>
-
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>--%>
                         </div>
                      </c:otherwise>
                      </c:choose>

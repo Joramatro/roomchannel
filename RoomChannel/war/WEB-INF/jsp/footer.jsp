@@ -2,7 +2,6 @@
 		
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript" src="/_ah/channel/jsapi"></script>
-		<script type="text/javascript" src="/js/jquery.oembed.js"></script>
 		<script type="text/javascript" src="/js/placeholder.js"></script>
 		<script type="text/javascript" src="/js/knockout-2.2.1.js"></script>
 		<script type="text/javascript" src="/js/login.js"></script>
@@ -19,7 +18,6 @@
         <script type="text/javascript" src="/js/apprise-v2.js"></script>
         <script type="text/javascript" src="/js/guggenheim.js"></script>
         <script type="text/javascript" src="/js/jquery.gritter.js"></script>
-        <script src="http://www.youtube.com/player_api"></script>
         <script src="http://www.google.com/jsapi"></script>        
 		<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 		<script src="/js/vendor/jquery.ui.widget.js"></script>
@@ -41,12 +39,21 @@
 		<script>
 		var player;
 		var playerGal;
+		var playerLast;
 		var gallery;
 		var galleryInit;
   		var firstGallery=false;
   		var currentPage = 1;
   		var btnGal=false;
-		sendMessage = function(path, opt_param) {
+  		
+  		$.getScript("http://www.youtube.com/player_api", function(){
+
+
+	  		   //alert("Script loaded and executed.");
+	  		   // here you can use anything you defined in the loaded script
+
+	  		});
+			sendMessage = function(path, opt_param) {
 
 // 		  	  var xhr = new XMLHttpRequest();
 // 		  	  xhr.open('GET', '?category=&city=&nickname=&orderSel=order1', true);
@@ -58,15 +65,15 @@
 		  	}
 
 		  	function onMessage(msg) {		  		
-
+		  		
 		  	  	//$('#textAreaCh').val('hola');
 		  	    //$('#numberUsers').text(msg.data);
 		  	    //alert(msg.data);
 		  	    data = JSON.parse(msg.data);
 		  	    //$('#numberUsers').text(data['nbrUsr']);
 		  	    if(data['nbrUsrs']!= undefined){
-		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs'] + " &nbsp;now <a href='javascript:' class='btn' style='margin-top:-15%'>Chatroom</a>"; 
-		  	    }else if(data['urlOembed']!= undefined){
+		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs'] + " &nbsp;now <a href='javascript:' class='btn' style='margin-top:-15%'>chatroom</a>"; 
+		  	    }else if(data['url']!= undefined){
 		  	    	if( player != undefined ) {	
 		  	    		video = addVideoPlaylist();
 		  	    		$(video).fadeTo(100, 0);
@@ -97,15 +104,10 @@
 		  	    	}
 		  	    	
 		  	    	$(".ParallaxText").hide();
-		  	    	//$(".videoChannel").html(data['urlOembed']);
 		  	    	
-		  	    	//cleaning oembed for next time
-		  	    	//$("div .videoChannel").removeClass('videoChannel');
+
 		  	    	$("#broadcastBlock").show("slow");
-		  	    	//$("#guggenheim-container span.oembedall-closehide").html('');
-		  	    	//document.getElementById("broadcastLive").innerHTML = data[''];
-			  	    //$('#textAreaCh').append(data['text']);
-		  	    	//$(text).appendTo('.multiLoadNew1');
+		  	    	
 	    		    playerGal = new YT.Player('videoChannel', {
   	    		      height: '220',
   	    		      width: '293',
@@ -147,7 +149,6 @@
 		  	    //alert("Instant access deactivated");
 		  	}
 
-
 		    channel = new goog.appengine.Channel('${token}');
 		    socket = channel.open();
 		    socket.onopen = onOpened;
@@ -155,6 +156,31 @@
 		    socket.onerror = onError;
 		    socket.onclose = onClose;
 		</script>
+		
+		<script>
+		
+		var tag = document.createElement('script');		
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	      
+		function onYouTubeIframeAPIReady() {
+		  <c:forEach  var="video" items="${lastPlayedList}" varStatus="count">
+		  <c:if test="${!empty video.videoId}">
+		  playerLast = new YT.Player('videoChannelLast${count.index}', {
+  		      height: '220',
+  		      width: '293',
+  		      videoId: '${video.videoId}',
+  		      events: {
+  		        'onReady': onPlayerReadyLast,
+  		        'onStateChange': onPlayerStateChangeLast
+  		      }
+  		    });
+		  </c:if>
+		  </c:forEach>
+		}
+		</script>
+		
 		<script>
         //console.log(gallery);
         //Create view model

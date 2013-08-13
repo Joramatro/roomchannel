@@ -3,6 +3,7 @@ package com.amatic.rc.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 import javax.annotation.Resource;
@@ -46,6 +47,9 @@ public class ChannelController {
 
 	@Autowired
 	private UserService userService;
+	
+	private static ConcurrentHashMap<String, String> mapToken = new ConcurrentHashMap<String, String>();
+
 
 	@RequestMapping(value = { "/ch/{name}" }, method = RequestMethod.GET)
 	public String loadChannel(ModelMap model, @PathVariable String name,
@@ -64,7 +68,8 @@ public class ChannelController {
 		}
 
 		// load channel
-		Channel channel = uChannelService.getChannel(name);
+		String nameurl = name.replaceAll("-", " ");
+		Channel channel = uChannelService.getChannel(nameurl);
 		if (channel == null) {
 			return "channelNotFound";
 		}
@@ -73,8 +78,31 @@ public class ChannelController {
 		uChannelService.update(channel);
 
 		session.setAttribute("channelKey", channel.getKey());
-		String token = channelService.createChannel(channel.getKey());
-
+		String token;
+		if(mapToken.get(channel.getKey())==null){
+			token = channelService.createChannel(channel.getKey());
+			mapToken.put(channel.getKey(), token);
+		}else{
+			token = mapToken.get(channel.getKey());
+		}
+			
+//		ChToken chToken;
+//		if(mapToken.get(channel.getKey())==null){
+//			String token = channelService.createChannel(channel.getKey());
+//			long age = new Date().getTime();
+//			chToken = new ChToken(token, age);
+//			mapToken.put(channel.getKey(), chToken);
+//		}else{
+//			chToken = mapToken.get(channel.getKey());
+//			long currentAge = new Date().getTime();
+//			long age = currentAge - chToken.getAge();
+//			if(age > TWO_HOURS){
+//				String token = channelService.createChannel(channel.getKey());
+//				long newage = new Date().getTime();
+//				chToken = new ChToken(token, newage);
+//				mapToken.put(channel.getKey(), chToken);
+//			}
+//		}
 		// load channel images
 
 		logger.info("channel definitions done");

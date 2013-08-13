@@ -33,7 +33,6 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icon/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="/icon/apple-touch-icon-57-precomposed.png">
         <link rel="shortcut icon" href="/icon/favicon.ico">
-        <link rel="stylesheet" href="/css/jquery.oembed.css"/>
 		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" href="/css/apprise-v2.css" type="text/css" />
 		<link type="text/css" href="/css/jquery.ui.chatbox.css" rel="stylesheet" />

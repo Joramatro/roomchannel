@@ -40,13 +40,20 @@
                             </c:when>
 							<c:otherwise>
                             <li class="dropdown">
-                                <a data-toggle="dropdown" href="#" >Hey,<span id="nickMenu">&nbsp;${user.name }</span><b class="caret"></b></a>
+                            <c:choose>
+							<c:when test="${empty user.name}">
+                            	<a data-toggle="dropdown" href="#" >Hey,&nbsp;<span id="nickMenu">...</span><b class="caret"></b></a>
+                            </c:when>
+                            <c:otherwise>
+                            	<a data-toggle="dropdown" href="#" >Hey,&nbsp;<span id="nickMenu">${user.name }</span><b class="caret"></b></a>
+                            </c:otherwise>
+                            </c:choose>    
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="modal-header">
 											<c:choose>
-											<c:when test="${empty user}">
-                                            <h3>User: (set your name in your profile)</h3>
+											<c:when test="${empty user.name}">
+                                            <h3>User: <span id="nickMenuUnfold">(set your profile)</span></h3>
                                             </c:when>
                                             <c:otherwise>
                                             <h3>User: <span id="nickMenuUnfold">${user.name}</span></h3>
