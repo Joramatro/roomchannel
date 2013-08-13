@@ -15,13 +15,14 @@ $(function(){
 	        	  "videoId": videoId
 	          },
 		      success: function(text){
+		    	  $("#txtVideoUrl").val("");
 		    	  //Apprise("Live video broadcast for " + $('#nbrUsrs').text() + " people");
 		      }
 		    });
     });
 });
 
-function addVideoPlaylist(){
+function addVideoPlaylist(videoId){
 	li = $("<li class='span3 guggenheim-item'>");
 	li.class = 'span3';
 	div = $("<div class='thumbnail clearfix'>");
@@ -32,22 +33,22 @@ function addVideoPlaylist(){
 	divCaption = $("<div class='caption'>");
 	h5 = $("<h5>");
 	divCaption.append(h5);
-	a0 = $("<a href='javascript:' class='btn'>");
-	i0 = $("<i class='icon-search'>");
+	a0 = $("<a id=\"helpHref\" href=\"javascript:copyUrlInMainPlaylist(\'"+videoId+"\')\" class=\"btn\">");
+	i0 = $("<i class='icon-film'>");
 	a0.append(i0);
-	a1 = $("<a href='javascript:' class='btn left'>");
-	i1 = $("<i class='icon-arrow-left'>");
-	a1.append(i1);
-	a2 = $("<a href='javascript:' class='btn right'>");
-	i2 = $("<i class='icon-arrow-right'>");
-	a2.append(i2);
+//	a1 = $("<a href='javascript:' class='btn left'>");
+//	i1 = $("<i class='icon-arrow-left'>");
+//	a1.append(i1);
+//	a2 = $("<a href='javascript:' class='btn right'>");
+//	i2 = $("<i class='icon-arrow-right'>");
+//	a2.append(i2);
 	a3 = $("<a href='javascript:' class='btn btn-danger remove'>");
 	i3 = $("<i class='icon-remove icon-white'>");	
 	a3.append(i3);
 	
 	divCaption.append(a0);
-	divCaption.append(a1);
-	divCaption.append(a2);
+//	divCaption.append(a1);
+//	divCaption.append(a2);
 	divCaption.append(a3);
 	div.append(divCaption);
 	
@@ -95,6 +96,22 @@ $('.left').live('click', function() {
 	//posGal();
 	
 });
+
+
+function copyUrlInMain(url){
+	$('#txtVideoUrl').val(url);
+	if( player != undefined ){
+		window.location.href = "#gallery";
+	}else{
+		window.location.href = "#Radio";
+	}
+}
+
+function copyUrlInMainPlaylist(videoId){	
+	//player defined for sure, just create a new one
+	player.loadVideoById(videoId, 0, "large");
+	window.location.href = "#Radio";
+}
 
 $(document).ready(function(){
     var box = null;

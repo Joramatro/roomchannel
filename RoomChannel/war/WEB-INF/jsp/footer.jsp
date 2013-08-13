@@ -75,7 +75,7 @@
 		  	    	document.getElementById("nbrUsrs").innerHTML = data['nbrUsrs'] + " &nbsp;now <a href='javascript:' class='btn' style='margin-top:-15%'>chatroom</a>"; 
 		  	    }else if(data['url']!= undefined){
 		  	    	if( player != undefined ) {	
-		  	    		video = addVideoPlaylist();
+		  	    		video = addVideoPlaylist(data['videoId']);
 		  	    		$(video).fadeTo(100, 0);
 		  	    		$(".guggenheim-slider").append(video);
 		  	    		$(video).fadeTo(400, 1);

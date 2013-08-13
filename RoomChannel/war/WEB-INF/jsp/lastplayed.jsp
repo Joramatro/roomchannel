@@ -29,10 +29,9 @@
 										<%-- <a href='${video.url}' class='oembed'></a>--%>									
 									<div class='caption' style="display: inline-table;">
 									<h5></h5>
-									<a href='javascript:' class='btn'><i class='icon-search'></i></a>
-									<a href='javascript:' class='btn left'><i class='icon-arrow-left'></i></a>
-									<a href='javascript:' class='btn right'><i class='icon-arrow-right'></i></a>
-									
+
+									<a href="javascript:copyUrlInMain('${video.url}')" class='btn'><i class='icon-search'></i></a>
+									<%--<a href="javascript:" class='btn btn-danger remove'><i class='icon-remove icon-white'></i></a>--%>
 									</div>
 									</div>
 								</li>
